@@ -1,0 +1,224 @@
+/*-- scss:defaults --*/
+
+// ---------------------------------------------------------------------------
+// Ported 1:1 from the "Simple Dark" theme of the original gene_therapy.pptx.
+// The hex values below are the literal <a:clrScheme> entries from
+// ppt/theme/theme1.xml, so the deck keeps the colours it was authored with.
+//
+//   lt1     #212121  slide background
+//   dk1     #FFFFFF  headings
+//   lt2     #ADADAD  body text and bullet glyphs
+//   accent1 #009688  teal accent
+//   hlink   #4DD0E1  hyperlinks
+// ---------------------------------------------------------------------------
+
+$gt-bg:      #212121;
+$gt-heading: #ffffff;
+$gt-body:    #adadad;
+$gt-accent:  #009688;
+$gt-accent-bright: #26a69a; // accent1 lifted for text-on-dark contrast
+$gt-link:    #4dd0e1;
+
+$body-bg:   $gt-bg;
+$body-color: $gt-body;
+
+$presentation-heading-color: $gt-heading;
+$link-color: $gt-link;
+$link-color-hover: lighten($gt-link, 12%);
+
+// Google Slides rendered this deck in Arial throughout.
+$font-family-sans-serif: Arial, Helvetica, "Helvetica Neue", sans-serif;
+$presentation-font-family: $font-family-sans-serif;
+$presentation-heading-font: $font-family-sans-serif;
+$presentation-heading-font-weight: 400; // the pptx titles are regular weight
+$presentation-heading-text-transform: none;
+
+// The pptx slide is 10in x 5.625in (405pt tall). Rendering at 1600x900 means
+// 1pt of the original = 900/405 = 2.222px here, so:
+//   body 18pt -> 40px      title 28pt -> 62px
+//   section 36pt -> 80px   cover 52pt -> 116px
+$presentation-font-size-root: 40px;
+$presentation-h1-font-size: 2.0em;   // section-header slides
+$presentation-h2-font-size: 1.55em;  // content slide titles
+$presentation-h3-font-size: 1.15em;
+$presentation-h4-font-size: 1.0em;
+$presentation-line-height: 1.15;     // pptx <a:lnSpc> 115%
+
+$code-color: #80cbc4;
+
+
+/*-- scss:rules --*/
+
+// The deck is already dark. Without this, Chrome's auto-dark-theme treats the
+// page as untreated light content and rewrites the authored colours.
+:root {
+  color-scheme: dark;
+}
+
+.reveal {
+  // reveal's stock themes put a border + drop shadow on every image; the
+  // original slides had bare images sitting on the dark background.
+  section img,
+  .slides section img {
+    border: none;
+    box-shadow: none;
+    background: none;
+    margin: 0.2em auto;
+    // reveal lays the deck out in a fixed 1600x900 space and scales it with a
+    // transform, so px here are stable; vh would follow the real window.
+    max-height: 620px;
+    object-fit: contain;
+  }
+
+  a img { border: none; }
+
+  // Bullet glyphs match the master's buChar: filled circle, then hollow.
+  ul { list-style-type: disc; }
+  ul ul { list-style-type: circle; }
+  li::marker { color: $gt-body; }
+  li { margin-bottom: 0.15em; }
+
+  code {
+    color: $code-color;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0 0.2em;
+    border-radius: 3px;
+  }
+
+  .slide-number {
+    background: none;
+    color: rgba(173, 173, 173, 0.55);
+    font-size: 0.6em;
+  }
+
+  .progress { color: $gt-accent; }
+}
+
+// --- Slide titles ----------------------------------------------------------
+
+.reveal .slides section > h2 {
+  margin-bottom: 0.5em;
+}
+
+// Section-header slides (pptx slideLayout2): a single centred title.
+.reveal .slides section.quarto-title-block-section,
+.reveal .slides > section > h1,
+.reveal .slides > section > section > h1 {
+  text-align: center;
+}
+
+#title-slide .title,
+.reveal .slides section h1 {
+  &::after {
+    content: "";
+    display: block;
+    width: 3.2em;
+    height: 2px;
+    margin: 0.45em auto 0;
+    background: $gt-accent;
+  }
+}
+
+// --- Title slide -----------------------------------------------------------
+
+#title-slide {
+  text-align: center;
+
+  .title {
+    font-size: 2.9em; // 52pt in the original
+    color: $gt-heading;
+    font-weight: 400;
+  }
+
+  .author,
+  .quarto-title-author-name {
+    font-size: 0.7em; // 28pt subtitle
+    color: $gt-body;
+    margin-top: 0.6em;
+  }
+
+  .subtitle { color: $gt-body; }
+}
+
+// --- Citation line ---------------------------------------------------------
+// Every content slide in the pptx ended with a small linked citation. Pin it
+// to the bottom of the slide so it stays out of the content flow.
+
+.reveal .cite {
+  position: absolute;
+  bottom: -0.4em;
+  left: 0;
+  margin: 0;
+  font-size: 0.45em;
+  color: rgba(173, 173, 173, 0.75);
+
+  a {
+    color: rgba(173, 173, 173, 0.75);
+    border-bottom: 1px dotted rgba(173, 173, 173, 0.4);
+  }
+
+  a:hover { color: $gt-link; border-bottom-color: $gt-link; }
+}
+
+// --- Emphasis lines --------------------------------------------------------
+// The original used bold "!!!...!!!" lines as shouted takeaways.
+
+.reveal .bang {
+  color: $gt-accent-bright;
+  font-weight: bold;
+}
+
+// --- Columns ---------------------------------------------------------------
+
+.reveal .columns {
+  align-items: flex-start;
+}
+
+// A column holding only figures. The slide body is roughly 660px tall in
+// reveal's 1600x900 space, so the per-image cap shrinks as figures stack up —
+// otherwise each one claims its natural height and runs off the slide.
+.reveal .figstack {
+  text-align: center;
+
+  > * { margin: 0 0 10px; }
+
+  img {
+    max-height: 700px;
+    max-width: 100%;
+    margin: 0;
+  }
+}
+
+// Measured against the ~765px of slide left below an h2 title.
+.reveal .figstack:has(> :nth-child(2)) img { max-height: 340px; }
+.reveal .figstack:has(> :nth-child(3)) img { max-height: 220px; }
+
+// An incidental decorative image stays small instead of claiming an equal
+// share of the stack, which buys the real figures back some height.
+.reveal .figstack:has(> .figspot) > p img { max-height: 275px; }
+.reveal .figstack .figspot img { max-height: 95px; }
+
+// A slide whose only content is one figure. The pptx scaled these well past
+// their pixel size too, so filling the width here matches the original.
+.reveal .fig-full {
+  text-align: center;
+
+  img {
+    width: min(100%, 900px);
+    height: auto;
+    max-height: 660px;
+  }
+}
+
+// Opt-in: let a figure fill the width of its column.
+.reveal .fill img { width: 100%; height: auto; }
+
+// --- Density helpers -------------------------------------------------------
+
+// The sequencing-workflow slide was set at 12pt against the deck's 18pt body.
+.reveal .tight {
+  font-size: 0.72em;
+
+  ul { line-height: 1.1; }
+  li { margin-bottom: 0.05em; }
+}

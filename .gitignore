@@ -1,0 +1,13 @@
+# Quarto. Anchored to the repo root — docs/ is the published site and IS tracked.
+/.quarto/
+/_site/
+/index_files/
+/index.html
+
+# macOS
+.DS_Store
+
+# Editors
+*.swp
+.idea/
+.vscode/
