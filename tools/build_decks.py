@@ -134,6 +134,22 @@ def main() -> None:
             print(f"     - {t!r}")
         print("     the 10-minute cut will be short or empty until this list is updated")
 
+    # python-pptx cannot embed SVG, so deckmodel drops every `.svg` figure with
+    # a note. A slide whose only content was a diagram therefore survives as a
+    # title and a citation, and the per-deck "{n} slides" line still looks
+    # right — which is how you end up presenting from a deck with blank slides
+    # in it. Refuse to build instead.
+    bare = [s for s in slides
+            if s.kind == "content"
+            and not any(c.blocks for r in s.rows for c in r.columns)]
+    if bare:
+        print(f"  !! {len(bare)} content slide(s) would export as title + citation only,")
+        print("     because their content is an SVG diagram and pptx cannot embed SVG:")
+        for s in bare:
+            in_cut = " (in the 10-minute cut)" if s.title in set(SHORT_DECK) else ""
+            print(f"     - {s.title!r}{in_cut}")
+        sys.exit("     rasterise the diagrams for the pptx path before building")
+
     OUT.mkdir(exist_ok=True)
     with tempfile.TemporaryDirectory() as tmp:
         logo = extract_logo(Path(tmp) / "acoi-logo.png")

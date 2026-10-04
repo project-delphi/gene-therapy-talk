@@ -110,11 +110,18 @@ PDF), and it reads the conference template out of `no_commit/`.
 
 Slides marked `.webonly` are built around a live render and are dropped from the
 PowerPoint export, since there is no still to fall back on. SVG diagrams are
-skipped too, because python-pptx cannot embed them — those slides keep their
-text and lose the figure. The `SHORT_DECK`
-list in `build_decks.py` selects slides by exact heading text and has not been
-re-synced since the rewrite; the script now says so instead of silently
-producing an empty cut.
+skipped too, because python-pptx cannot embed them.
+
+**The PowerPoint exports currently do not build.** Ten slides carry a diagram and
+no body text, so they would come out as a title and a citation. The script names
+them and exits rather than reporting success over blank slides. Rasterising the
+SVGs to PNG at build time is the fix; until then the reveal deck is the only
+complete one.
+
+`SHORT_DECK` in `build_decks.py` selects slides for the 10-minute cut by exact
+heading text, so it has to be re-synced whenever headings are rewritten — the
+script checks and warns, and `render()` builds what still resolves instead of
+aborting. Only slides that survive the `.webonly` filter can be named there.
 
 ## Provenance
 
