@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 330" width="1400" height="330"
+     font-family="Arial, Helvetica, sans-serif" role="img"
+     aria-label="Scale map of the 4.7 kb wild-type AAV2 genome showing ITRs, the p5, p19 and p40 promoters, the rep and cap open reading frames, and the nested AAP and MAAP accessory frames.">
+  <defs>
+    <marker id="tick" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+      <path d="M3,0 L3,6" stroke="#44586b" stroke-width="1"/>
+    </marker>
+    <marker id="arrow" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L9,3.5 L0,7 z" fill="#2dd4bf"/>
+    </marker>
+    <marker id="arrowDim" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L9,3.5 L0,7 z" fill="#9fb3c8"/>
+    </marker>
+  </defs>
+
+  <!-- scale axis: 0 to 4679 nt mapped onto x = 60 .. 1340 -->
+  <g stroke="#44586b" stroke-width="1" fill="#6d8aa3" font-size="13">
+    <line x1="60" y1="46" x2="1340" y2="46"/>
+    <g text-anchor="middle">
+      <line x1="60"   y1="42" x2="60"   y2="50"/><text x="60"   y="33">0</text>
+      <line x1="333"  y1="42" x2="333"  y2="50"/><text x="333"  y="33">1000</text>
+      <line x1="607"  y1="42" x2="607"  y2="50"/><text x="607"  y="33">2000</text>
+      <line x1="880"  y1="42" x2="880"  y2="50"/><text x="880"  y="33">3000</text>
+      <line x1="1154" y1="42" x2="1154" y2="50"/><text x="1154" y="33">4000</text>
+      <line x1="1340" y1="42" x2="1340" y2="50"/><text x="1340" y="33">4679 nt</text>
+    </g>
+  </g>
+
+  <!-- genome backbone -->
+  <line x1="60" y1="120" x2="1340" y2="120" stroke="#3b4c5c" stroke-width="2"/>
+
+  <!-- ITRs -->
+  <g>
+    <rect x="60" y="100" width="40" height="40" rx="3" fill="#fb923c"/>
+    <rect x="1301" y="100" width="39" height="40" rx="3" fill="#fb923c"/>
+    <text x="80" y="166" fill="#fb923c" font-size="15" text-anchor="middle">5′ ITR</text>
+    <text x="1320" y="166" fill="#fb923c" font-size="15" text-anchor="middle">3′ ITR</text>
+    <text x="80" y="184" fill="#6d8aa3" font-size="12" text-anchor="middle">145 bp</text>
+    <text x="1320" y="184" fill="#6d8aa3" font-size="12" text-anchor="middle">145 bp</text>
+  </g>
+
+  <!-- rep ORF -->
+  <g>
+    <rect x="148" y="98" width="528" height="44" rx="4" fill="#14b8a6" fill-opacity="0.85"/>
+    <text x="412" y="126" fill="#f2f7fa" font-size="19" text-anchor="middle" font-style="italic">rep</text>
+  </g>
+
+  <!-- cap ORF -->
+  <g>
+    <rect x="663" y="98" width="604" height="44" rx="4" fill="#0891b2" fill-opacity="0.85"/>
+    <text x="965" y="126" fill="#f2f7fa" font-size="19" text-anchor="middle" font-style="italic">cap</text>
+  </g>
+
+  <!-- polyA -->
+  <g>
+    <line x1="1270" y1="98" x2="1270" y2="142" stroke="#9fb3c8" stroke-width="2"/>
+    <text x="1272" y="92" fill="#9fb3c8" font-size="12">polyA</text>
+  </g>
+
+  <!-- promoters -->
+  <g font-size="15" fill="#2dd4bf">
+    <path d="M128,120 L128,76 L168,76" stroke="#2dd4bf" stroke-width="2.5" fill="none" marker-end="url(#arrow)"/>
+    <text x="110" y="70">p5</text>
+    <path d="M332,120 L332,76 L372,76" stroke="#2dd4bf" stroke-width="2.5" fill="none" marker-end="url(#arrow)"/>
+    <text x="312" y="70">p19</text>
+    <path d="M567,120 L567,76 L607,76" stroke="#2dd4bf" stroke-width="2.5" fill="none" marker-end="url(#arrow)"/>
+    <text x="545" y="70">p40</text>
+  </g>
+
+  <!-- rep products -->
+  <g font-size="14">
+    <line x1="148" y1="212" x2="676" y2="212" stroke="#14b8a6" stroke-width="7" stroke-linecap="round"/>
+    <text x="686" y="217" fill="#c5d6e4">Rep78 <tspan fill="#6d8aa3" font-size="12">(unspliced)</tspan> · Rep68 <tspan fill="#6d8aa3" font-size="12">(spliced)</tspan> — SF3 3′→5′ helicase, trs nicking, AAVS1 integration</text>
+    <line x1="332" y1="238" x2="676" y2="238" stroke="#14b8a6" stroke-width="7" stroke-linecap="round" stroke-opacity="0.65"/>
+    <text x="686" y="243" fill="#c5d6e4">Rep52 <tspan fill="#6d8aa3" font-size="12">(unspliced)</tspan> · Rep40 <tspan fill="#6d8aa3" font-size="12">(spliced)</tspan> — packages ssDNA into preformed capsids</text>
+  </g>
+
+  <!-- cap products and nested frames -->
+  <g font-size="14">
+    <line x1="663" y1="264" x2="1267" y2="264" stroke="#0891b2" stroke-width="7" stroke-linecap="round"/>
+    <text x="1277" y="269" fill="#c5d6e4" text-anchor="end" opacity="0">.</text>
+    <text x="663" y="292" fill="#6d8aa3" font-size="12">VP1 87 kDa</text>
+    <text x="776" y="292" fill="#6d8aa3" font-size="12">VP2 73 kDa</text>
+    <text x="829" y="310" fill="#6d8aa3" font-size="12">VP3 62 kDa  ·  VP1:VP2:VP3 ≈ 1:1:10 across 60 subunits</text>
+    <line x1="776" y1="258" x2="776" y2="286" stroke="#44586b" stroke-width="1" stroke-dasharray="3 3"/>
+    <line x1="829" y1="258" x2="829" y2="304" stroke="#44586b" stroke-width="1" stroke-dasharray="3 3"/>
+  </g>
+
+  <!-- nested accessory ORFs, drawn offset to signal a different reading frame -->
+  <g>
+    <rect x="726" y="156" width="113" height="20" rx="3" fill="none" stroke="#fbbf24" stroke-width="1.6" stroke-dasharray="4 3"/>
+    <text x="782" y="171" fill="#fbbf24" font-size="13" text-anchor="middle">MAAP</text>
+    <text x="851" y="171" fill="#6d8aa3" font-size="12">+1 frame — promotes egress</text>
+
+    <rect x="803" y="184" width="161" height="20" rx="3" fill="none" stroke="#fbbf24" stroke-width="1.6" stroke-dasharray="4 3"/>
+    <text x="883" y="199" fill="#fbbf24" font-size="13" text-anchor="middle">AAP</text>
+    <text x="976" y="199" fill="#6d8aa3" font-size="12">CTG start — nucleolar assembly scaffold</text>
+  </g>
+</svg>

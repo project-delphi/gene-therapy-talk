@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 620" width="1400" height="620"
+     font-family="Arial, Helvetica, sans-serif" role="img"
+     aria-label="Upstream rAAV production compared. HEK293 triple transfection delivers the ITR-flanked cassette, rep and cap, and a helper plasmid carrying E2A, E4orf6 and VA RNA, because the cell line already supplies E1. The Sf9 baculovirus system delivers the same genetic components as recombinant baculoviruses and needs no adenoviral helper at all.">
+  <defs>
+    <marker id="inj" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L9,3.5 L0,7 z" fill="#6d8aa3"/>
+    </marker>
+  </defs>
+
+  <line x1="700" y1="30" x2="700" y2="590" stroke="#1e2a36"/>
+
+  <!-- ======================= HEK293 ======================= -->
+  <text x="40" y="54" fill="#f2f7fa" font-size="21">HEK293 — triple transfection</text>
+  <text x="40" y="78" fill="#6d8aa3" font-size="14">Transient, PEI-mediated. Three plasmids, because the cell supplies the fourth component itself.</text>
+
+  <g font-size="13.5">
+    <rect x="40" y="100" width="270" height="56" rx="6" fill="#121a23" stroke="#fb923c"/>
+    <text x="56" y="124" fill="#fb923c" font-size="14.5">1 · Vector plasmid</text>
+    <text x="56" y="144" fill="#9fb3c8">ITR — cassette — ITR</text>
+
+    <rect x="40" y="168" width="270" height="56" rx="6" fill="#121a23" stroke="#14b8a6"/>
+    <text x="56" y="192" fill="#2dd4bf" font-size="14.5">2 · Packaging plasmid</text>
+    <text x="56" y="212" fill="#9fb3c8"><tspan font-style="italic">rep</tspan> and <tspan font-style="italic">cap</tspan>, supplied in trans</text>
+
+    <rect x="40" y="236" width="270" height="76" rx="6" fill="#121a23" stroke="#38bdf8"/>
+    <text x="56" y="260" fill="#38bdf8" font-size="14.5">3 · Helper plasmid</text>
+    <text x="56" y="280" fill="#9fb3c8">E2A · E4orf6 · VA RNA</text>
+    <text x="56" y="300" fill="#6d8aa3" font-size="12.5">adenoviral functions, minus E1</text>
+  </g>
+
+  <g stroke="#6d8aa3" stroke-width="1.6" marker-end="url(#inj)" fill="none">
+    <path d="M318,128 C390,128 400,190 452,198"/>
+    <path d="M318,196 C380,196 400,198 452,204"/>
+    <path d="M318,274 C390,274 400,214 452,210"/>
+  </g>
+
+  <!-- the cell -->
+  <g>
+    <ellipse cx="560" cy="206" rx="98" ry="78" fill="#14202a" stroke="#2b3a48"/>
+    <ellipse cx="560" cy="206" rx="46" ry="38" fill="#0d1720" stroke="#0891b2"/>
+    <text x="560" y="203" fill="#f2f7fa" font-size="14" text-anchor="middle">HEK293</text>
+    <text x="560" y="221" fill="#6d8aa3" font-size="11.5" text-anchor="middle">nucleus</text>
+    <rect x="470" y="296" width="180" height="26" rx="13" fill="#0891b2"/>
+    <text x="560" y="314" fill="#f2f7fa" font-size="12.5" text-anchor="middle">already expresses E1A / E1B</text>
+  </g>
+  <text x="40" y="348" fill="#2dd4bf" font-size="13.5">The cell line is adenovirus-E1-transformed, so E1 is never on a plasmid.</text>
+
+  <!-- ======================= Sf9 / BEVS ======================= -->
+  <text x="750" y="54" fill="#f2f7fa" font-size="21">Sf9 — baculovirus expression (BEVS)</text>
+  <text x="750" y="78" fill="#6d8aa3" font-size="14">Infection rather than transfection. No adenoviral helper is required at all.</text>
+
+  <g font-size="13.5">
+    <rect x="750" y="100" width="270" height="56" rx="6" fill="#121a23" stroke="#fb923c"/>
+    <text x="766" y="124" fill="#fb923c" font-size="14.5">1 · BacMid — vector</text>
+    <text x="766" y="144" fill="#9fb3c8">ITR — cassette — ITR</text>
+
+    <rect x="750" y="168" width="270" height="56" rx="6" fill="#121a23" stroke="#14b8a6"/>
+    <text x="766" y="192" fill="#2dd4bf" font-size="14.5">2 · BacMid — <tspan font-style="italic">rep</tspan></text>
+    <text x="766" y="212" fill="#9fb3c8">Rep78/52 from engineered starts</text>
+
+    <rect x="750" y="236" width="270" height="56" rx="6" fill="#121a23" stroke="#14b8a6"/>
+    <text x="766" y="260" fill="#2dd4bf" font-size="14.5">3 · BacMid — <tspan font-style="italic">cap</tspan></text>
+    <text x="766" y="280" fill="#9fb3c8">VP1/VP2/VP3 + AAP</text>
+  </g>
+
+  <g stroke="#6d8aa3" stroke-width="1.6" marker-end="url(#inj)" fill="none">
+    <path d="M1028,128 C1100,128 1110,190 1162,198"/>
+    <path d="M1028,196 C1090,196 1110,198 1162,204"/>
+    <path d="M1028,264 C1100,264 1110,214 1162,210"/>
+  </g>
+
+  <g>
+    <ellipse cx="1270" cy="206" rx="98" ry="78" fill="#14202a" stroke="#2b3a48"/>
+    <ellipse cx="1270" cy="206" rx="46" ry="38" fill="#0d1720" stroke="#0891b2"/>
+    <text x="1270" y="203" fill="#f2f7fa" font-size="14" text-anchor="middle">Sf9</text>
+    <text x="1270" y="221" fill="#6d8aa3" font-size="11.5" text-anchor="middle">nucleus</text>
+    <rect x="1186" y="296" width="168" height="26" rx="13" fill="#0891b2"/>
+    <text x="1270" y="314" fill="#f2f7fa" font-size="12.5" text-anchor="middle">baculovirus is its own helper</text>
+  </g>
+  <text x="750" y="348" fill="#2dd4bf" font-size="13.5">Two-Bac and OneBac variants fold these onto fewer constructs.</text>
+
+  <!-- ======================= comparison ======================= -->
+  <g font-size="13.5">
+    <line x1="40" y1="378" x2="1360" y2="378" stroke="#1e2a36"/>
+    <g fill="#6d8aa3" font-size="13">
+      <text x="40" y="404">Scale</text>
+      <text x="40" y="440">Yield</text>
+      <text x="40" y="476">Capsid protein</text>
+      <text x="40" y="512">Full : empty</text>
+      <text x="40" y="556">Trade-off</text>
+    </g>
+    <g fill="#c5d6e4">
+      <text x="200" y="404">Suspension to the low thousands of litres;</text>
+      <text x="200" y="422">plasmid supply and cost bound the top end</text>
+      <text x="200" y="440">Lower particle yield per litre</text>
+      <text x="200" y="476">Human post-translational modifications</text>
+      <text x="200" y="512">Process- and cassette-dependent</text>
+    </g>
+    <g fill="#c5d6e4">
+      <text x="830" y="404">Scales further — insect suspension culture</text>
+      <text x="830" y="422">runs comfortably past mammalian limits</text>
+      <text x="830" y="440">Higher yield per litre, lower cost per dose</text>
+      <text x="830" y="476">Non-mammalian PTMs; early platforms also</text>
+      <text x="830" y="494">skewed VP1:VP2:VP3 until starts were engineered</text>
+      <text x="830" y="512">Process- and cassette-dependent</text>
+    </g>
+    <text x="200" y="556" fill="#fb923c">Closer to the clinical reference product</text>
+    <text x="830" y="556" fill="#fb923c">Cheaper per dose at commercial scale</text>
+  </g>
+  <text x="40" y="596" fill="#6d8aa3" font-size="12.5">
+    Full:empty ratio is dominated by process and cassette design, not by the choice of platform — claims that one system is inherently cleaner do not survive scrutiny.
+  </text>
+</svg>

@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 560" width="1400" height="560"
+     font-family="Arial, Helvetica, sans-serif" role="img"
+     aria-label="Capsid shuffling in four stages. Stage one: the cap genes of nine natural AAV serotypes, each drawn as a differently coloured bar and labelled AAV1, AAV2, AAV3, AAV4, AAV5, AAV6, AAV8, AAV9 and AAVrh10. Stage two: the genes are digested into fragments. Stage three: the fragments prime on one another and reassemble, producing a library of chimeric cap genes, each a mosaic of blocks whose colours identify which parent contributed them. Stage four: selection in the tissue of interest returns a single survivor, AAV-DJ, a mosaic of AAV2, AAV8 and AAV9. A caption notes that selection returns a winner, not a model.">
+  <defs>
+    <marker id="s-arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 z" fill="#4a5f72"/>
+    </marker>
+    <marker id="s-arrow-magenta" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 z" fill="#f472b6"/>
+    </marker>
+  </defs>
+
+  <!-- The slide heading names this figure; repeating it here just doubles it up. -->
+  <text x="40" y="30" font-size="13" fill="#9fb3c8">Recombine the <tspan font-style="italic">cap</tspan> genes of natural serotypes, then let selection pick. Colour tells you which parent gave each block.</text>
+
+  <g transform="translate(0,-40)">
+
+  <!-- ===================== stage 1 · the parents ===================== -->
+  <text x="40" y="104" font-size="15.5" fill="#f2f7fa">1 · Natural serotypes</text>
+  <text x="40" y="124" font-size="12" fill="#9fb3c8">wild isolates — the parents</text>
+
+  <g font-size="12.5" text-anchor="end">
+    <text x="96" y="159" fill="#2dd4bf">AAV1</text>
+    <text x="96" y="191" fill="#38bdf8">AAV2</text>
+    <text x="96" y="223" fill="#a78bfa">AAV3</text>
+    <text x="96" y="255" fill="#f472b6">AAV4</text>
+    <text x="96" y="287" fill="#fbbf24">AAV5</text>
+    <text x="96" y="319" fill="#fb7185">AAV6</text>
+    <text x="96" y="351" fill="#4ade80">AAV8</text>
+    <text x="96" y="383" fill="#22d3ee">AAV9</text>
+    <text x="96" y="415" fill="#fb923c">AAVrh10</text>
+  </g>
+  <g>
+    <rect x="106" y="146" width="196" height="17" rx="3" fill="#2dd4bf"/>
+    <rect x="106" y="178" width="196" height="17" rx="3" fill="#38bdf8"/>
+    <rect x="106" y="210" width="196" height="17" rx="3" fill="#a78bfa"/>
+    <rect x="106" y="242" width="196" height="17" rx="3" fill="#f472b6"/>
+    <rect x="106" y="274" width="196" height="17" rx="3" fill="#fbbf24"/>
+    <rect x="106" y="306" width="196" height="17" rx="3" fill="#fb7185"/>
+    <rect x="106" y="338" width="196" height="17" rx="3" fill="#4ade80"/>
+    <rect x="106" y="370" width="196" height="17" rx="3" fill="#22d3ee"/>
+    <rect x="106" y="402" width="196" height="17" rx="3" fill="#fb923c"/>
+  </g>
+  <text x="204" y="446" font-size="11.5" fill="#6d8299" text-anchor="middle">each bar is one <tspan font-style="italic">cap</tspan> gene, ~2.2 kb</text>
+
+  <!-- ===================== stage 2 · fragmentation ===================== -->
+  <line x1="320" y1="282" x2="364" y2="282" stroke="#4a5f72" stroke-width="2" marker-end="url(#s-arrow)"/>
+
+  <text x="388" y="104" font-size="15.5" fill="#f2f7fa">2 · Fragment</text>
+  <text x="388" y="124" font-size="12" fill="#9fb3c8">DNase I digest</text>
+
+  <g>
+    <rect x="392" y="150" width="46" height="13" rx="2.5" fill="#2dd4bf" transform="rotate(-9 415 156)"/>
+    <rect x="452" y="146" width="34" height="13" rx="2.5" fill="#fbbf24" transform="rotate(7 469 152)"/>
+    <rect x="500" y="158" width="52" height="13" rx="2.5" fill="#22d3ee" transform="rotate(-4 526 164)"/>
+    <rect x="396" y="188" width="38" height="13" rx="2.5" fill="#a78bfa" transform="rotate(11 415 194)"/>
+    <rect x="450" y="196" width="56" height="13" rx="2.5" fill="#4ade80" transform="rotate(-6 478 202)"/>
+    <rect x="518" y="190" width="32" height="13" rx="2.5" fill="#fb7185" transform="rotate(8 534 196)"/>
+    <rect x="390" y="232" width="50" height="13" rx="2.5" fill="#38bdf8" transform="rotate(5 415 238)"/>
+    <rect x="456" y="238" width="36" height="13" rx="2.5" fill="#fb923c" transform="rotate(-10 474 244)"/>
+    <rect x="506" y="230" width="46" height="13" rx="2.5" fill="#f472b6" transform="rotate(6 529 236)"/>
+    <rect x="394" y="276" width="42" height="13" rx="2.5" fill="#4ade80" transform="rotate(-7 415 282)"/>
+    <rect x="450" y="272" width="54" height="13" rx="2.5" fill="#2dd4bf" transform="rotate(9 477 278)"/>
+    <rect x="518" y="280" width="34" height="13" rx="2.5" fill="#fbbf24" transform="rotate(-5 535 286)"/>
+    <rect x="392" y="318" width="54" height="13" rx="2.5" fill="#22d3ee" transform="rotate(8 419 324)"/>
+    <rect x="462" y="324" width="38" height="13" rx="2.5" fill="#38bdf8" transform="rotate(-9 481 330)"/>
+    <rect x="512" y="316" width="44" height="13" rx="2.5" fill="#a78bfa" transform="rotate(4 534 322)"/>
+    <rect x="398" y="362" width="36" height="13" rx="2.5" fill="#fb923c" transform="rotate(6 416 368)"/>
+    <rect x="448" y="358" width="50" height="13" rx="2.5" fill="#fb7185" transform="rotate(-8 473 364)"/>
+    <rect x="512" y="364" width="40" height="13" rx="2.5" fill="#4ade80" transform="rotate(10 532 370)"/>
+    <rect x="404" y="402" width="48" height="13" rx="2.5" fill="#f472b6" transform="rotate(-6 428 408)"/>
+    <rect x="470" y="406" width="44" height="13" rx="2.5" fill="#2dd4bf" transform="rotate(7 492 412)"/>
+  </g>
+  <text x="472" y="446" font-size="11.5" fill="#6d8299" text-anchor="middle">fragments from every parent, pooled</text>
+
+  <!-- ===================== stage 3 · reassembly ===================== -->
+  <line x1="578" y1="282" x2="622" y2="282" stroke="#4a5f72" stroke-width="2" marker-end="url(#s-arrow)"/>
+
+  <text x="646" y="104" font-size="15.5" fill="#f2f7fa">3 · Reassemble</text>
+  <text x="646" y="124" font-size="12" fill="#9fb3c8">every colour change is a crossover</text>
+
+  <!-- five chimeras; each coloured block is the parent that won that stretch -->
+  <g>
+    <g>
+      <rect x="650" y="150" width="60"  height="17" rx="3" fill="#38bdf8"/>
+      <rect x="710" y="150" width="45"  height="17"        fill="#4ade80"/>
+      <rect x="755" y="150" width="70"  height="17"        fill="#22d3ee"/>
+      <rect x="825" y="150" width="50"  height="17"        fill="#fbbf24"/>
+      <rect x="875" y="150" width="55"  height="17" rx="3" fill="#38bdf8"/>
+    </g>
+    <g>
+      <rect x="650" y="188" width="40"  height="17" rx="3" fill="#a78bfa"/>
+      <rect x="690" y="188" width="85"  height="17"        fill="#2dd4bf"/>
+      <rect x="775" y="188" width="55"  height="17"        fill="#fb923c"/>
+      <rect x="830" y="188" width="45"  height="17"        fill="#38bdf8"/>
+      <rect x="875" y="188" width="55"  height="17" rx="3" fill="#4ade80"/>
+    </g>
+    <g>
+      <rect x="650" y="226" width="75"  height="17" rx="3" fill="#fbbf24"/>
+      <rect x="725" y="226" width="50"  height="17"        fill="#22d3ee"/>
+      <rect x="775" y="226" width="40"  height="17"        fill="#fb7185"/>
+      <rect x="815" y="226" width="65"  height="17"        fill="#38bdf8"/>
+      <rect x="880" y="226" width="50"  height="17" rx="3" fill="#2dd4bf"/>
+    </g>
+    <g>
+      <rect x="650" y="264" width="55"  height="17" rx="3" fill="#4ade80"/>
+      <rect x="705" y="264" width="60"  height="17"        fill="#38bdf8"/>
+      <rect x="765" y="264" width="45"  height="17"        fill="#a78bfa"/>
+      <rect x="810" y="264" width="80"  height="17"        fill="#22d3ee"/>
+      <rect x="890" y="264" width="40"  height="17" rx="3" fill="#fbbf24"/>
+    </g>
+    <g>
+      <rect x="650" y="302" width="50"  height="17" rx="3" fill="#22d3ee"/>
+      <rect x="700" y="302" width="70"  height="17"        fill="#fb923c"/>
+      <rect x="770" y="302" width="60"  height="17"        fill="#2dd4bf"/>
+      <rect x="830" y="302" width="45"  height="17"        fill="#f472b6"/>
+      <rect x="875" y="302" width="55"  height="17" rx="3" fill="#38bdf8"/>
+    </g>
+  </g>
+  <!-- ticks marking where the parent changes along the first chimera -->
+  <g stroke="#f2f7fa" stroke-width="1.4" opacity="0.75">
+    <line x1="710" y1="142" x2="710" y2="150"/><line x1="755" y1="142" x2="755" y2="150"/>
+    <line x1="825" y1="142" x2="825" y2="150"/><line x1="875" y1="142" x2="875" y2="150"/>
+  </g>
+
+  <g fill="#6d8299">
+    <circle cx="790" cy="336" r="2.2"/><circle cx="790" cy="345" r="2.2"/><circle cx="790" cy="354" r="2.2"/>
+  </g>
+  <text x="790" y="378" font-size="13" fill="#f472b6" text-anchor="middle">a library of 10⁵–10⁷ chimeras</text>
+
+  <rect x="650" y="398" width="280" height="56" rx="6" fill="#121a23" stroke="#2b3a48"/>
+  <text x="666" y="420" font-size="12" fill="#9fb3c8">Reaches combinations no point-mutation</text>
+  <text x="666" y="440" font-size="12" fill="#9fb3c8">scan would ever propose.</text>
+
+  <!-- ===================== stage 4 · selection ===================== -->
+  <line x1="950" y1="282" x2="994" y2="282" stroke="#f472b6" stroke-width="2" marker-end="url(#s-arrow-magenta)"/>
+  <text x="972" y="270" font-size="11.5" fill="#f472b6" text-anchor="middle">select</text>
+
+  <text x="1018" y="104" font-size="15.5" fill="#f2f7fa">4 · The survivor</text>
+  <text x="1018" y="124" font-size="12" fill="#9fb3c8">passage through the tissue you care about, then sequence</text>
+
+  <!-- AAV-DJ: the chimera this method actually produced -->
+  <rect x="1012" y="152" width="296" height="104" rx="8" fill="#121a23" stroke="#f472b6" stroke-width="1.8"/>
+  <text x="1032" y="180" font-size="15" fill="#f472b6">AAV-DJ</text>
+  <text x="1032" y="200" font-size="11.5" fill="#9fb3c8">from a library under human serum selection</text>
+  <g>
+    <rect x="1032" y="214" width="70" height="18" rx="3" fill="#38bdf8"/>
+    <rect x="1102" y="214" width="60" height="18"        fill="#4ade80"/>
+    <rect x="1162" y="214" width="55" height="18"        fill="#22d3ee"/>
+    <rect x="1217" y="214" width="71" height="18" rx="3" fill="#38bdf8"/>
+  </g>
+  <g font-size="11" text-anchor="middle">
+    <text x="1067" y="246" fill="#38bdf8">AAV2</text>
+    <text x="1132" y="246" fill="#4ade80">AAV8</text>
+    <text x="1189" y="246" fill="#22d3ee">AAV9</text>
+    <text x="1252" y="246" fill="#38bdf8">AAV2</text>
+  </g>
+
+  <text x="1018" y="294" font-size="12.5" fill="#9fb3c8">Broad tropism in culture, and partial escape</text>
+  <text x="1018" y="312" font-size="12.5" fill="#9fb3c8">from pooled human antibodies.</text>
+
+  <rect x="1012" y="336" width="296" height="118" rx="8" fill="#1a1416" stroke="#8a4a4a"/>
+  <text x="1032" y="364" font-size="14" fill="#fb7185">What you do not get</text>
+  <text x="1032" y="390" font-size="12.5" fill="#d8c0c4">A sequence that survived — and no</text>
+  <text x="1032" y="408" font-size="12.5" fill="#d8c0c4">function mapping sequence to fitness.</text>
+  <text x="1032" y="434" font-size="12.5" fill="#fb923c">Change tissue and you start again.</text>
+
+  <text x="40" y="520" font-size="12.5" fill="#f472b6">Selection returns survivors. It does not return a model — which is the gap the machine-learning work is trying to close.</text>
+  <text x="40" y="560" font-size="11.5" fill="#6d8299">Block widths are schematic. Real shuffled libraries cross over at variable, sequence-dependent points, and most products are non-viable.</text>
+  </g>
+</svg>

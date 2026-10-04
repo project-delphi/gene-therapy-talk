@@ -1,0 +1,205 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 560" width="1400" height="560"
+     font-family="Arial, Helvetica, sans-serif" role="img"
+     aria-label="The journey of an AAV dose from the infusion needle to the target cell, drawn as four magnified views at falling scale: infusion into a peripheral vein, circulation where antibodies and liver and spleen clearance remove most of the dose, extravasation across the vessel wall into tissue, and arrival at the cell surface. A tapering band underneath shows the surviving fraction of the dose collapsing by orders of magnitude across the four stages.">
+  <defs>
+    <!-- One capsid icon, reused at several sizes. Hexagonal outline because
+         AAV is icosahedral and a hexagon is its honest 2D silhouette. -->
+    <g id="capsid">
+      <polygon points="0,-9 7.8,-4.5 7.8,4.5 0,9 -7.8,4.5 -7.8,-4.5"
+               fill="#133b3c" stroke="#2dd4bf" stroke-width="1.7" stroke-linejoin="round"/>
+      <path d="M-7.8,-4.5 L0,0 L7.8,-4.5 M0,0 L0,9" fill="none"
+            stroke="#2dd4bf" stroke-width="0.9" opacity="0.5"/>
+    </g>
+
+    <!-- A capsid already bound by antibody, so stage 2 can show both fates. -->
+    <g id="capsid-nab">
+      <polygon points="0,-9 7.8,-4.5 7.8,4.5 0,9 -7.8,4.5 -7.8,-4.5"
+               fill="#3a2230" stroke="#fb7185" stroke-width="1.7" stroke-linejoin="round"/>
+      <path d="M-13,-13 L-6,-6 M-13,-19 L-13,-13 M-19,-19 L-13,-13" fill="none"
+            stroke="#fb7185" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M13,-13 L6,-6 M13,-19 L13,-13 M19,-19 L13,-13" fill="none"
+            stroke="#fb7185" stroke-width="1.8" stroke-linecap="round"/>
+    </g>
+
+    <marker id="j-arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 z" fill="#4a5f72"/>
+    </marker>
+    <marker id="j-arrow-teal" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#2dd4bf"/>
+    </marker>
+
+    <linearGradient id="j-attrition" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#2dd4bf" stop-opacity="0.9"/>
+      <stop offset="38%"  stop-color="#38bdf8" stop-opacity="0.75"/>
+      <stop offset="72%"  stop-color="#fbbf24" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#fb923c" stop-opacity="0.95"/>
+    </linearGradient>
+
+    <clipPath id="lens1"><circle cx="205"  cy="196" r="94"/></clipPath>
+    <clipPath id="lens2"><circle cx="535"  cy="196" r="94"/></clipPath>
+    <clipPath id="lens3"><circle cx="865"  cy="196" r="94"/></clipPath>
+    <clipPath id="lens4"><circle cx="1195" cy="196" r="94"/></clipPath>
+  </defs>
+
+  <!-- The slide heading names this figure; repeating it here just doubles it up. -->
+  <text x="40" y="30" font-size="13" fill="#9fb3c8">Four magnifications. The dose falls by orders of magnitude before transduction even begins.</text>
+
+  <g transform="translate(0,-40)">
+
+  <!-- ===================== 1 · infusion ===================== -->
+  <g clip-path="url(#lens1)">
+    <circle cx="205" cy="196" r="94" fill="#0e1620"/>
+    <!-- subcutaneous tissue above the vessel -->
+    <rect x="111" y="102" width="188" height="70" fill="#1a222c"/>
+    <path d="M111,172 Q205,162 299,176" fill="none" stroke="#2e3c4b" stroke-width="2.5"/>
+    <!-- the vein: wall, then lumen -->
+    <path d="M105,220 Q205,196 305,216" fill="none" stroke="#7c3550" stroke-width="56" stroke-linecap="round"/>
+    <path d="M105,220 Q205,196 305,216" fill="none" stroke="#b05570" stroke-width="44" stroke-linecap="round"/>
+    <!-- cannula entering the lumen -->
+    <line x1="118" y1="108" x2="192" y2="198" stroke="#5f7084" stroke-width="9"/>
+    <line x1="118" y1="108" x2="192" y2="198" stroke="#9fb3c8" stroke-width="7.5"/>
+    <line x1="118" y1="108" x2="192" y2="198" stroke="#e3ecf5" stroke-width="3.5"/>
+    <!-- capsids leaving the needle tip and sweeping downstream -->
+    <use href="#capsid" transform="translate(212,206) scale(0.85)"/>
+    <use href="#capsid" transform="translate(243,198) scale(0.85)"/>
+    <use href="#capsid" transform="translate(274,206) scale(0.85)"/>
+    <use href="#capsid" transform="translate(228,224) scale(0.85)"/>
+    <use href="#capsid" transform="translate(259,222) scale(0.85)"/>
+    <path d="M200,242 L290,240" fill="none" stroke="#2dd4bf" stroke-width="1.8"
+          opacity="0.8" marker-end="url(#j-arrow-teal)"/>
+  </g>
+  <circle cx="205" cy="196" r="94" fill="none" stroke="#2b3a48" stroke-width="2"/>
+  <circle cx="205" cy="196" r="94" fill="none" stroke="#2dd4bf" stroke-width="2" opacity="0.35"/>
+
+  <!-- ===================== 2 · circulation ===================== -->
+  <g clip-path="url(#lens2)">
+    <circle cx="535" cy="196" r="94" fill="#0e1620"/>
+    <!-- vessel lumen, erythrocytes for scale -->
+    <ellipse cx="478" cy="148" rx="26" ry="17" fill="#7f2f44" transform="rotate(-18 478 148)"/>
+    <ellipse cx="478" cy="148" rx="13" ry="8"  fill="#5d2233" transform="rotate(-18 478 148)"/>
+    <ellipse cx="588" cy="236" rx="26" ry="17" fill="#7f2f44" transform="rotate(12 588 236)"/>
+    <ellipse cx="588" cy="236" rx="13" ry="8"  fill="#5d2233" transform="rotate(12 588 236)"/>
+    <ellipse cx="500" cy="248" rx="23" ry="15" fill="#6d2839" transform="rotate(-8 500 248)"/>
+    <!-- a phagocyte taking capsids out of circulation -->
+    <path d="M592,120 q24,-14 38,6 q16,-4 16,16 q10,12 -4,24 q-2,20 -22,16 q-16,10 -28,-6
+             q-20,2 -18,-20 q-10,-18 18,-36 z" fill="#243448" stroke="#6b8299" stroke-width="2"/>
+    <circle cx="616" cy="152" r="9" fill="#33475c"/>
+    <!-- free capsid, antibody-bound capsids -->
+    <use href="#capsid" transform="translate(520,186) scale(1.0)"/>
+    <use href="#capsid-nab" transform="translate(556,170) scale(1.0)"/>
+    <use href="#capsid-nab" transform="translate(538,232) scale(1.0)"/>
+    <use href="#capsid" transform="translate(486,206) scale(1.0)"/>
+    <path d="M568,186 L596,164" fill="none" stroke="#fb7185" stroke-width="1.6"
+          opacity="0.8" marker-end="url(#j-arrow)"/>
+  </g>
+  <circle cx="535" cy="196" r="94" fill="none" stroke="#2b3a48" stroke-width="2"/>
+  <circle cx="535" cy="196" r="94" fill="none" stroke="#fb7185" stroke-width="2" opacity="0.4"/>
+
+  <!-- ===================== 3 · extravasation ===================== -->
+  <g clip-path="url(#lens3)">
+    <circle cx="865" cy="196" r="94" fill="#0e1620"/>
+    <!-- blood on the left, tissue on the right -->
+    <rect x="771" y="102" width="56" height="188" fill="#2d1119"/>
+    <rect x="903" y="102" width="56" height="188" fill="#102019"/>
+    <!-- endothelium: two cells drawn apart, the gap between them is the route -->
+    <rect x="827" y="92"  width="76" height="76" rx="10" fill="#27374a" stroke="#5a7490" stroke-width="2"/>
+    <rect x="827" y="224" width="76" height="76" rx="10" fill="#27374a" stroke="#5a7490" stroke-width="2"/>
+    <ellipse cx="865" cy="130" rx="15" ry="11" fill="#1a2534"/>
+    <ellipse cx="865" cy="262" rx="15" ry="11" fill="#1a2534"/>
+    <!-- a capsid crossing, with a faded before and after -->
+    <use href="#capsid" transform="translate(797,196) scale(1.25)" opacity="0.45"/>
+    <use href="#capsid" transform="translate(865,196) scale(1.25)"/>
+    <use href="#capsid" transform="translate(933,196) scale(1.25)" opacity="0.45"/>
+    <path d="M783,196 L947,196" fill="none" stroke="#38bdf8" stroke-width="1.8"
+          opacity="0.7" marker-end="url(#j-arrow-teal)"/>
+    <!-- extracellular matrix fibres waiting on the far side -->
+    <path d="M912,160 q24,10 42,0 M910,232 q26,-10 46,2" fill="none" stroke="#2f4a3c" stroke-width="2"/>
+  </g>
+  <circle cx="865" cy="196" r="94" fill="none" stroke="#2b3a48" stroke-width="2"/>
+  <circle cx="865" cy="196" r="94" fill="none" stroke="#38bdf8" stroke-width="2" opacity="0.4"/>
+
+  <!-- ===================== 4 · the cell ===================== -->
+  <g clip-path="url(#lens4)">
+    <circle cx="1195" cy="196" r="94" fill="#0e1620"/>
+    <!-- cytoplasm below the plasma membrane -->
+    <path d="M1101,180 Q1195,160 1289,176 L1289,292 L1101,292 z" fill="#102028"/>
+    <!-- the membrane itself, drawn as a bilayer band -->
+    <path d="M1101,180 Q1195,160 1289,176" fill="none" stroke="#2f6d6a" stroke-width="13"/>
+    <path d="M1101,180 Q1195,160 1289,176" fill="none" stroke="#0e1620" stroke-width="4"/>
+    <!-- glycan receptors (green) and the AAVR protein (blue) -->
+    <g stroke="#4ade80" stroke-width="2.2" fill="none" stroke-linecap="round">
+      <path d="M1128,174 l0,-18 M1128,156 l-8,-7 M1128,156 l8,-7"/>
+      <path d="M1262,170 l0,-18 M1262,152 l-8,-7 M1262,152 l8,-7"/>
+    </g>
+    <rect x="1189" y="134" width="8" height="36" rx="4" fill="#38bdf8"/>
+    <rect x="1222" y="140" width="8" height="32" rx="4" fill="#38bdf8"/>
+    <!-- capsids above the surface, one docked on AAVR -->
+    <use href="#capsid" transform="translate(1193,120) scale(1.2)"/>
+    <use href="#capsid" transform="translate(1139,142) scale(1.2)" opacity="0.6"/>
+    <use href="#capsid" transform="translate(1249,138) scale(1.2)" opacity="0.6"/>
+    <!-- internalised into an endosome -->
+    <circle cx="1146" cy="228" r="19" fill="#17232c" stroke="#fb923c" stroke-width="2" stroke-dasharray="5 3"/>
+    <use href="#capsid" transform="translate(1146,228) scale(0.9)"/>
+    <!-- the destination -->
+    <ellipse cx="1232" cy="244" rx="36" ry="28" fill="#1c2436" stroke="#a78bfa" stroke-width="2"/>
+    <text x="1232" y="248" font-size="11" fill="#a78bfa" text-anchor="middle">nucleus</text>
+  </g>
+  <circle cx="1195" cy="196" r="94" fill="none" stroke="#2b3a48" stroke-width="2"/>
+  <circle cx="1195" cy="196" r="94" fill="none" stroke="#4ade80" stroke-width="2" opacity="0.4"/>
+
+  <!-- ===================== zoom arrows between lenses ===================== -->
+  <g font-size="11" fill="#6d8299" text-anchor="middle">
+    <line x1="305" y1="196" x2="435" y2="196" stroke="#3b4c5c" stroke-width="1.6" marker-end="url(#j-arrow)"/>
+    <text x="368" y="186">× 10³</text>
+    <line x1="635" y1="196" x2="765" y2="196" stroke="#3b4c5c" stroke-width="1.6" marker-end="url(#j-arrow)"/>
+    <text x="698" y="186">× 10³</text>
+    <line x1="965" y1="196" x2="1095" y2="196" stroke="#3b4c5c" stroke-width="1.6" marker-end="url(#j-arrow)"/>
+    <text x="1028" y="186">× 10²</text>
+  </g>
+
+  <!-- ===================== captions ===================== -->
+  <g text-anchor="middle">
+    <text x="205"  y="326" font-size="15.5" fill="#f2f7fa">1 · Infusion</text>
+    <text x="205"  y="348" font-size="12" fill="#2dd4bf">metres</text>
+    <text x="205"  y="372" font-size="12.5" fill="#9fb3c8">10¹³–10¹⁴ vg per kg into a</text>
+    <text x="205"  y="389" font-size="12.5" fill="#9fb3c8">peripheral vein. For an adult</text>
+    <text x="205"  y="406" font-size="12.5" fill="#9fb3c8">that is ~10¹⁶ particles.</text>
+
+    <text x="535"  y="326" font-size="15.5" fill="#f2f7fa">2 · Circulation</text>
+    <text x="535"  y="348" font-size="12" fill="#fb7185">centimetres</text>
+    <text x="535"  y="372" font-size="12.5" fill="#9fb3c8">Pre-existing antibodies bind</text>
+    <text x="535"  y="389" font-size="12.5" fill="#9fb3c8">capsid; liver and spleen clear</text>
+    <text x="535"  y="406" font-size="12.5" fill="#9fb3c8">most of what is left.</text>
+
+    <text x="865"  y="326" font-size="15.5" fill="#f2f7fa">3 · Extravasation</text>
+    <text x="865"  y="348" font-size="12" fill="#38bdf8">micrometres</text>
+    <text x="865"  y="372" font-size="12.5" fill="#9fb3c8">Out of the vessel into tissue.</text>
+    <text x="865"  y="389" font-size="12.5" fill="#9fb3c8">Easy in fenestrated liver, hard</text>
+    <text x="865"  y="406" font-size="12.5" fill="#9fb3c8">in muscle, hardest at the BBB.</text>
+
+    <text x="1195" y="326" font-size="15.5" fill="#f2f7fa">4 · The cell surface</text>
+    <text x="1195" y="348" font-size="12" fill="#4ade80">nanometres</text>
+    <text x="1195" y="372" font-size="12.5" fill="#9fb3c8">Glycan attachment, then AAVR.</text>
+    <text x="1195" y="389" font-size="12.5" fill="#9fb3c8">Only here does the eight-step</text>
+    <text x="1195" y="406" font-size="12.5" fill="#9fb3c8">transduction pathway start.</text>
+  </g>
+
+  <!-- ===================== attrition band ===================== -->
+  <text x="40" y="452" font-size="12.5" fill="#9fb3c8">Surviving fraction of the dose</text>
+  <path d="M40,468 L1360,492 L1360,520 L40,560 z" fill="url(#j-attrition)"/>
+  <g stroke="#0b0f14" stroke-width="2" opacity="0.65">
+    <line x1="370" y1="470" x2="370" y2="553"/>
+    <line x1="700" y1="476" x2="700" y2="546"/>
+    <line x1="1030" y1="482" x2="1030" y2="538"/>
+  </g>
+  <g font-size="12" fill="#0b0f14" font-weight="bold" text-anchor="middle">
+    <text x="205" y="518">everything infused</text>
+    <text x="535" y="518">a minority survives</text>
+    <text x="865" y="516">less reaches tissue</text>
+    <text x="1195" y="513">fewer reach a nucleus</text>
+  </g>
+
+  <text x="40" y="586" font-size="12" fill="#6d8299">Capsid, cell and vessel drawn schematically; the four panels are not to a common scale.</text>
+  <text x="1360" y="586" font-size="12" fill="#fb923c" text-anchor="end">Every stage is a reason the dose has to be large.</text>
+  </g>
+</svg>

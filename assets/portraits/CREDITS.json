@@ -1,0 +1,34 @@
+[
+ {
+  "slug": "ugur-sahin",
+  "artist": "BioNTech",
+  "licence": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Ugur_Sahin_v2_(cropped).jpg"
+ },
+ {
+  "slug": "ozlem-tureci",
+  "artist": "BioNTech",
+  "licence": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Ozlem_Tureci_v2_(cropped).jpg"
+ },
+ {
+  "slug": "katalin-kariko",
+  "artist": "Szegedi Tudományegyetem",
+  "licence": "CC BY-SA 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Karik%C3%B3_Katalin_Szegeden_(cropped).jpg"
+ },
+ {
+  "slug": "jimmy-carter",
+  "artist": "Lauren Gerson",
+  "licence": "Public domain",
+  "source": "https://commons.wikimedia.org/wiki/File:Jimmy_Carter_smiling,_2014.jpg",
+  "description": "Former President Jimmy Carter at the LBJ Presidential Library Civil Rights Summit, 8 April 2014. Work of a US government photographer, so public domain. Cropped to 4:5 for the portrait card."
+ },
+ {
+  "slug": "dmd-illustration",
+  "artist": "Duchenne, Guillaume-Benjamin",
+  "licence": "Public domain",
+  "source": "https://commons.wikimedia.org/wiki/File:Drawing_of_boy_with_Duchenne_muscular_dystrophy.png",
+  "description": "Drawing of 7-year-old boy with Duchenne muscular dystrophy. There is excessive development of the lower limbs (pseudohypertrophy), and thinness of the arms. In "
+ }
+]

@@ -3,3 +3,10 @@ project:
   output-dir: docs
   render:
     - index.qmd
+  # Quarto copies assets it finds referenced in markdown, but the vendored
+  # libraries, the structure files and the SVG diagrams are reached from
+  # JavaScript and HTML attributes instead, so they have to be named here or
+  # they never reach docs/.
+  resources:
+    - js/**
+    - assets/**

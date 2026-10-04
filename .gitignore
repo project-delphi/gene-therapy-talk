@@ -11,3 +11,8 @@
 *.swp
 .idea/
 .vscode/
+
+# Conference material. The ACOI slide template and the exports built from it
+# carry the organisers' branding, so they stay out of the public repo.
+/no_commit/
+/viii-encuentro-acoi-unimagdalena/

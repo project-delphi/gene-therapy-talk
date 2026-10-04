@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 540" width="1400" height="540"
+     font-family="Arial, Helvetica, sans-serif" role="img"
+     aria-label="Discriminative versus generative models over sequence space. On the left, a discriminative model learns P of Y given X: it draws a boundary through the small labelled region, scoring a sequence as viable or dead, and says nothing outside the neighbourhood it has labels for. On the right, a generative model learns P of X, the shape of the viable region itself, from sequences without phenotype labels, and new candidates can be sampled from it. Underneath, a pipeline shows the useful combination: generate many candidates, score them, and spend the experimental budget only on what survives.">
+  <defs>
+    <marker id="d-arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 z" fill="#4a5f72"/>
+    </marker>
+    <marker id="d-arrow-teal" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 z" fill="#2dd4bf"/>
+    </marker>
+    <radialGradient id="d-cloud" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#a78bfa" stop-opacity="0.55"/>
+      <stop offset="60%"  stop-color="#a78bfa" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#a78bfa" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <text x="40" y="30" font-size="13" fill="#9fb3c8">Both are models over the same space. They differ in what they are asked to produce.</text>
+
+  <!-- ===================== discriminative ===================== -->
+  <rect x="40" y="56" width="640" height="330" rx="10" fill="#101820" stroke="#2b3a48"/>
+  <text x="68" y="90" font-size="16" fill="#f2f7fa">Discriminative — <tspan fill="#38bdf8">P(Y | X)</tspan></text>
+  <text x="68" y="112" font-size="12.5" fill="#9fb3c8">Hand it a sequence, it returns a score. &#8220;Will this capsid package?&#8221;</text>
+
+  <!-- sequence space, with only a small labelled patch -->
+  <rect x="68" y="130" width="420" height="226" rx="6" fill="#0b1118" stroke="#1d2935"/>
+  <text x="78" y="348" font-size="11" fill="#45586b">sequence space</text>
+
+  <!-- the labelled neighbourhood -->
+  <ellipse cx="206" cy="236" rx="112" ry="78" fill="#17222c" stroke="#3b4c5c" stroke-dasharray="5 4"/>
+  <text x="206" y="150" font-size="11" fill="#6d8299" text-anchor="middle">the region you have labels for</text>
+
+  <!-- the boundary it learns -->
+  <path d="M132,306 Q206,228 286,160" fill="none" stroke="#38bdf8" stroke-width="2.6"/>
+  <text x="300" y="168" font-size="11" fill="#38bdf8">decision boundary</text>
+
+  <g>
+    <circle cx="152" cy="216" r="6" fill="#4ade80"/><circle cx="176" cy="192" r="6" fill="#4ade80"/>
+    <circle cx="140" cy="258" r="6" fill="#4ade80"/><circle cx="196" cy="226" r="6" fill="#4ade80"/>
+    <circle cx="166" cy="268" r="6" fill="#4ade80"/><circle cx="124" cy="232" r="6" fill="#4ade80"/>
+    <circle cx="238" cy="196" r="6" fill="#fb7185"/><circle cx="262" cy="226" r="6" fill="#fb7185"/>
+    <circle cx="226" cy="252" r="6" fill="#fb7185"/><circle cx="276" cy="186" r="6" fill="#fb7185"/>
+    <circle cx="250" cy="276" r="6" fill="#fb7185"/>
+  </g>
+  <g font-size="11">
+    <circle cx="340" cy="238" r="6" fill="#4ade80"/><text x="354" y="242" fill="#9fb3c8">viable</text>
+    <circle cx="340" cy="262" r="6" fill="#fb7185"/><text x="354" y="266" fill="#9fb3c8">dead</text>
+  </g>
+
+  <!-- everything else is unknown -->
+  <text x="398" y="300" font-size="34" fill="#2b3a48" text-anchor="middle">?</text>
+  <text x="398" y="324" font-size="11" fill="#45586b" text-anchor="middle">no labels, no opinion</text>
+
+  <text x="520" y="168" font-size="12.5" fill="#9fb3c8">Needs labels across</text>
+  <text x="520" y="186" font-size="12.5" fill="#9fb3c8">the region you care</text>
+  <text x="520" y="204" font-size="12.5" fill="#9fb3c8">about.</text>
+  <text x="520" y="240" font-size="12.5" fill="#38bdf8">Tells you about the</text>
+  <text x="520" y="258" font-size="12.5" fill="#38bdf8">neighbourhood it has</text>
+  <text x="520" y="276" font-size="12.5" fill="#38bdf8">already seen.</text>
+
+  <!-- ===================== generative ===================== -->
+  <rect x="720" y="56" width="640" height="330" rx="10" fill="#101820" stroke="#2b3a48"/>
+  <text x="748" y="90" font-size="16" fill="#f2f7fa">Generative — <tspan fill="#a78bfa">P(X)</tspan></text>
+  <text x="748" y="112" font-size="12.5" fill="#9fb3c8">Ask it for a sequence. &#8220;What does a viable capsid look like?&#8221;</text>
+
+  <rect x="748" y="130" width="420" height="226" rx="6" fill="#0b1118" stroke="#1d2935"/>
+  <text x="758" y="348" font-size="11" fill="#45586b">sequence space</text>
+
+  <!-- the density it learns -->
+  <ellipse cx="906" cy="242" rx="136" ry="80" fill="url(#d-cloud)"/>
+  <ellipse cx="906" cy="242" rx="136" ry="80" fill="none" stroke="#a78bfa" stroke-width="2" opacity="0.7"/>
+  <ellipse cx="906" cy="238" rx="88" ry="58" fill="none" stroke="#a78bfa" stroke-width="1.6" opacity="0.5"/>
+  <ellipse cx="906" cy="238" rx="44" ry="28" fill="none" stroke="#a78bfa" stroke-width="1.4" opacity="0.35"/>
+  <text x="906" y="150" font-size="11" fill="#6d8299" text-anchor="middle">the shape of the viable region</text>
+
+  <!-- training points: sequences that exist, no phenotype needed -->
+  <g fill="#c4b5fd">
+    <circle cx="872" cy="214" r="4"/><circle cx="930" cy="206" r="4"/><circle cx="898" cy="262" r="4"/>
+    <circle cx="848" cy="252" r="4"/><circle cx="952" cy="254" r="4"/><circle cx="912" cy="230" r="4"/>
+    <circle cx="880" cy="282" r="4"/><circle cx="944" cy="222" r="4"/>
+  </g>
+
+  <!-- and samples drawn out of it -->
+  <g>
+    <circle cx="984" cy="196" r="7" fill="none" stroke="#2dd4bf" stroke-width="2.2"/>
+    <circle cx="1002" cy="252" r="7" fill="none" stroke="#2dd4bf" stroke-width="2.2"/>
+    <circle cx="962" cy="292" r="7" fill="none" stroke="#2dd4bf" stroke-width="2.2"/>
+    <path d="M1012,196 L1058,186" fill="none" stroke="#2dd4bf" stroke-width="1.8" marker-end="url(#d-arrow-teal)"/>
+    <path d="M1016,252 L1058,248" fill="none" stroke="#2dd4bf" stroke-width="1.8" marker-end="url(#d-arrow-teal)"/>
+    <path d="M980,296 L1058,308" fill="none" stroke="#2dd4bf" stroke-width="1.8" marker-end="url(#d-arrow-teal)"/>
+  </g>
+  <text x="1064" y="178" font-size="12.5" fill="#2dd4bf">sampled</text>
+  <text x="1064" y="196" font-size="12.5" fill="#2dd4bf">candidates</text>
+
+  <text x="1200" y="168" font-size="12.5" fill="#9fb3c8">Learns from sequences</text>
+  <text x="1200" y="186" font-size="12.5" fill="#9fb3c8">that exist, with no</text>
+  <text x="1200" y="204" font-size="12.5" fill="#9fb3c8">phenotype labels.</text>
+  <text x="1200" y="240" font-size="12.5" fill="#a78bfa">Can propose points</text>
+  <text x="1200" y="258" font-size="12.5" fill="#a78bfa">nobody has measured.</text>
+
+  <!-- ===================== the combination ===================== -->
+  <text x="40" y="432" font-size="13" fill="#9fb3c8">The useful move is both:</text>
+
+  <g>
+    <rect x="214" y="408" width="190" height="42" rx="21" fill="#1d1830" stroke="#a78bfa" stroke-width="1.8"/>
+    <text x="309" y="434" font-size="13" fill="#c4b5fd" text-anchor="middle">generate candidates</text>
+
+    <line x1="412" y1="429" x2="452" y2="429" stroke="#4a5f72" stroke-width="2" marker-end="url(#d-arrow)"/>
+
+    <rect x="460" y="408" width="190" height="42" rx="21" fill="#132532" stroke="#38bdf8" stroke-width="1.8"/>
+    <text x="555" y="434" font-size="13" fill="#7dd3fc" text-anchor="middle">score them</text>
+
+    <line x1="658" y1="429" x2="698" y2="429" stroke="#4a5f72" stroke-width="2" marker-end="url(#d-arrow)"/>
+
+    <rect x="706" y="408" width="250" height="42" rx="21" fill="#14323a" stroke="#2dd4bf" stroke-width="1.8"/>
+    <text x="831" y="434" font-size="13" fill="#5eead4" text-anchor="middle">measure only the survivors</text>
+  </g>
+
+  <text x="984" y="434" font-size="13" fill="#fb923c">The experimental budget is the scarce thing, not the compute.</text>
+</svg>
