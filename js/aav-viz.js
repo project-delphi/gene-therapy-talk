@@ -776,6 +776,7 @@ function shuffle({ host, cap }, w, h) {
   const v3 = new THREE.Vector3();
   const noRot = new THREE.Quaternion();
   const ONE = new THREE.Vector3(1, 1, 1);
+  const ZERO = new THREE.Vector3(0, 0, 0);
   const X0 = -(SEG - 1) / 2 * SW;
 
   // Parent rows, fixed.
@@ -821,7 +822,7 @@ function shuffle({ host, cap }, w, h) {
       for (let i = 0; i < SEG; i++) {
         const on = i < shown && assignment[i] === pi;
         v3.set(X0 + i * SW, CY, 0);
-        m4.compose(v3, noRot, on ? ONE : new THREE.Vector3(0, 0, 0));
+        m4.compose(v3, noRot, on ? ONE : ZERO);
         row.setMatrixAt(i, m4);
       }
       row.instanceMatrix.needsUpdate = true;
@@ -1288,7 +1289,19 @@ function observe(revealInstance) {
       const inst = live.get(el);
       // Resize against the host, not the stage: the caption band sits outside
       // the renderer's box.
-      if (inst) inst.resize(inst.host.clientWidth, inst.host.clientHeight);
+      if (inst) {
+        inst.resize(inst.host.clientWidth, inst.host.clientHeight);
+        // setSize can rewrite canvas.width/height, which clears the drawing
+        // buffer. An animating stage repaints on the next frame; a one-shot
+        // stage — print-pdf, prefers-reduced-motion, a backgrounded tab —
+        // halts after a single paint and would keep the cleared buffer.
+        // Chrome does not appear to clear it when the dimensions are
+        // unchanged, and the print-pdf export measured fully painted with and
+        // without this line, so treat it as a guard for the case where a
+        // one-shot stage really does change size, not as a fix for an
+        // observed blank export.
+        if (!inst.running) inst.frame(0, true);
+      }
       // First time this container has had a real size — if its slide is
       // showing, this is the moment the viz can actually be built.
       else sync(revealInstance);

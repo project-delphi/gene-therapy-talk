@@ -522,7 +522,12 @@ def render(meta, slides: list[Slide], theme: Theme, repo: Path, out: Path,
         keep = set(only)
         missing = keep - {s.title for s in slides}
         if missing:
-            raise SystemExit(f"unknown slide titles in the short deck: {sorted(missing)}")
+            # Headings get rewritten. Exiting here took the other two decks and
+            # every PDF down with the short cut, and made the caller's softer
+            # "the 10-minute cut will be short" warning a lie. Build what is
+            # still there and say what was dropped.
+            print(f"  !  short deck names {len(missing)} slide(s) that no longer exist: "
+                  f"{', '.join(repr(t) for t in sorted(missing))}")
         slides = [s for s in slides if s.title in keep]
 
     # --- title slide

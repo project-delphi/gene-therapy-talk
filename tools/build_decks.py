@@ -33,20 +33,30 @@ SOFFICE = "/Applications/LibreOffice.app/Contents/MacOS/soffice"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
 # The 10-minute cut: 12 content slides plus the closing question slide. Titles
-# are matched against the headings in index.qmd.
+# are matched against the headings in index.qmd, so this list has to be
+# re-synced whenever those are rewritten — `main()` checks and warns.
+#
+# Only slides that survive deckmodel's `.webonly` filter can be named here;
+# anything built around a live WebGL stage never reaches the .pptx. That rules
+# out the search-space, shuffling, VAE and ITR visualisations, so the cut
+# carries their argument through the static slides either side.
+#
+# The order below follows the talk's spine: the defect is why AAV is a vector,
+# being a vector cost integration, episomal means one shot, the dose is capped,
+# and potency per particle is the only lever that moves.
 SHORT_DECK = [
-    "Gene Therapy",
-    "Adeno Associated Virus",
-    "AAV Approved Medicines",
-    "Viral Vector Gene Therapy: Problems",
-    "Solver: Machine Directed Evolution",
-    "AAV Genome Modules",
-    "Infeasible: Search Space",
-    "Discriminative vs Generative Learning",
-    "Capsid Engineering: Machine Learning",
-    "Promoter Engineering",
-    "ITR Engineering",
-    "Considerations",
+    "Delandistrogene moxeparvovec",
+    "Defective by design",
+    "The budget decides the medicine",
+    "From the needle to the cell",
+    "Why expression fades",
+    "The therapeutic window",
+    "Three modules",
+    "What shuffling produced",
+    "Discriminative or generative",
+    "What deep mutational scanning measures",
+    "Machine-guided capsid design",
+    "Where this goes",
     "Questions",
 ]
 
