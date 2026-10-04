@@ -1,23 +1,33 @@
 /*-- scss:defaults --*/
 
 // ---------------------------------------------------------------------------
-// Ported 1:1 from the "Simple Dark" theme of the original gene_therapy.pptx.
-// The hex values below are the literal <a:clrScheme> entries from
-// ppt/theme/theme1.xml, so the deck keeps the colours it was authored with.
+// The deck started as a 1:1 port of the "Simple Dark" PowerPoint theme — flat
+// #212121 behind grey #ADADAD text with a single teal accent. That palette was
+// doing nothing for a talk whose whole argument is visual, so this is a
+// rebuild: a cooler, deeper ground, lifted body text for contrast, and a set
+// of accents rather than one.
 //
-//   lt1     #212121  slide background
-//   dk1     #FFFFFF  headings
-//   lt2     #ADADAD  body text and bullet glyphs
-//   accent1 #009688  teal accent
-//   hlink   #4DD0E1  hyperlinks
+// Each act of the deck takes one accent, so colour carries structure instead
+// of decoration. The hues are chosen to stay distinguishable when a projector
+// crushes the blacks.
 // ---------------------------------------------------------------------------
 
-$gt-bg:      #212121;
-$gt-heading: #ffffff;
-$gt-body:    #adadad;
-$gt-accent:  #009688;
-$gt-accent-bright: #26a69a; // accent1 lifted for text-on-dark contrast
-$gt-link:    #4dd0e1;
+$gt-bg:      #0b0f14;  // deep blue-black; reads darker and richer than neutral grey
+$gt-surface: #121a23;  // panels and inset blocks
+$gt-heading: #f2f7fa;
+$gt-body:    #9fb3c8;  // cool grey-blue — more contrast against the ground
+$gt-muted:   #6d8aa3;
+
+// Accent set. $gt-accent stays the deck's signature teal.
+$gt-accent:        #14b8a6;
+$gt-accent-bright: #2dd4bf;
+$gt-cyan:          #38bdf8;
+$gt-violet:        #a78bfa;
+$gt-magenta:       #f472b6;
+$gt-amber:         #fbbf24;
+$gt-coral:         #fb7185;
+$gt-green:         #4ade80;
+$gt-link:          $gt-cyan;
 
 $body-bg:   $gt-bg;
 $body-color: $gt-body;
@@ -44,7 +54,7 @@ $presentation-h3-font-size: 1.15em;
 $presentation-h4-font-size: 1.0em;
 $presentation-line-height: 1.15;     // pptx <a:lnSpc> 115%
 
-$code-color: #80cbc4;
+$code-color: #5eead4;
 
 
 /*-- scss:rules --*/
@@ -53,6 +63,32 @@ $code-color: #80cbc4;
 // page as untreated light content and rewrites the authored colours.
 :root {
   color-scheme: dark;
+}
+
+// A flat fill reads as "slide software". Two very low-opacity pools of colour
+// give the ground some depth without competing with anything on top of it.
+.reveal-viewport {
+  background-color: $gt-bg;
+  background-image:
+    radial-gradient(ellipse 70% 50% at 12% 0%, rgba(20, 184, 166, 0.10), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 92% 104%, rgba(167, 139, 250, 0.10), transparent 60%);
+  background-attachment: fixed;
+}
+
+// --- Act accents -----------------------------------------------------------
+// One accent per act, set as a custom property on the slide and picked up by
+// the title rule, the emphasis lines and the figures-of-merit.
+
+.reveal .slides section {
+  --k: #{$gt-accent-bright};
+
+  &.k-teal    { --k: #{$gt-accent-bright}; }
+  &.k-cyan    { --k: #{$gt-cyan}; }
+  &.k-violet  { --k: #{$gt-violet}; }
+  &.k-magenta { --k: #{$gt-magenta}; }
+  &.k-amber   { --k: #{$gt-amber}; }
+  &.k-coral   { --k: #{$gt-coral}; }
+  &.k-green   { --k: #{$gt-green}; }
 }
 
 .reveal {
@@ -87,7 +123,7 @@ $code-color: #80cbc4;
 
   .slide-number {
     background: none;
-    color: rgba(173, 173, 173, 0.55);
+    color: rgba(159, 179, 200, 0.55);
     font-size: 0.6em;
   }
 
@@ -112,11 +148,24 @@ $code-color: #80cbc4;
   &::after {
     content: "";
     display: block;
-    width: 3.2em;
-    height: 2px;
+    width: 4.2em;
+    height: 3px;
     margin: 0.45em auto 0;
-    background: $gt-accent;
+    border-radius: 2px;
+    background: linear-gradient(90deg, transparent, var(--k, #{$gt-accent-bright}), transparent);
   }
+}
+
+// Content slides get the same accent as a short rule under the title, so the
+// act you are in is readable at a glance from the back of the room.
+.reveal .slides section > h2::after {
+  content: "";
+  display: block;
+  width: 2.2em;
+  height: 3px;
+  margin: 0.3em 0 0;
+  border-radius: 2px;
+  background: var(--k, #{$gt-accent-bright});
 }
 
 // --- Title slide -----------------------------------------------------------
@@ -150,11 +199,11 @@ $code-color: #80cbc4;
   left: 0;
   margin: 0;
   font-size: 0.45em;
-  color: rgba(173, 173, 173, 0.75);
+  color: rgba(159, 179, 200, 0.7);
 
   a {
-    color: rgba(173, 173, 173, 0.75);
-    border-bottom: 1px dotted rgba(173, 173, 173, 0.4);
+    color: rgba(159, 179, 200, 0.7);
+    border-bottom: 1px dotted rgba(159, 179, 200, 0.35);
   }
 
   a:hover { color: $gt-link; border-bottom-color: $gt-link; }
@@ -164,7 +213,7 @@ $code-color: #80cbc4;
 // The original used bold "!!!...!!!" lines as shouted takeaways.
 
 .reveal .bang {
-  color: $gt-accent-bright;
+  color: var(--k, #{$gt-accent-bright});
   font-weight: bold;
 }
 
@@ -174,32 +223,32 @@ $code-color: #80cbc4;
   align-items: flex-start;
 }
 
-// A column holding only figures. The slide body is roughly 660px tall in
-// reveal's 1600x900 space, so the per-image cap shrinks as figures stack up —
-// otherwise each one claims its natural height and runs off the slide.
+// A column holding stacked figures. The earlier version of this file sized
+// images with a :has(:nth-child(n)) ladder, which silently mis-sized every
+// figure as soon as a column gained or lost one. Flexbox does the same job
+// without encoding the child count: the column shares its height out, and
+// each image contains itself inside whatever share it gets.
 .reveal .figstack {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  max-height: 700px;
 
-  > * { margin: 0 0 10px; }
+  > * { margin: 0; min-height: 0; }
 
   img {
-    max-height: 700px;
+    max-height: 100%;
     max-width: 100%;
     margin: 0;
+    object-fit: contain;
   }
 }
 
-// Measured against the ~765px of slide left below an h2 title.
-.reveal .figstack:has(> :nth-child(2)) img { max-height: 340px; }
-.reveal .figstack:has(> :nth-child(3)) img { max-height: 220px; }
+.reveal .figspot { flex: 0 0 auto; img { max-height: 95px; } }
 
-// An incidental decorative image stays small instead of claiming an equal
-// share of the stack, which buys the real figures back some height.
-.reveal .figstack:has(> .figspot) > p img { max-height: 275px; }
-.reveal .figstack .figspot img { max-height: 95px; }
-
-// A slide whose only content is one figure. The pptx scaled these well past
-// their pixel size too, so filling the width here matches the original.
+// A slide whose only content is one figure.
 .reveal .fig-full {
   text-align: center;
 
@@ -213,12 +262,261 @@ $code-color: #80cbc4;
 // Opt-in: let a figure fill the width of its column.
 .reveal .fill img { width: 100%; height: auto; }
 
+// --- Authored diagrams -----------------------------------------------------
+// The SVGs in assets/diagrams are drawn at 1400px wide against this deck's
+// palette. They carry real detail, so they get more width than .fig-full.
+
+.reveal .diagram {
+  text-align: center;
+  margin: 0;
+
+  img {
+    width: 100%;
+    max-width: 1480px;
+    height: auto;
+    max-height: 650px;
+    margin: 0 auto;
+  }
+
+  p { margin: 0; }
+}
+
+// --- Visualisation stages --------------------------------------------------
+// Containers for the WebGL and molecular renders. Height is set per slide;
+// the runtime refuses to build until the box reports a non-zero size.
+
+// The caption gets its own band at the foot of the stage and the renderer
+// gets everything above it. Overlaying the caption on the canvas covered the
+// bottom of whatever it was captioning.
+// Absolute, because the host and the caption inherit different font sizes —
+// the same em value resolves to two different heights and leaves a gap.
+$viz-caption-band: 46px;
+
+.reveal .viz-stage {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 6px;
+
+  canvas { display: block; outline: none; }
+}
+
+.reveal .viz-host {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: $viz-caption-band;
+
+  // NGL builds its own wrapper inside whatever element it is given, and it has
+  // to be stretched to the host. The projected labels are direct div children
+  // of the host too, so they must be excluded — without the :not() they were
+  // forced to the host's full box and translate(-100%) threw every
+  // left-anchored row label clean off the stage.
+  > div:not(.viz-label) { width: 100% !important; height: 100% !important; }
+}
+
+.reveal .viz-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: $viz-caption-band;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.8em;
+  font-size: 0.4em;
+  line-height: 1.25;
+  color: rgba(186, 230, 253, 0.85);
+  text-align: center;
+  pointer-events: none;
+}
+
+// The band is always reserved, even while the caption is still empty. Letting
+// the host grow into it and shrink back when the first caption text arrives
+// would resize the renderer behind its back — the ResizeObserver watches the
+// stage, whose size does not change when only the caption does.
+
+// Labels projected from scene geometry onto the stage. Positioned in px by the
+// runtime; the transform centres them on that point.
+.reveal .viz-label {
+  position: absolute;
+  // Absolutely-positioned blocks here were filling the host rather than
+  // shrink-wrapping, which sent translate(-100%) a thousand pixels off-stage.
+  // The :not(.viz-label) on the host's stretch rule above is what keeps this
+  // working — it loses to a !important width otherwise.
+  width: max-content;
+  transform: translate(-50%, 0);
+  text-align: center;
+  line-height: 1.2;
+  white-space: nowrap;
+  pointer-events: none;
+
+  .viz-label-name {
+    display: block;
+    font-size: 0.38em;
+    font-weight: bold;
+  }
+
+  .viz-label-sub {
+    display: block;
+    font-size: 0.32em;
+    color: $gt-muted;
+  }
+}
+
+.reveal .viz-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed rgba(159, 179, 200, 0.28);
+
+  p { font-size: 0.5em; color: rgba(159, 179, 200, 0.7); }
+  img { width: 100%; height: 100%; object-fit: contain; }
+}
+
+// --- Act breaks ------------------------------------------------------------
+// Section dividers used to be a single centred noun. They now carry one
+// sentence of thesis, so they need room for it.
+
+.reveal .slides section.act {
+  p {
+    max-width: 24em;
+    margin: 1.1em auto 0;
+    font-size: 0.62em;
+    line-height: 1.35;
+    color: $gt-body;
+    text-align: center;
+  }
+}
+
+// --- Content helpers -------------------------------------------------------
+
+// Four-up comparison columns carry more text per column than a two-up.
+.reveal .quad {
+  font-size: 0.68em;
+
+  .column { padding-right: 1.1em; }
+  strong { color: $gt-heading; }
+  p { margin-bottom: 0.7em; }
+}
+
+// A single figure of merit, called out under a block of prose.
+.reveal .metric {
+  display: inline-block;
+  margin-top: 0.2em;
+  color: var(--k, #{$gt-accent-bright});
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.reveal .smaller { font-size: 0.62em; }
+
 // --- Density helpers -------------------------------------------------------
 
-// The sequencing-workflow slide was set at 12pt against the deck's 18pt body.
 .reveal .tight {
   font-size: 0.72em;
 
   ul { line-height: 1.1; }
   li { margin-bottom: 0.05em; }
 }
+
+// --- References ------------------------------------------------------------
+// citeproc emits the bibliography into #refs as hanging-indent divs.
+
+.reveal #refs {
+  font-size: 0.46em;
+  line-height: 1.35;
+  column-count: 2;
+  column-gap: 2.2em;
+  text-align: left;
+
+  .csl-entry {
+    margin-bottom: 0.55em;
+    break-inside: avoid;
+  }
+
+  a { color: rgba(56, 189, 248, 0.85); }
+}
+
+// In-slide citation markers stay quiet; the .cite line remains the visible
+// attribution and the bibliography carries the detail.
+.reveal .cite .csl-entry { display: inline; }
+
+// Left-anchored variant for row labels.
+.reveal .viz-label.left {
+  transform: translate(-100%, -50%);
+  text-align: right;
+  padding-right: 0.4em;
+}
+
+// --- Portraits and historical plates ---------------------------------------
+
+.reveal .portrait-row {
+  display: flex;
+  gap: 1.1em;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 0.3em;
+}
+
+.reveal .portrait {
+  text-align: center;
+  flex: 0 1 auto;
+
+  img {
+    display: block;
+    width: 100%;
+    max-width: 210px;
+    // Source portraits arrive at whatever crop the photographer chose; forcing
+    // one ratio keeps a row of them aligned.
+    aspect-ratio: 4 / 5;
+    height: auto;
+    object-fit: cover;
+    object-position: 50% 25%;
+    max-height: none;
+    margin: 0 auto 0.35em;
+    border-radius: 10px;
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.5);
+  }
+
+  .portrait-name { display: block; font-size: 0.4em; color: $gt-heading; font-weight: bold; }
+  .portrait-role { display: block; font-size: 0.34em; color: $gt-muted; line-height: 1.3; }
+}
+
+// A 19th-century plate on a dark ground needs its own light card, or it reads
+// as a scanning artefact rather than a figure.
+.reveal .plate {
+  text-align: center;
+
+  img {
+    display: block;
+    width: 100%;
+    max-width: 560px;
+    height: auto;
+    margin: 0 auto;
+    padding: 0.5em;
+    border-radius: 8px;
+    background: #ece4d8;
+  }
+}
+
+// Where no freely-licensed photograph exists, a typographic card rather than
+// an empty slot.
+.reveal .namecard {
+  display: inline-block;
+  padding: 0.7em 1.1em;
+  border-radius: 10px;
+  border: 1px solid rgba(159, 179, 200, 0.25);
+  background: rgba(18, 26, 35, 0.75);
+  text-align: left;
+
+  .namecard-name { display: block; font-size: 0.52em; color: $gt-heading; font-weight: bold; }
+  .namecard-role { display: block; font-size: 0.36em; color: var(--k, #{$gt-accent-bright}); margin-top: 0.15em; }
+}
+
+// Pandoc wraps each image and caption in its own paragraph; the portrait card
+// controls its own spacing.
+.reveal .portrait p,
+.reveal .plate p { margin: 0; }

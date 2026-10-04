@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 560" width="1400" height="560"
+     font-family="Arial, Helvetica, sans-serif" role="img"
+     aria-label="The rAAV downstream purification train: clarification, affinity capture on camelid VHH resin, anion-exchange polishing to separate full from empty capsids, and tangential flow filtration into the formulation buffer, followed by the critical quality attributes measured on the final product.">
+  <defs>
+    <marker id="flow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 z" fill="#2dd4bf"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="48" fill="#f2f7fa" font-size="20">Downstream — isolating intact, genome-containing capsids</text>
+
+  <g>
+    <!-- 1 -->
+    <rect x="40" y="74" width="300" height="170" rx="8" fill="#121a23" stroke="#2b3a48"/>
+    <text x="60" y="106" fill="#2dd4bf" font-size="15">1 · Clarification</text>
+    <text x="60" y="132" fill="#c5d6e4" font-size="13.5">Depth filtration after lysis</text>
+    <text x="60" y="154" fill="#c5d6e4" font-size="13.5">and nuclease treatment</text>
+    <text x="60" y="186" fill="#6d8aa3" font-size="12.5">Removes cells, debris,</text>
+    <text x="60" y="204" fill="#6d8aa3" font-size="12.5">digested host nucleic acid</text>
+
+    <!-- 2 -->
+    <rect x="368" y="74" width="300" height="170" rx="8" fill="#121a23" stroke="#2b3a48"/>
+    <text x="388" y="106" fill="#2dd4bf" font-size="15">2 · Affinity capture</text>
+    <text x="388" y="132" fill="#c5d6e4" font-size="13.5">Camelid VHH resin —</text>
+    <text x="388" y="154" fill="#c5d6e4" font-size="13.5">CaptureSelect AAVX / AAV9</text>
+    <text x="388" y="186" fill="#6d8aa3" font-size="12.5">Removes &gt;99% of host cell</text>
+    <text x="388" y="204" fill="#6d8aa3" font-size="12.5">protein. Captures all capsids —</text>
+
+    <!-- 3 -->
+    <rect x="696" y="74" width="300" height="170" rx="8" fill="#121a23" stroke="#fb923c" stroke-width="1.8"/>
+    <text x="716" y="106" fill="#fb923c" font-size="15">3 · Polishing</text>
+    <text x="716" y="132" fill="#c5d6e4" font-size="13.5">Strong anion exchange</text>
+    <text x="716" y="154" fill="#c5d6e4" font-size="13.5">gradient elution</text>
+    <text x="716" y="186" fill="#6d8aa3" font-size="12.5">Separates full from empty on</text>
+    <text x="716" y="204" fill="#6d8aa3" font-size="12.5">the charge the packaged</text>
+
+    <!-- 4 -->
+    <rect x="1024" y="74" width="300" height="170" rx="8" fill="#121a23" stroke="#2b3a48"/>
+    <text x="1044" y="106" fill="#2dd4bf" font-size="15">4 · TFF (UF/DF)</text>
+    <text x="1044" y="132" fill="#c5d6e4" font-size="13.5">100 kDa MWCO membrane</text>
+    <text x="1044" y="154" fill="#c5d6e4" font-size="13.5">Concentrate and buffer-exchange</text>
+    <text x="1044" y="186" fill="#6d8aa3" font-size="12.5">Into formulation buffer with</text>
+    <text x="1044" y="204" fill="#6d8aa3" font-size="12.5">poloxamer 188 against aggregation</text>
+  </g>
+
+  <!-- trailing clauses that would have overflowed their boxes -->
+  <text x="388" y="222" fill="#6d8aa3" font-size="12.5">full and empty alike</text>
+  <text x="716" y="222" fill="#6d8aa3" font-size="12.5">genome adds</text>
+
+  <g stroke="#2dd4bf" stroke-width="2.5" marker-end="url(#flow)">
+    <line x1="342" y1="159" x2="362" y2="159"/>
+    <line x1="670" y1="159" x2="690" y2="159"/>
+    <line x1="998" y1="159" x2="1018" y2="159"/>
+  </g>
+
+  <text x="40" y="282" fill="#6d8aa3" font-size="13">
+    CsCl and iodixanol gradients do the step 3 job at small scale, but ultracentrifugation does not scale to commercial batches.
+  </text>
+
+  <!-- CQAs -->
+  <line x1="40" y1="312" x2="1360" y2="312" stroke="#1e2a36"/>
+  <text x="40" y="346" fill="#f2f7fa" font-size="20">Critical quality attributes on the final product</text>
+
+  <g font-size="13.5">
+    <rect x="40" y="366" width="420" height="146" rx="8" fill="#101821" stroke="#2b3a48"/>
+    <text x="60" y="394" fill="#38bdf8" font-size="15">Potency and content</text>
+    <text x="60" y="420" fill="#c5d6e4">Vector genome titer — ddPCR or qPCR</text>
+    <text x="60" y="442" fill="#c5d6e4">Capsid particle titer — ELISA or HPLC</text>
+    <text x="60" y="464" fill="#c5d6e4">Infectious titer and relative potency</text>
+    <text x="60" y="490" fill="#6d8aa3" font-size="12.5">Potency assays are where regulators push hardest</text>
+
+    <rect x="488" y="366" width="420" height="146" rx="8" fill="#101821" stroke="#fb923c"/>
+    <text x="508" y="394" fill="#fb923c" font-size="15">Full : empty ratio</text>
+    <text x="508" y="420" fill="#c5d6e4">Analytical ultracentrifugation</text>
+    <text x="508" y="442" fill="#c5d6e4">Mass photometry · charge-detection MS</text>
+    <text x="508" y="464" fill="#c5d6e4">SEC-MALS</text>
+    <text x="508" y="490" fill="#6d8aa3" font-size="12.5">Empty capsids are antigen without benefit</text>
+
+    <rect x="936" y="366" width="424" height="146" rx="8" fill="#101821" stroke="#2b3a48"/>
+    <text x="956" y="394" fill="#38bdf8" font-size="15">Safety and purity</text>
+    <text x="956" y="420" fill="#c5d6e4">Replication-competent AAV (rcAAV)</text>
+    <text x="956" y="442" fill="#c5d6e4">Residual host-cell DNA and protein</text>
+    <text x="956" y="464" fill="#c5d6e4">Residual plasmid or baculovirus sequence</text>
+    <text x="956" y="490" fill="#c5d6e4">Endotoxin · sterility · VP1:VP2:VP3 ≈ 1:1:10</text>
+  </g>
+</svg>

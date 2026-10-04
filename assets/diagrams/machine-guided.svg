@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 560" width="1400" height="560"
+     font-family="Arial, Helvetica, sans-serif" role="img"
+     aria-label="Machine-guided capsid design. On the left, what changed is the input: before, nine natural serotypes; now, a comprehensive measured landscape covering every single substitution across VP1, with a fitness value for each. On the right, a schematic plot of the fraction of a library that remains viable against the number of substitutions from wild type: random mutagenesis collapses within a few substitutions, while a model-designed library stays viable much further out, and the gap between them is the gain. Underneath, a four-step loop — measure, fit, design, measure again — notes that the win is not one better capsid but a map that makes the next one cheaper. The plot is marked schematic.">
+  <defs>
+    <marker id="g-arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 z" fill="#4a5f72"/>
+    </marker>
+    <marker id="g-arrow-teal" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 z" fill="#2dd4bf"/>
+    </marker>
+    <linearGradient id="g-gain" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#2dd4bf" stop-opacity="0.26"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0.04"/>
+    </linearGradient>
+  </defs>
+
+  <text x="40" y="30" font-size="13" fill="#9fb3c8">Nothing clever happened to the model. The input changed from nine examples to a measured landscape.</text>
+
+  <!-- ===================== left: the input ===================== -->
+  <rect x="40" y="56" width="560" height="306" rx="10" fill="#101820" stroke="#2b3a48"/>
+  <text x="66" y="90" font-size="15.5" fill="#f2f7fa">What the model is fitted to</text>
+
+  <!-- before -->
+  <text x="66" y="124" font-size="12.5" fill="#9fb3c8">Before — nine natural serotypes</text>
+  <g>
+    <rect x="66"  y="136" width="40" height="11" rx="2" fill="#2dd4bf"/>
+    <rect x="112" y="136" width="40" height="11" rx="2" fill="#38bdf8"/>
+    <rect x="158" y="136" width="40" height="11" rx="2" fill="#a78bfa"/>
+    <rect x="204" y="136" width="40" height="11" rx="2" fill="#f472b6"/>
+    <rect x="250" y="136" width="40" height="11" rx="2" fill="#fbbf24"/>
+    <rect x="296" y="136" width="40" height="11" rx="2" fill="#fb7185"/>
+    <rect x="342" y="136" width="40" height="11" rx="2" fill="#4ade80"/>
+    <rect x="388" y="136" width="40" height="11" rx="2" fill="#22d3ee"/>
+    <rect x="434" y="136" width="40" height="11" rx="2" fill="#fb923c"/>
+  </g>
+  <text x="490" y="146" font-size="12" fill="#fb7185">nine points</text>
+  <text x="66" y="172" font-size="11.5" fill="#6d8299">A handful of survivors, all of them winners. Nothing about where viability ends.</text>
+
+  <line x1="66" y1="192" x2="574" y2="192" stroke="#1d2935" stroke-width="2"/>
+
+  <!-- now -->
+  <text x="66" y="222" font-size="12.5" fill="#9fb3c8">Now — every single substitution across VP1, each with a measured fitness</text>
+  <g>
+    <rect x="66"  y="236" width="6" height="26" fill="#4ade80"/><rect x="74"  y="236" width="6" height="26" fill="#fb7185"/>
+    <rect x="82"  y="236" width="6" height="26" fill="#fbbf24"/><rect x="90"  y="236" width="6" height="26" fill="#fb7185"/>
+    <rect x="98"  y="236" width="6" height="26" fill="#fb7185"/><rect x="106" y="236" width="6" height="26" fill="#4ade80"/>
+    <rect x="114" y="236" width="6" height="26" fill="#fbbf24"/><rect x="122" y="236" width="6" height="26" fill="#fb7185"/>
+    <rect x="130" y="236" width="6" height="26" fill="#4ade80"/><rect x="138" y="236" width="6" height="26" fill="#fb7185"/>
+    <rect x="146" y="236" width="6" height="26" fill="#fb7185"/><rect x="154" y="236" width="6" height="26" fill="#fbbf24"/>
+    <rect x="162" y="236" width="6" height="26" fill="#4ade80"/><rect x="170" y="236" width="6" height="26" fill="#fb7185"/>
+    <rect x="178" y="236" width="6" height="26" fill="#fbbf24"/><rect x="186" y="236" width="6" height="26" fill="#fb7185"/>
+    <rect x="194" y="236" width="6" height="26" fill="#4ade80"/><rect x="202" y="236" width="6" height="26" fill="#4ade80"/>
+    <rect x="210" y="236" width="6" height="26" fill="#fb7185"/><rect x="218" y="236" width="6" height="26" fill="#fbbf24"/>
+    <rect x="226" y="236" width="6" height="26" fill="#fb7185"/><rect x="234" y="236" width="6" height="26" fill="#fb7185"/>
+    <rect x="242" y="236" width="6" height="26" fill="#4ade80"/><rect x="250" y="236" width="6" height="26" fill="#fbbf24"/>
+    <rect x="258" y="236" width="6" height="26" fill="#fb7185"/><rect x="266" y="236" width="6" height="26" fill="#4ade80"/>
+    <rect x="274" y="236" width="6" height="26" fill="#fb7185"/><rect x="282" y="236" width="6" height="26" fill="#fbbf24"/>
+    <rect x="290" y="236" width="6" height="26" fill="#fb7185"/><rect x="298" y="236" width="6" height="26" fill="#fb7185"/>
+    <rect x="306" y="236" width="6" height="26" fill="#4ade80"/><rect x="314" y="236" width="6" height="26" fill="#fbbf24"/>
+    <rect x="322" y="236" width="6" height="26" fill="#fb7185"/><rect x="330" y="236" width="6" height="26" fill="#4ade80"/>
+    <rect x="338" y="236" width="6" height="26" fill="#fb7185"/><rect x="346" y="236" width="6" height="26" fill="#fb7185"/>
+    <rect x="354" y="236" width="6" height="26" fill="#fbbf24"/><rect x="362" y="236" width="6" height="26" fill="#4ade80"/>
+    <rect x="370" y="236" width="6" height="26" fill="#fb7185"/><rect x="378" y="236" width="6" height="26" fill="#fbbf24"/>
+    <rect x="386" y="236" width="6" height="26" fill="#fb7185"/><rect x="394" y="236" width="6" height="26" fill="#4ade80"/>
+    <rect x="402" y="236" width="6" height="26" fill="#fb7185"/><rect x="410" y="236" width="6" height="26" fill="#fb7185"/>
+    <rect x="418" y="236" width="6" height="26" fill="#fbbf24"/><rect x="426" y="236" width="6" height="26" fill="#fb7185"/>
+    <rect x="434" y="236" width="6" height="26" fill="#4ade80"/><rect x="442" y="236" width="6" height="26" fill="#fbbf24"/>
+    <rect x="450" y="236" width="6" height="26" fill="#fb7185"/><rect x="458" y="236" width="6" height="26" fill="#4ade80"/>
+    <rect x="466" y="236" width="6" height="26" fill="#fb7185"/><rect x="474" y="236" width="6" height="26" fill="#fb7185"/>
+    <rect x="482" y="236" width="6" height="26" fill="#fbbf24"/><rect x="490" y="236" width="6" height="26" fill="#fb7185"/>
+    <rect x="498" y="236" width="6" height="26" fill="#4ade80"/><rect x="506" y="236" width="6" height="26" fill="#fb7185"/>
+    <rect x="514" y="236" width="6" height="26" fill="#fbbf24"/><rect x="522" y="236" width="6" height="26" fill="#fb7185"/>
+    <rect x="530" y="236" width="6" height="26" fill="#4ade80"/><rect x="538" y="236" width="6" height="26" fill="#fb7185"/>
+    <rect x="546" y="236" width="6" height="26" fill="#fbbf24"/><rect x="554" y="236" width="6" height="26" fill="#4ade80"/>
+    <rect x="562" y="236" width="6" height="26" fill="#fb7185"/><rect x="570" y="236" width="6" height="26" fill="#fb7185"/>
+  </g>
+  <line x1="66" y1="270" x2="576" y2="270" stroke="#44586b" stroke-width="1.2"/>
+  <text x="66"  y="286" font-size="11" fill="#6d8299">VP1 residue 1</text>
+  <text x="576" y="286" font-size="11" fill="#6d8299" text-anchor="end">735</text>
+  <text x="66" y="318" font-size="11.5" fill="#6d8299">Including every dead one — which is what tells the model where the edges are.</text>
+
+  <!-- ===================== right: what it buys ===================== -->
+  <rect x="640" y="56" width="720" height="306" rx="10" fill="#101820" stroke="#2b3a48"/>
+  <text x="666" y="90" font-size="15.5" fill="#f2f7fa">What it buys: viable variants further from wild type</text>
+
+  <!-- axes -->
+  <line x1="700" y1="300" x2="1320" y2="300" stroke="#44586b" stroke-width="1.5"/>
+  <line x1="700" y1="112" x2="700"  y2="300" stroke="#44586b" stroke-width="1.5"/>
+  <text x="1010" y="334" font-size="13" fill="#9fb3c8" text-anchor="middle">substitutions from wild type</text>
+  <text x="672" y="206" font-size="13" fill="#9fb3c8" text-anchor="middle" transform="rotate(-90 672 206)">fraction of the library that still works</text>
+  <g font-size="11" fill="#6d8aa3">
+    <text x="692" y="304" text-anchor="end">0</text>
+    <text x="692" y="118" text-anchor="end">all</text>
+  </g>
+  <g stroke="#44586b">
+    <line x1="700" y1="300" x2="694" y2="300"/><line x1="700" y1="112" x2="694" y2="112"/>
+    <line x1="855"  y1="300" x2="855"  y2="306"/><line x1="1010" y1="300" x2="1010" y2="306"/>
+    <line x1="1165" y1="300" x2="1165" y2="306"/><line x1="1320" y1="300" x2="1320" y2="306"/>
+  </g>
+  <g font-size="11" fill="#6d8aa3" text-anchor="middle">
+    <text x="855" y="320">few</text><text x="1165" y="320">many</text>
+  </g>
+
+  <!-- the gain between the two curves -->
+  <path d="M700,118 C820,140 900,208 980,262 C1060,292 1180,298 1320,299
+           L1320,297 C1180,284 1070,246 990,186 C900,136 820,120 700,116 Z"
+        fill="url(#g-gain)"/>
+
+  <!-- random mutagenesis -->
+  <path d="M700,118 C820,140 900,208 980,262 C1060,292 1180,298 1320,299"
+        fill="none" stroke="#fb923c" stroke-width="3"/>
+  <line x1="836" y1="282" x2="876" y2="224" stroke="#fb923c" stroke-width="1.3"/>
+  <text x="754" y="296" font-size="13.5" fill="#fb923c">random mutagenesis</text>
+
+  <!-- model-designed -->
+  <path d="M700,116 C820,120 900,136 990,186 C1070,246 1180,284 1320,297"
+        fill="none" stroke="#2dd4bf" stroke-width="3"/>
+  <text x="1046" y="162" font-size="13.5" fill="#2dd4bf">model-designed library</text>
+
+  <text x="930" y="196" font-size="12.5" fill="#5eead4">the gain</text>
+
+  <text x="666" y="352" font-size="11.5" fill="#6d8299">Schematic. The shape is the result — the axes carry no numbers because the exact fractions depend on library, assay and serotype.</text>
+
+  <!-- ===================== the loop ===================== -->
+  <text x="40" y="412" font-size="13" fill="#9fb3c8">It compounds — each round is also a measurement:</text>
+
+  <g>
+    <rect x="392" y="392" width="150" height="40" rx="20" fill="#121a23" stroke="#2dd4bf" stroke-width="1.8"/>
+    <text x="467" y="417" font-size="13" fill="#5eead4" text-anchor="middle">measure a library</text>
+    <line x1="550" y1="412" x2="586" y2="412" stroke="#4a5f72" stroke-width="2" marker-end="url(#g-arrow)"/>
+
+    <rect x="594" y="392" width="124" height="40" rx="20" fill="#1d1830" stroke="#a78bfa" stroke-width="1.8"/>
+    <text x="656" y="417" font-size="13" fill="#c4b5fd" text-anchor="middle">fit a model</text>
+    <line x1="726" y1="412" x2="762" y2="412" stroke="#4a5f72" stroke-width="2" marker-end="url(#g-arrow)"/>
+
+    <rect x="770" y="392" width="170" height="40" rx="20" fill="#132532" stroke="#38bdf8" stroke-width="1.8"/>
+    <text x="855" y="417" font-size="13" fill="#7dd3fc" text-anchor="middle">design the next library</text>
+    <line x1="948" y1="412" x2="984" y2="412" stroke="#4a5f72" stroke-width="2" marker-end="url(#g-arrow)"/>
+
+    <rect x="992" y="392" width="150" height="40" rx="20" fill="#121a23" stroke="#2dd4bf" stroke-width="1.8"/>
+    <text x="1067" y="417" font-size="13" fill="#5eead4" text-anchor="middle">measure it too</text>
+
+    <!-- and back round -->
+    <path d="M1142,412 L1176,412 L1176,462 L467,462 L467,436"
+          fill="none" stroke="#2dd4bf" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#g-arrow-teal)"/>
+    <text x="820" y="480" font-size="12" fill="#2dd4bf" text-anchor="middle">every round enlarges the training set</text>
+  </g>
+
+  <text x="40" y="520" font-size="14" fill="#f472b6">The win is not one better capsid. It is a map that makes the next one cheaper.</text>
+  <text x="1360" y="520" font-size="12" fill="#6d8299" text-anchor="end">Viability and packaging are the easy labels. Human tropism and immune evasion are not.</text>
+</svg>

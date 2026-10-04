@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 560" width="1400" height="560"
+     font-family="Arial, Helvetica, sans-serif" role="img"
+     aria-label="Why CpG reads as danger. On the left, vertebrate DNA is drawn CpG-poor with most remaining CpG dinucleotides methylated, while viral and bacterial DNA is CpG-rich and unmethylated, so unmethylated CpG inside an endosome is a reliable signature of non-self. On the right, a five-step cascade: TLR9 in a plasmacytoid dendritic cell binds the vector genome, type one interferon is released, conventional dendritic cells are licensed, anti-capsid CD8 T cells are primed, and transduced cells are cleared. A closing line notes that the transgene may be perfectly tolerated and it is the packaging that gets the cells killed, so depleting CpG removes the thing that starts the cascade.">
+  <defs>
+    <marker id="t-arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 z" fill="#4a5f72"/>
+    </marker>
+    <marker id="t-arrow-red" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 z" fill="#fb7185"/>
+    </marker>
+    <!-- a methyl cap, drawn once -->
+    <g id="methyl">
+      <circle r="4.5" fill="#4ade80"/>
+    </g>
+  </defs>
+
+  <text x="40" y="30" font-size="13" fill="#9fb3c8">The innate system does not read what your DNA codes for. It reads a chemical signature — and the vector carries it.</text>
+
+  <!-- ===================== left: why the motif is a signature ===================== -->
+  <rect x="40" y="56" width="500" height="266" rx="10" fill="#101820" stroke="#2b3a48"/>
+  <text x="66" y="90" font-size="15.5" fill="#f2f7fa">Why CpG, specifically</text>
+
+  <!-- vertebrate DNA -->
+  <text x="66" y="128" font-size="12.5" fill="#9fb3c8">Vertebrate genome</text>
+  <line x1="66" y1="152" x2="508" y2="152" stroke="#3b4c5c" stroke-width="5"/>
+  <g>
+    <rect x="128" y="144" width="9" height="16" rx="2" fill="#f472b6"/>
+    <use href="#methyl" transform="translate(132.5,134)"/>
+    <rect x="286" y="144" width="9" height="16" rx="2" fill="#f472b6"/>
+    <use href="#methyl" transform="translate(290.5,134)"/>
+    <rect x="430" y="144" width="9" height="16" rx="2" fill="#f472b6"/>
+    <use href="#methyl" transform="translate(434.5,134)"/>
+  </g>
+  <text x="66" y="182" font-size="11.5" fill="#6d8299">CpG-poor, and what survives is mostly methylated</text>
+
+  <!-- viral DNA -->
+  <text x="66" y="220" font-size="12.5" fill="#9fb3c8">Viral / bacterial DNA — and your vector</text>
+  <line x1="66" y1="244" x2="508" y2="244" stroke="#3b4c5c" stroke-width="5"/>
+  <g fill="#f472b6">
+    <rect x="92"  y="236" width="9" height="16" rx="2"/><rect x="128" y="236" width="9" height="16" rx="2"/>
+    <rect x="158" y="236" width="9" height="16" rx="2"/><rect x="196" y="236" width="9" height="16" rx="2"/>
+    <rect x="228" y="236" width="9" height="16" rx="2"/><rect x="262" y="236" width="9" height="16" rx="2"/>
+    <rect x="296" y="236" width="9" height="16" rx="2"/><rect x="330" y="236" width="9" height="16" rx="2"/>
+    <rect x="362" y="236" width="9" height="16" rx="2"/><rect x="398" y="236" width="9" height="16" rx="2"/>
+    <rect x="432" y="236" width="9" height="16" rx="2"/><rect x="468" y="236" width="9" height="16" rx="2"/>
+  </g>
+  <text x="66" y="274" font-size="11.5" fill="#fb7185">CpG-rich, unmethylated — never went through that filter</text>
+
+  <g font-size="11">
+    <rect x="66" y="292" width="9" height="14" rx="2" fill="#f472b6"/><text x="84" y="303" fill="#9fb3c8">CpG dinucleotide</text>
+    <use href="#methyl" transform="translate(212,298)"/><text x="226" y="303" fill="#9fb3c8">methyl group</text>
+  </g>
+
+  <text x="40" y="352" font-size="12.5" fill="#2dd4bf">Unmethylated CpG, in an endosome, is a reliable signature of something that should not be there.</text>
+
+  <!-- ===================== right: the cascade ===================== -->
+  <text x="586" y="90" font-size="15.5" fill="#f2f7fa">What that signature sets off</text>
+
+  <!-- 1 TLR9 -->
+  <rect x="586" y="112" width="190" height="78" rx="8" fill="#121a23" stroke="#fb923c" stroke-width="1.8"/>
+  <circle cx="610" cy="136" r="12" fill="#fb923c"/><text x="610" y="141" font-size="12" fill="#07090c" text-anchor="middle">1</text>
+  <text x="630" y="141" font-size="13.5" fill="#f2f7fa">TLR9 fires</text>
+  <text x="602" y="164" font-size="11.5" fill="#9fb3c8">in the endosome of a</text>
+  <text x="602" y="180" font-size="11.5" fill="#9fb3c8">plasmacytoid dendritic cell</text>
+
+  <line x1="782" y1="151" x2="814" y2="151" stroke="#4a5f72" stroke-width="2" marker-end="url(#t-arrow)"/>
+
+  <!-- 2 interferon -->
+  <rect x="822" y="112" width="190" height="78" rx="8" fill="#121a23" stroke="#fbbf24" stroke-width="1.8"/>
+  <circle cx="846" cy="136" r="12" fill="#fbbf24"/><text x="846" y="141" font-size="12" fill="#07090c" text-anchor="middle">2</text>
+  <text x="866" y="141" font-size="13.5" fill="#f2f7fa">Type I interferon</text>
+  <text x="838" y="164" font-size="11.5" fill="#9fb3c8">the alarm signal that tells</text>
+  <text x="838" y="180" font-size="11.5" fill="#9fb3c8">the rest of the system</text>
+
+  <line x1="1018" y1="151" x2="1050" y2="151" stroke="#4a5f72" stroke-width="2" marker-end="url(#t-arrow)"/>
+
+  <!-- 3 licensing -->
+  <rect x="1058" y="112" width="190" height="78" rx="8" fill="#121a23" stroke="#38bdf8" stroke-width="1.8"/>
+  <circle cx="1082" cy="136" r="12" fill="#38bdf8"/><text x="1082" y="141" font-size="12" fill="#07090c" text-anchor="middle">3</text>
+  <text x="1102" y="141" font-size="13.5" fill="#f2f7fa">cDCs licensed</text>
+  <text x="1074" y="164" font-size="11.5" fill="#9fb3c8">conventional dendritic</text>
+  <text x="1074" y="180" font-size="11.5" fill="#9fb3c8">cells become competent</text>
+
+  <!-- wrap down to step 4 -->
+  <path d="M1153,196 L1153,222 L728,222 L728,248" fill="none" stroke="#4a5f72" stroke-width="2" marker-end="url(#t-arrow)"/>
+
+  <!-- 4 priming -->
+  <rect x="586" y="256" width="286" height="78" rx="8" fill="#121a23" stroke="#a78bfa" stroke-width="1.8"/>
+  <circle cx="610" cy="280" r="12" fill="#a78bfa"/><text x="610" y="285" font-size="12" fill="#07090c" text-anchor="middle">4</text>
+  <text x="630" y="285" font-size="13.5" fill="#f2f7fa">Anti-<tspan font-style="italic">capsid</tspan> CD8 T cells primed</text>
+  <text x="602" y="310" font-size="11.5" fill="#c4b5fd">against the courier, not the cargo</text>
+  <text x="602" y="326" font-size="11.5" fill="#9fb3c8">capsid peptides are presented on transduced cells</text>
+
+  <line x1="880" y1="295" x2="912" y2="295" stroke="#fb7185" stroke-width="2" marker-end="url(#t-arrow-red)"/>
+
+  <!-- 5 clearance -->
+  <rect x="920" y="256" width="328" height="78" rx="8" fill="#1a1416" stroke="#8a4a4a" stroke-width="1.8"/>
+  <circle cx="944" cy="280" r="12" fill="#fb7185"/><text x="944" y="285" font-size="12" fill="#07090c" text-anchor="middle">5</text>
+  <text x="964" y="285" font-size="13.5" fill="#fb7185">Transduced cells are cleared</text>
+  <text x="936" y="310" font-size="11.5" fill="#d8c0c4">the dose was delivered, then killed — expression</text>
+  <text x="936" y="326" font-size="11.5" fill="#d8c0c4">falls away weeks after it looked like it worked</text>
+
+  <!-- ===================== the payoff ===================== -->
+  <line x1="40" y1="386" x2="1360" y2="386" stroke="#1d2935" stroke-width="2"/>
+
+  <text x="40" y="424" font-size="14.5" fill="#f2f7fa">The transgene may be perfectly tolerated. It is the <tspan fill="#fb7185">packaging</tspan> that gets the cells killed.</text>
+  <text x="40" y="452" font-size="13" fill="#9fb3c8">So depleting CpG is not cosmetic — it removes the thing that starts the cascade. Routine in the transgene now; the ITR is the hard case, because</text>
+  <text x="40" y="472" font-size="13" fill="#9fb3c8">it is only 145 bases, it is a dense patch of CpG, and its function <tspan font-style="italic">is</tspan> the hairpin it folds into.</text>
+
+  <rect x="40" y="494" width="420" height="40" rx="20" fill="#14323a" stroke="#2dd4bf" stroke-width="1.8"/>
+  <text x="250" y="520" font-size="13.5" fill="#5eead4" text-anchor="middle">Change the sequence. Keep the fold.</text>
+  <text x="482" y="520" font-size="12.5" fill="#6d8299">— the constrained design problem on the next slide</text>
+
+  <text x="1360" y="520" font-size="12.5" fill="#fb923c" text-anchor="end">Same manoeuvre as Karikó&#8217;s, on a different sensor.</text>
+</svg>

@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 540" width="1400" height="540"
+     font-family="Arial, Helvetica, sans-serif" role="img"
+     aria-label="Peptide display in four stages. A random seven-residue peptide is inserted into the VR-VIII loop at residue 588 of the AAV9 capsid, giving twenty to the seventh, about 1.3 billion variants. The library is injected and recovered from the tissue of interest, and the enriched sequence TLAVPFK defines AAV-PHP.B, which crosses the mouse blood-brain barrier far better than AAV9. A band underneath notes that the advantage runs through Ly6a, a mouse protein with no functional primate equivalent, so the capsid does not transfer to non-human primates.">
+  <defs>
+    <marker id="p-arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 z" fill="#4a5f72"/>
+    </marker>
+    <marker id="p-arrow-mag" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 z" fill="#f472b6"/>
+    </marker>
+    <g id="cap9">
+      <polygon points="0,-30 26,-15 26,15 0,30 -26,15 -26,-15"
+               fill="#13303a" stroke="#22d3ee" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M-26,-15 L0,0 L26,-15 M0,0 L0,30" fill="none" stroke="#22d3ee" stroke-width="1" opacity="0.45"/>
+    </g>
+  </defs>
+
+  <text x="40" y="30" font-size="13" fill="#9fb3c8">Insert a random 7-mer into a surface loop, inject the library, and sequence whatever comes back out of the tissue you want.</text>
+
+  <!-- ============== 1 · the insertion site ============== -->
+  <text x="40" y="74" font-size="15.5" fill="#f2f7fa">1 · The site</text>
+  <text x="40" y="94" font-size="12" fill="#9fb3c8">VR-VIII, on the 3-fold spike</text>
+
+  <g transform="translate(150,196)">
+    <use href="#cap9" transform="scale(1.9)"/>
+    <!-- the three-fold protrusions, with the engineered one picked out -->
+    <path d="M-28,-44 q10,-20 28,-6" fill="none" stroke="#f472b6" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M44,22 q20,-6 18,16" fill="none" stroke="#2f6d6a" stroke-width="4" stroke-linecap="round"/>
+    <path d="M-44,22 q-20,-6 -18,16" fill="none" stroke="#2f6d6a" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  <line x1="130" y1="140" x2="96" y2="112" stroke="#f472b6" stroke-width="1.4"/>
+  <text x="92" y="108" font-size="11.5" fill="#f472b6" text-anchor="end">residue 588</text>
+  <text x="150" y="300" font-size="12" fill="#9fb3c8" text-anchor="middle">AAV9 capsid</text>
+  <text x="150" y="318" font-size="11.5" fill="#6d8299" text-anchor="middle">loop sits outside, where a receptor can reach it</text>
+
+  <line x1="310" y1="196" x2="360" y2="196" stroke="#4a5f72" stroke-width="2" marker-end="url(#p-arrow)"/>
+
+  <!-- ============== 2 · the library ============== -->
+  <text x="382" y="74" font-size="15.5" fill="#f2f7fa">2 · The library</text>
+  <text x="382" y="94" font-size="12" fill="#9fb3c8">7 random residues, spliced into the loop</text>
+
+  <g transform="translate(382,150)">
+    <line x1="0" y1="24" x2="52" y2="24" stroke="#5a7490" stroke-width="4"/>
+    <line x1="232" y1="24" x2="276" y2="24" stroke="#5a7490" stroke-width="4"/>
+    <g>
+      <circle cx="64"  cy="24" r="11" fill="#3d1f33" stroke="#f472b6" stroke-width="2"/>
+      <circle cx="90"  cy="24" r="11" fill="#3d1f33" stroke="#f472b6" stroke-width="2"/>
+      <circle cx="116" cy="24" r="11" fill="#3d1f33" stroke="#f472b6" stroke-width="2"/>
+      <circle cx="142" cy="24" r="11" fill="#3d1f33" stroke="#f472b6" stroke-width="2"/>
+      <circle cx="168" cy="24" r="11" fill="#3d1f33" stroke="#f472b6" stroke-width="2"/>
+      <circle cx="194" cy="24" r="11" fill="#3d1f33" stroke="#f472b6" stroke-width="2"/>
+      <circle cx="220" cy="24" r="11" fill="#3d1f33" stroke="#f472b6" stroke-width="2"/>
+    </g>
+    <g font-size="12" fill="#f472b6" text-anchor="middle">
+      <text x="64"  y="29">X</text><text x="90"  y="29">X</text><text x="116" y="29">X</text>
+      <text x="142" y="29">X</text><text x="168" y="29">X</text><text x="194" y="29">X</text>
+      <text x="220" y="29">X</text>
+    </g>
+    <text x="20"  y="56" font-size="11" fill="#9fb3c8">…A587</text>
+    <text x="246" y="56" font-size="11" fill="#9fb3c8">A589…</text>
+  </g>
+
+  <rect x="382" y="226" width="272" height="56" rx="6" fill="#121a23" stroke="#2b3a48"/>
+  <text x="518" y="250" font-size="15" fill="#f472b6" text-anchor="middle">20⁷ ≈ 1.3 × 10⁹</text>
+  <text x="518" y="270" font-size="11.5" fill="#9fb3c8" text-anchor="middle">more variants than any in vivo screen can hold</text>
+  <text x="518" y="318" font-size="11.5" fill="#6d8299" text-anchor="middle">so the screen is already a subsample</text>
+
+  <line x1="672" y1="196" x2="722" y2="196" stroke="#4a5f72" stroke-width="2" marker-end="url(#p-arrow)"/>
+
+  <!-- ============== 3 · selection ============== -->
+  <text x="744" y="74" font-size="15.5" fill="#f2f7fa">3 · Select in vivo</text>
+  <text x="744" y="94" font-size="12" fill="#9fb3c8">inject, wait, recover from the target tissue</text>
+
+  <g>
+    <use href="#cap9" transform="translate(776,140) scale(0.62)"/>
+    <path d="M768,126 q6,-11 16,-4" fill="none" stroke="#fbbf24" stroke-width="3" stroke-linecap="round"/>
+    <use href="#cap9" transform="translate(832,140) scale(0.62)"/>
+    <path d="M824,126 q6,-11 16,-4" fill="none" stroke="#a78bfa" stroke-width="3" stroke-linecap="round"/>
+    <use href="#cap9" transform="translate(888,140) scale(0.62)"/>
+    <path d="M880,126 q6,-11 16,-4" fill="none" stroke="#4ade80" stroke-width="3" stroke-linecap="round"/>
+    <use href="#cap9" transform="translate(776,196) scale(0.62)"/>
+    <path d="M768,182 q6,-11 16,-4" fill="none" stroke="#fb7185" stroke-width="3" stroke-linecap="round"/>
+    <use href="#cap9" transform="translate(832,196) scale(0.62)"/>
+    <path d="M824,182 q6,-11 16,-4" fill="none" stroke="#f472b6" stroke-width="3" stroke-linecap="round"/>
+    <use href="#cap9" transform="translate(888,196) scale(0.62)"/>
+    <path d="M880,182 q6,-11 16,-4" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- the barrier the screen was run against -->
+  <g transform="translate(958,168)">
+    <line x1="0" y1="-52" x2="0" y2="52" stroke="#fb923c" stroke-width="3" stroke-dasharray="7 5"/>
+    <text x="6" y="-58" font-size="11" fill="#fb923c">blood–brain barrier</text>
+    <path d="M-24,0 L26,0" fill="none" stroke="#f472b6" stroke-width="2" marker-end="url(#p-arrow-mag)"/>
+  </g>
+  <!-- a brain, schematically -->
+  <path d="M1000,196 q-6,-34 26,-40 q18,-22 44,-6 q30,-8 34,22 q16,18 -6,36 q-4,26 -34,22 q-26,10 -42,-10 q-24,2 -22,-24 z"
+        fill="#1b2a38" stroke="#7dd3fc" stroke-width="2"/>
+  <path d="M1022,172 q20,10 16,32 M1052,160 q-8,26 10,44 M1082,166 q14,18 2,38"
+        fill="none" stroke="#38bdf8" stroke-width="1.6" opacity="0.6"/>
+  <text x="1052" y="248" font-size="11.5" fill="#9fb3c8" text-anchor="middle">recover · sequence · count</text>
+  <text x="870" y="318" font-size="11.5" fill="#6d8299" text-anchor="middle">a Cre-dependent readout counts only successful transduction</text>
+
+  <!-- ============== 4 · the winner ============== -->
+  <line x1="1124" y1="196" x2="1150" y2="196" stroke="#f472b6" stroke-width="2" marker-end="url(#p-arrow-mag)"/>
+
+  <text x="1172" y="74" font-size="15.5" fill="#f2f7fa">4 · The winner</text>
+  <text x="1172" y="94" font-size="12" fill="#9fb3c8">one 7-mer, hugely enriched</text>
+
+  <rect x="1172" y="116" width="188" height="150" rx="8" fill="#121a23" stroke="#f472b6" stroke-width="1.8"/>
+  <g font-size="13" fill="#f472b6" text-anchor="middle" font-family="Menlo, Consolas, monospace">
+    <text x="1266" y="150">T L A V P F K</text>
+  </g>
+  <line x1="1192" y1="162" x2="1340" y2="162" stroke="#2b3a48"/>
+  <text x="1266" y="184" font-size="14" fill="#f2f7fa" text-anchor="middle">AAV-PHP.B</text>
+  <text x="1266" y="206" font-size="11.5" fill="#9fb3c8" text-anchor="middle">25% of recovered sequences</text>
+  <text x="1266" y="228" font-size="11.5" fill="#9fb3c8" text-anchor="middle">~40× AAV9 across the</text>
+  <text x="1266" y="244" font-size="11.5" fill="#9fb3c8" text-anchor="middle">mouse blood–brain barrier</text>
+  <text x="1266" y="318" font-size="11.5" fill="#6d8299" text-anchor="middle">a spectacular result</text>
+
+  <!-- ============== the catch ============== -->
+  <rect x="40" y="360" width="1320" height="112" rx="8" fill="#1a1416" stroke="#8a4a4a"/>
+  <text x="64" y="392" font-size="15" fill="#fb7185">And then it did not transfer</text>
+  <text x="64" y="420" font-size="12.5" fill="#d8c0c4">The advantage runs through <tspan font-style="italic">Ly6a</tspan> — a GPI-anchored mouse protein. Primates have no functional equivalent,</text>
+  <text x="64" y="440" font-size="12.5" fill="#d8c0c4">so the capsid that crosses the mouse barrier 40-fold better than AAV9 does not do it in non-human primates.</text>
+  <text x="64" y="462" font-size="12.5" fill="#fb923c">Nothing was wrong with the screen. It answered the question it was asked, in the species it was asked in.</text>
+
+  <text x="1336" y="420" font-size="40" fill="#8a4a4a" text-anchor="end">Ly6a</text>
+  <text x="1336" y="444" font-size="11.5" fill="#9fb3c8" text-anchor="end">mouse only</text>
+</svg>

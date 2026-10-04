@@ -1,0 +1,21 @@
+<!-- Visualisation runtime. Everything is vendored: a conference room's wifi is
+     not a dependency worth taking, and it keeps docs/ self-contained.
+
+     three.js ships only ES modules since the UMD builds were removed at r161,
+     so the import map is how the bare "three" specifier (used by OrbitControls
+     and by aav-viz.js) resolves without a bundler. -->
+<script type="importmap">
+  {
+    "imports": {
+      "three": "./js/vendor/three.module.min.js",
+      "three/addons/": "./js/vendor/"
+    }
+  }
+</script>
+
+<!-- NGL is a UMD bundle with its own three.js inside, so it stays a classic
+     script and cannot clash with the module graph above. Deferred classic and
+     module scripts execute in document order, so window.NGL is defined by the
+     time aav-viz.js runs. -->
+<script src="./js/vendor/ngl.js" defer></script>
+<script type="module" src="./js/aav-viz.js"></script>
