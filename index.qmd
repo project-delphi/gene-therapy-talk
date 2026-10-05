@@ -34,7 +34,7 @@ format:
 
 # Four sequences {.act .k-violet}
 
-Four medicines that changed the last decade. Nothing they have in common is chemical.
+Four medicines that changed the last decade. Each depends on a deliberately chosen biological sequence.
 
 ## ChAdOx1 {.k-violet}
 
@@ -119,10 +119,10 @@ CpG story later in this talk.
 Unmodified mRNA is read by the innate immune system as **infection**. It triggers
 interferon, and the message is destroyed before it is translated.
 
-Replace uridine with **N1-methylpseudouridine** and the sensors stop firing. Same protein,
-far less innate signal, far more of it made.
+**N1-methylpseudouridine** can reduce innate sensing and improve translation.
+RNA purification and delivery also shape the response.
 
-[The therapeutic problem was not the sequence. It was being noticed.]{.bang}
+[RNA chemistry and delivery determine how much protein the cell makes.]{.bang}
 :::
 ::: {.column width="42%"}
 ::: {.portrait-row}
@@ -183,8 +183,8 @@ This is the slide that sets up the whole middle of the talk, so do not rush it.
 
 Dystrophin is 11 kb of coding sequence. AAV packages 4.7 kb. So the therapy is not
 "dystrophin gene therapy" — it is a deliberately truncated protein, missing most of the
-central rod domain, designed to retain the N- and C-terminal functions and fit in a
-vector.
+central rod domain, designed to retain selected actin-binding and dystrophin-associated complex-binding functions
+and fit in a vector. This micro-dystrophin omits the full-length C-terminal domain.
 
 That is a physical constraint dictating a biological design. Flag it now; we come back to
 it with the cassette budget.
@@ -270,7 +270,7 @@ AAV is a defective parasite of other viruses. That defect is exactly why we use 
 - 4.7 kb single-stranded DNA
 - 60 subunits, **T = 1**
 - ≈26 nm across
-- No disease in humans
+- No established human disease from natural AAV infection
 
 [Drag it.]{.bang}
 :::
@@ -440,7 +440,7 @@ A **+1** frame inside the VP3 region. Promotes egress.
 ::: {.column width="50%"}
 MAAP was not found by looking. It fell out of a comprehensive mutational scan in 2019.
 
-[A gene hidden for thirty years, revealed by machine learning on sequence data.]{.bang}
+[A previously unannotated gene emerged from systematic mutational data.]{.bang}
 :::
 ::::
 
@@ -457,8 +457,8 @@ measured fitness by sequencing. The mutational data did not behave the way a
 single-reading-frame model predicted — and out of that fell a previously unannotated
 viral gene, in the +1 frame, thirty years after the genome was first sequenced.
 
-So the ML did not merely optimise a sequence. It found biology that targeted experiments
-had missed. Hold that thought until slide 45.
+The mutational scan revealed biology that targeted experiments had missed. Hold that
+thought until *What deep mutational scanning measures*.
 :::
 
 ## Defective by design {.k-teal}
@@ -475,7 +475,7 @@ AAV cannot replicate alone. It needs a helper.
 For a vector this is a feature:
 
 - Helper functions supplied from a plasmid
-- No helper virus anywhere in the process
+- No helper virus needed in plasmid-based production
 - A vector that cannot replicate cannot spread
 
 [Replication incompetence is not a limitation. It is the product.]{.bang}
@@ -613,12 +613,76 @@ haemophilia B.
 :::
 
 ::: {.notes}
-Call back to slide 4 explicitly. The packaging limit is not an inconvenience, it is the
+Call back to *Delandistrogene moxeparvovec* explicitly. The packaging limit is not an inconvenience, it is the
 reason an entire therapeutic class looks the way it does.
 
 Factor IX is small and comfortable, which is why haemophilia B got there first.
 B-domain-deleted Factor VIII at 4.4 kb leaves essentially no room for a promoter, and
 that is why that programme has been so much harder.
+:::
+
+## What the budget produced {.k-cyan .smaller}
+
+:::: {.columns}
+::: {.column width="62%"}
+| Product | Vector | Payload | Route |
+|---|---|---|---|
+| Zolgensma (2019) | AAV9 | *SMN1* 0.9 kb | intravenous |
+| Itvisma (2025) | AAV9 | *SMN1* 0.9 kb | intrathecal |
+| Hemgenix (2022) | AAV5 | *F9* Padua 1.4 kb | intravenous |
+| Kebilidi (2024) | AAV2 | *DDC* 1.4 kb | intraputaminal |
+| Fayuvi (2026) | AAV9 | *SGSH* 1.5 kb | intravenous |
+| Luxturna (2017) | AAV2 | *RPE65* 1.6 kb | subretinal |
+| Elevidys (2023) | AAVrh74 | micro-dystrophin 3.8 kb | intravenous |
+| Otarmeni (2026) | **AAV1 × 2** | *OTOF* 6.0 kb | intracochlear |
+:::
+::: {.column width="38%"}
+Ordered by payload. Every one but the last sits well inside the 4.7 kb budget.
+
+*OTOF* is **6 kb**. It does not fit — so otoferlin ships as **two vectors**, each
+carrying part of the coding sequence, reconstituted inside the hair cell.
+
+[The budget did not move. The architecture did.]{.bang}
+:::
+::::
+
+::: {.cite}
+@fda2026products; @fda2026otarmeni
+:::
+
+::: {.notes}
+The list is short, and that is the point. Read down the payload column against the table
+you just showed: every approved product but one is a small gene, exactly as the budget
+predicts. Nobody has approved an 11 kb transgene, because nobody can.
+
+*Otarmeni* is the slide's payoff and it is only months old — approved April 2026 for
+*OTOF*-related deafness. Otoferlin is 1,997 residues, about 6 kb of coding sequence, so
+it cannot be packaged. The product is two AAV1 vectors carrying overlapping halves, and
+the full-length coding sequence is reconstituted in the transduced hair cell. That is the
+packaging limit being designed around rather than obeyed — and it costs you a second
+vector, a second dose of capsid antigen, and a dependence on both halves reaching the
+same cell.
+
+Now read the route column, because it is the quieter lesson and it sets up the dose
+ceiling. Subretinal, intraputaminal and intracochlear are small, enclosed,
+immune-privileged compartments: the dose is tiny and it stays where you put it. The
+intravenous products are the ones carrying the safety burden. Elevidys has carried a
+boxed warning since November 2025 for serious liver injury and acute liver failure, after
+two deaths in non-ambulatory patients, and its indication is now restricted to ambulatory
+patients aged four and over.
+
+Zolgensma and Itvisma are worth a sentence: same vector, same transgene, different route.
+Intrathecal delivery was approved in November 2025 precisely so that older, heavier
+patients could be dosed without the systemic load an intravenous dose would require. When
+you cannot lower the dose, you change where it goes.
+
+If asked what is missing: three AAV products have left the market. Glybera, the first
+gene therapy approved in the West, was withdrawn in 2017. Beqvez was discontinued by
+Pfizer in February 2025, having treated no commercial patients. Roctavian — the BDD
+Factor VIII product from the previous slide — was voluntarily withdrawn in February 2026
+after BioMarin could not find a buyer. None of those three failed because the biology
+failed. Approval is not the finish line, and this is a field where working and selling
+are different problems.
 :::
 
 ## ssAAV or scAAV {.k-cyan}
@@ -674,23 +738,37 @@ for "percentage reaching target" is selling something.
 So the dose has to be enormous. Hold that thought for the toxicity slides.
 :::
 
-## Eight steps {.k-amber}
+## AAV entry and gene expression {#aav-cell-journey .k-amber .webonly}
 
-::: {.diagram}
-![](assets/diagrams/transduction.svg){fig-alt="The rAAV transduction pathway as an eight step pipeline from glycan attachment to the circularised episome, with a narrowing band showing vector loss at every step."}
+::: {.viz-stage data-viz="celljourney" data-still="assets/diagrams/transduction.svg" data-alt="AAV attaches, enters by endocytosis, escapes vesicular degradation, reaches the nucleus, uncoats, forms duplex DNA and circular episomes, and expresses its transgene." data-prevent-swipe="true" style="height:650px"}
 :::
 
 ::: {.cite}
-@summerford1998; @pillay2016
+@girod2002; @cataldi2010; @nakai2001
 :::
 
 ::: {.notes}
-Walk the top row quickly. The band underneath is the message: every arrow loses material.
+Use Play to follow the journey, or select any numbered stage to pause there.
+The coloured particles represent four independently delivered vector genomes.
+The red branch shows loss to degradation, not a measured survival fraction.
 
-One thing worth pausing on — uncoating is late and nuclear. The capsid traffics largely
-intact through the endosomal system, takes a retrograde route via the trans-Golgi, and is
-still assembled at the nuclear pore. That is unusual, and it is why capsid surface
-engineering can change intracellular fate and not just attachment.
+The entry route is simplified. Endosomal and Golgi trafficking precede nuclear
+entry, and the site of membrane escape and the precise mechanism of nuclear
+uncoating remain incompletely resolved. Capsid opening is a teaching schematic.
+
+The two-genome and four-genome views illustrate possible circular concatemers.
+They do not mean that the vector replicates, or that every dimer becomes a tetramer.
+Monomers, linear forms and other concatemer arrangements also occur. Host DNA repair
+contributes to joining, with pathway use depending on cell type and context.
+
+Transcription requires an accessible duplex template, not completion of a fixed
+circularization sequence. mRNA leaves the nucleus and translation occurs in the
+cytoplasm. Persistent episomes become chromatinized, omitted here for clarity.
+
+Primary evidence for nuclear entry before uncoating:
+https://pubmed.ncbi.nlm.nih.gov/10684294/
+Genome repair and concatemer formation:
+https://pmc.ncbi.nlm.nih.gov/articles/PMC2918998/
 :::
 
 ## Two bottlenecks {.k-amber}
@@ -712,7 +790,7 @@ scAAV exists to skip this.
 :::
 ::::
 
-[Potency engineering is almost entirely an attempt to widen these two steps.]{.bang}
+[Potency also depends on targeting, nuclear entry, uncoating and expression.]{.bang}
 
 ::: {.cite}
 @girod2002; @mccarty2001
@@ -721,9 +799,8 @@ scAAV exists to skip this.
 ::: {.notes}
 Pulled out of the pipeline because these are the two places the money goes.
 
-Everything else in the pathway is comparatively well-behaved. Escape and conversion are
-where orders of magnitude are lost, and a capsid that does either better needs a lower
-dose — which is the argument the whole back half of the talk rests on.
+These are two useful examples, not a universal ranking. Which step limits transduction
+depends on the capsid and target cell. Improving productive delivery can reduce the dose — which is the argument the whole back half of the talk rests on.
 :::
 
 ## What the genome becomes {.k-amber .webonly}
@@ -731,8 +808,8 @@ dose — which is the argument the whole back half of the talk rests on.
 :::: {.columns}
 ::: {.column width="34%" .tight}
 - Second strand synthesised
-- ITR ends recombine — **NHEJ**
-- Circular monomers, then concatemers
+- Host repair joins vector DNA ends
+- Circular monomers and concatemers
 - Chromatinised with host nucleosomes
 
 The damage response is **not** evaded. MRN and ATM/ATR sense those hairpin ends.
@@ -751,8 +828,8 @@ The damage response is **not** evaded. MRN and ATM/ATR sense those hairpin ends.
 Four looping phases: delivered single strand, second-strand synthesis, circularisation,
 chromatinised episome.
 
-Two things the literature gets sloppy about in talks. Circularisation is not classical
-homologous recombination — it is ITR-mediated and largely NHEJ-dependent. And concatemers
+Two things the literature gets sloppy about in talks. NHEJ can contribute strongly to circularization, but pathway use depends on cell type.
+Homologous recombination can also contribute to genome joining. And concatemers
 are not invisible to the damage machinery; the MRN complex senses those hairpin ends.
 "Chromatinised and tolerated" is accurate. "Undetected" is not.
 :::
@@ -760,7 +837,7 @@ are not invisible to the damage machinery; the MRN complex senses those hairpin 
 ## Circularisation and expression {.k-amber}
 
 ::: {.diagram}
-![](assets/diagrams/episome-fate.svg){fig-alt="The fate of the delivered AAV genome: the released single strand with its T-shaped ITR hairpins is made double-stranded, the ITR ends are joined by non-homologous end joining into a circular monomer, monomers join head to tail into concatemers, and the circle is wrapped in host nucleosomes into a chromatinised episome that RNA polymerase II transcribes into mRNA and the ribosome translates into the therapeutic protein."}
+![](assets/diagrams/episome-fate.svg){fig-alt="The fate of the delivered AAV genome: the released single strand with its T-shaped ITR hairpins is made double-stranded, host repair can join ITR ends into circular monomers and concatemers, and the circle is wrapped in host nucleosomes into a chromatinised episome that RNA polymerase II transcribes into mRNA and the ribosome translates into the therapeutic protein."}
 :::
 
 ::: {.cite}
@@ -772,8 +849,9 @@ The printable version of the animation before it, and the slide to use if the ro
 the mechanism written down.
 
 The sequence to narrate: the strand arrives inert, gets a second strand, the two ITR
-ends find each other and are joined — by NHEJ, not homologous recombination, and not
-into the chromosome — and the resulting circles join head to tail. Then host nucleosomes
+ends undergo repair-mediated joining. Circular monomers and concatemers can form.
+NHEJ and homologous repair contributions vary by context. Most persistent vector DNA
+is episomal, although low-frequency integration can occur. Then host nucleosomes
 assemble on it and it is transcribed like any other chromatin.
 
 The payoff is the right-hand box. Transcribed but never replicated is the whole clinical
@@ -787,8 +865,8 @@ still growing. And because the first dose raises antibodies, you do not get a se
 ::: {.column width="50%"}
 The episome is **not replicated** when the cell divides.
 
-**Post-mitotic** — neurons, cardiomyocytes, muscle. Expression holds. Human follow-up now
-runs 10–15 years.
+**Post-mitotic** — neurons, cardiomyocytes, muscle. Episomes can support durable
+expression, depending on the tissue and vector.
 
 **Dividing** — paediatric liver is the clinical case. Hepatocytes expand out from under
 the vector.
@@ -808,8 +886,8 @@ dilution in exchange.
 :::
 
 ::: {.notes}
-Resist saying "lifelong". The longest human data is 10–15 years and the trajectory beyond
-that is genuinely unknown.
+Avoid promising lifelong expression. Duration varies by product, tissue and patient,
+and long-term follow-up is essential.
 
 The paediatric liver problem deserves a beat because it is where the biology bites a real
 programme: you cannot simply redose, because the antibody response to the first dose
@@ -855,9 +933,10 @@ It does not carry E1.
 HEK293 is adenovirus-E1-transformed — that is what makes it HEK293.
 :::
 ::: {.column width="48%"}
-Say "the helper plasmid delivers E1A and E1B" in this room and someone will correct you.
+E1 functions come from the producer cell. The helper plasmid supplies the remaining
+adenoviral functions used in this platform.
 
-[The cell line is already half the helper.]{.bang}
+[Helper functions come from both the cell and the plasmid.]{.bang}
 :::
 ::::
 
@@ -974,7 +1053,8 @@ Complement, hepatotoxicity, thrombotic microangiopathy, dorsal root ganglion tox
 :::
 ::::
 
-Unmethylated **CpG** in the cassette engages TLR9 and feeds all three.
+Unmethylated **CpG** can activate TLR9 and promote adaptive responses.
+These toxicities have multiple mechanisms.
 
 ::: {.cite}
 @mingozzi2013; @faust2013; @hinderer2018
@@ -1178,12 +1258,11 @@ in vitro data predicted what happened in macaque.
 **Mikos, Chen & Suh** (Rice) asked a narrower question: can you predict *production*
 fitness from **structure alone**?
 
-Random-forest style models on structural features — no prior fitness data, no domain
-knowledge.
+Random-forest style models on structural features — without prior AAV fitness measurements as training labels.
 :::
 ::: {.column width="48%"}
-A **threefold** enrichment in mutations beating wild-type production, against random
-mutagenesis.
+Reported **threefold** enrichment in mutations beating wild-type production,
+compared with random mutagenesis (preprint).
 
 Production fitness is unglamorous and gates everything — a capsid you cannot manufacture
 is not a capsid.
@@ -1210,7 +1289,7 @@ before citing it as settled.
 ## Discriminative or generative {.k-magenta}
 
 ::: {.diagram}
-![](assets/diagrams/disc-vs-gen.svg){fig-alt="Discriminative versus generative models over sequence space. A discriminative model learns P(Y|X): it draws a boundary through the small labelled region and has no opinion outside it. A generative model learns P(X), the shape of the viable region itself, from sequences without phenotype labels, and new candidates can be sampled from it. A pipeline underneath shows the combination: generate candidates, score them, measure only the survivors."}
+![](assets/diagrams/disc-vs-gen.svg){fig-alt="Discriminative versus generative models over sequence space. A discriminative model learns P(Y|X): it draws a boundary through the small labelled region and has uncertain predictions outside its training distribution. A generative model learns P(X), a distribution over training sequences, from sequences without phenotype labels, and new candidates can be sampled from it. A pipeline underneath shows the combination: generate candidates, score them, measure only the survivors."}
 :::
 
 ::: {.cite}
@@ -1253,8 +1332,7 @@ distribution towards a simple prior. Without that penalty you get a lookup table
 holes in it. With it, the space between training points is meaningful.
 
 That is the whole value here. Sequence space is discrete and astronomically large. A
-latent space is continuous and small, and every point in it decodes to something
-plausible — so you can wander it, interpolate between two capsids, or sample a thousand
+latent space is continuous and small, and sampled points can decode to plausible candidates — so you can wander it, interpolate between two capsids, or sample a thousand
 candidates that all look like things evolution could have made.
 
 The strip underneath is the decoded sequence. Watch it change smoothly as the sampler
@@ -1297,10 +1375,10 @@ data to fit anything at all.
 ## What deep mutational scanning measures {.k-magenta}
 
 ::: {.diagram}
-![](assets/diagrams/dms.svg){fig-alt="Deep mutational scanning compared with directed evolution. A comprehensive library containing every variant goes through one selection; the population is sequenced before and after, and each variant's fitness is the log ratio of its counts, so every variant is measured including the ones that died. Directed evolution runs the same selection but reads only the enriched survivors and discards the failures."}
+![](assets/diagrams/dms.svg){fig-alt="Deep mutational scanning compared with directed evolution. A comprehensive library containing every variant goes through one selection; the population is sequenced before and after, and each variant's fitness is the log ratio of its counts, so enrichment and depletion can be estimated for adequately sampled variants. Directed evolution runs the same selection but reads only the enriched survivors and discards the failures."}
 :::
 
-[Directed evolution throws away the data a model needs.]{.bang}
+[Counts before and after selection reveal both enrichment and depletion.]{.bang}
 
 ::: {.cite}
 @ogden2019
@@ -1312,8 +1390,8 @@ expect.
 
 You are not screening and picking. You are counting. Each variant carries its own sequence
 as its barcode, so you read the whole population before and after selection, and the
-log-ratio is the fitness. One experiment, the entire library, every variant measured —
-including the dead ones.
+log-ratio is the fitness. One experiment, the entire library, enrichment and depletion estimated for adequately sampled variants.
+Missing output counts can indicate depletion but are limited by sampling depth.
 
 That last point is the one to press. Selection hands you survivors. A fitness landscape
 needs the failures too, because that is what tells the model where viability ends. This is
@@ -1333,7 +1411,8 @@ precisely why the ML results arrived when DMS did, and not before.
 :::
 
 ::: {.notes}
-This is the slide that earns the title of the talk, and it closes the loop with slide 12.
+This is the slide that earns the title of the talk, and it closes the loop with *Two
+hidden genes*.
 
 The honest caveat if someone asks: viability and packaging are the easy labels. Tissue
 tropism and immune evasion in humans are much harder to measure at library scale, and
@@ -1389,14 +1468,15 @@ elements — rather than repurposing CMV or a native regulatory region.
 **AMT-191** — AAV5 carrying *GLA* for Fabry disease, under a Synpromics liver-selective
 promoter.
 
-First cohort: α-Gal A activity reported at **27–208× mean normal**.
+Initial four-patient cohort: **27–208× mean normal** α-Gal A activity.
+Sponsor report, July 2025 data cutoff.
 
 [A designed promoter, not a borrowed one.]{.bang}
 :::
 ::::
 
 ::: {.cite}
-@gray2011
+@uniqure2025
 :::
 
 ::: {.notes}
@@ -1407,10 +1487,10 @@ Synpromics' approach was to assemble promoters from screened motif libraries rat
 repurposing CMV or a native regulatory region — compact, liver-selective, and designed to
 be strong enough that you can drop the dose.
 
-Two caveats to hold. The 27–208× figure is an early-cohort readout and I have it from
-secondary reporting, so check uniQure's primary data before quoting it from a podium. And
-the expression is spectacular partly because Fabry is an enzyme-replacement setting where
-overshoot is tolerable — it would not read the same way for a dose-sensitive transgene.
+This is a dated, sponsor-reported biomarker result in four patients, not an estimate
+of clinical benefit or a controlled comparison of promoters. It does not isolate
+the contribution of the promoter from dose, capsid and other cassette elements.
+Do not interpret high enzyme activity alone as evidence of safety or durable benefit.
 :::
 
 ## Why CpG reads as danger {.k-magenta}
