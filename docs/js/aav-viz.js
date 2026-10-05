@@ -12,6 +12,7 @@
 // loop here starts on slide-enter and is cancelled on slide-leave.
 
 import * as THREE from 'three';
+import { cellJourneyFactory } from './cell-journey.js?v=2';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 const BG = 0x0b0f14;          // $gt-bg
@@ -1169,7 +1170,8 @@ function itrcpg({ host, cap }, w, h) {
 
 // --- registry and lifecycle ------------------------------------------------
 
-const FACTORIES = { episome, seqspace, capsid, seqscale, shuffle, latent, itrcpg };
+const celljourney = cellJourneyFactory({ makeRenderer, disposeTree, reduced: REDUCED, printing: PRINTING });
+const FACTORIES = { celljourney, episome, seqspace, capsid, seqscale, shuffle, latent, itrcpg };
 const live = new Map();   // element -> { frame, resize, dispose, raf, running }
 
 function build(el) {

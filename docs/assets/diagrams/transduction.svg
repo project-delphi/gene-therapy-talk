@@ -100,12 +100,12 @@
         fill="url(#attrition)"/>
   <g font-size="11.5" fill="#6d8aa3" text-anchor="middle">
     <text x="122" y="446">dose applied</text>
-    <text x="617" y="446">most lost in the endosome</text>
-    <text x="1112" y="446">most of the rest never converted</text>
+    <text x="617" y="446">loss during vesicular trafficking</text>
+    <text x="1112" y="446">further loss before expression</text>
   </g>
 
   <text x="45" y="492" fill="#9fb3c8" font-size="14">
-    Every arrow is a place vectors are lost. Potency engineering is mostly an attempt to widen steps
+    Every arrow is a place vectors are lost. Two important barriers are steps
     <tspan fill="#fb923c">4</tspan> and <tspan fill="#fb923c">7</tspan>.
   </text>
   <text x="45" y="518" fill="#6d8aa3" font-size="13">

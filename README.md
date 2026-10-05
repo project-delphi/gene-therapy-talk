@@ -13,7 +13,7 @@ dose is bounded by immunogenicity and toxicity; and the only lever that moves is
 potency per particle. Machine learning is in the talk because that is the lever,
 and the space is too large to search by hand.
 
-58 slides, with speaker notes throughout and a cited bibliography.
+59 slides, with speaker notes throughout and a cited bibliography.
 
 ## Reading it
 
@@ -28,9 +28,10 @@ Open the link above. Useful keys:
 | `E` then print | export to PDF |
 | `?` | all shortcuts |
 
-Ten slides carry live 3D, all draggable: the AAV2 capsid; its icosahedral
+Ten slides carry live 3D, across eleven canvases — the AAV2/AAV9 slide renders both
+capsids side by side. Molecular views are draggable: the AAV2 capsid; its icosahedral
 symmetry axes; an AAV2/AAV9 comparison; the four opening sequences drawn to
-scale; second-strand synthesis and circularisation; the capsid fitness
+scale; the interactive cell-entry journey; second-strand synthesis and circularisation; the capsid fitness
 landscape; DNA shuffling across nine serotypes; a VAE latent space; and the ITR
 hairpin with its CpG sites. They need WebGL and fall back to a static message
 without it.
@@ -60,6 +61,7 @@ index.qmd         the 58 slides, with speaker notes
 references.bib    primary literature behind every claim on a slide
 theme.scss        dark theme, ported from the original PowerPoint's colour scheme
 js/aav-viz.js     visualisation runtime (lifecycle, lazy init, teardown)
+js/cell-journey.js the narrated cell-entry animation, registered into that runtime
 js/head.html      import map and script tags, injected via include-in-header
 js/vendor/        pinned three.js r186 and NGL 2.5.0, vendored rather than CDN
 assets/pdb/       AAV2 (1LP3) and AAV9 (3UX1) asymmetric units
@@ -154,3 +156,16 @@ appears in the deck.
 
 The unreferenced rasters in `images/` remain the property of their respective
 owners.
+
+## Cell-entry animation
+
+Slide 26, **AAV entry and gene expression**, follows attachment, endocytosis,
+membrane escape, nuclear uncoating, duplex DNA formation, two-genome and
+four-genome circular concatemers, and expression. Use Pause, Restart, or the
+numbered stage buttons. Stage selection pauses the animation.
+
+The four colours track independently delivered genomes, not replication.
+Concatemer sizes are examples, and expression need not wait for circularization.
+Geometry, timing and survival fractions are schematic. Reduced-motion mode
+starts paused; the static transduction diagram is the WebGL fallback.
+The implementation is in `js/cell-journey.js`, using the existing lazy lifecycle.
