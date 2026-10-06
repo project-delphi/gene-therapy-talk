@@ -740,7 +740,7 @@ So the dose has to be enormous. Hold that thought for the toxicity slides.
 
 ## The Journey In, Step by Step {#aav-cell-journey .k-amber .webonly}
 
-::: {.viz-stage data-viz="celljourney" data-still="assets/diagrams/transduction.svg" data-alt="AAV attaches, enters by endocytosis, escapes vesicular degradation, reaches the nucleus, uncoats, forms duplex DNA and circular episomes, and expresses its transgene." data-prevent-swipe="true" style="height:650px"}
+::: {.viz-stage data-viz="celljourney" data-still="assets/diagrams/transduction.svg" data-alt="AAV attaches, enters by endocytosis, escapes vesicular degradation, reaches the nucleus, uncoats, forms duplex DNA and circular episomes, and is transcribed by RNA polymerase II; the mRNA is exported through a nuclear pore and translated by ribosomes into protein." data-prevent-swipe="true" style="height:650px"}
 :::
 
 ::: {.cite}
@@ -748,7 +748,7 @@ So the dose has to be enormous. Hold that thought for the toxicity slides.
 :::
 
 ::: {.notes}
-Use Play to follow the journey, or select any numbered stage to pause there.
+The journey plays on a loop. Select any numbered stage to pause there.
 The coloured particles represent four independently delivered vector genomes.
 The red branch shows loss to degradation, not a measured survival fraction.
 
@@ -762,8 +762,10 @@ Monomers, linear forms and other concatemer arrangements also occur. Host DNA re
 contributes to joining, with pathway use depending on cell type and context.
 
 Transcription requires an accessible duplex template, not completion of a fixed
-circularization sequence. mRNA leaves the nucleus and translation occurs in the
-cytoplasm. Persistent episomes become chromatinized, omitted here for clarity.
+circularization sequence. One polymerase and one transcript stand in for many:
+the mRNA leaves the nucleus 5′ end first, and in the cytoplasm several ribosomes
+read it at once, each releasing a chain that folds into protein. Persistent
+episomes become chromatinized, omitted here for clarity.
 
 Primary evidence for nuclear entry before uncoating:
 https://pubmed.ncbi.nlm.nih.gov/10684294/

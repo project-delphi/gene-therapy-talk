@@ -13,8 +13,10 @@ export function cellJourneyFactory({ makeRenderer, disposeTree, reduced, printin
       ['Duplex DNA', 'Host machinery makes duplex DNA', 'Second-strand synthesis or complementary-strand annealing creates a template for transcription and genome joining.', 'Four incoming genomes are shown. They have not replicated.'],
       ['2 genomes', 'Two genomes can form one circle', 'Host repair pathways join vector DNA at its ends. Each illustrated dimer contains two genome-length units.', 'Monomer circles and other arrangements also occur.'],
       ['4 genomes', 'Larger circular concatemers can form', 'Four differently coloured units mark four delivered genomes in one episome. Orange junctions mark joins between units.', 'Two and four are examples, not a required doubling sequence.'],
-      ['Expression', 'The cell reads the delivered gene', 'Nuclear transcription produces mRNA. After export, cytoplasmic ribosomes translate it into therapeutic protein.', 'Duplex DNA can express before circularization. Circles support persistence.'],
+      ['Transcription', 'RNA polymerase II copies the transgene into mRNA', 'Host Pol II reads the cassette from its promoter to the polyadenylation signal. The mRNA leaves through a nuclear pore, 5′ end first.', 'Duplex DNA can be transcribed before circularization. Circles support persistence.'],
+      ['Translation', 'Ribosomes translate the mRNA into protein', 'The small subunit loads at the 5′ cap and scans to the start codon, where the large subunit joins. Several ribosomes read one mRNA toward its 3′ end.', 'One episome makes many mRNAs, and each mRNA makes many proteins.'],
     ];
+    const TX = 7, TL = 8;
     const side = document.createElement('aside'); side.className = 'journey-story';
     // The narration is the slide's content, and it swaps without a reload — announce
     // it, or picking a stage is silent to a screen reader.
@@ -29,10 +31,12 @@ export function cellJourneyFactory({ makeRenderer, disposeTree, reduced, printin
     bar.setAttribute('aria-label', 'Cell journey controls');
     const button = (text, action) => { const b = document.createElement('button'); b.type = 'button'; b.textContent = text; b.onclick = action; bar.append(b); return b; };
     let time = 0, playing = !reduced && !printing, shown = -1;
-    const DURATION = 8, END = stages.length * DURATION;
-    const play = button(playing ? 'Pause' : 'Play', () => { if (time >= END) time = 0; playing = !playing; draw(0); });
+    // Stage time is authored in units of DURATION; playback runs SPEED times
+    // faster and wraps back to attachment rather than stopping.
+    const DURATION = 8, SPEED = 1.2, STILL = .72, END = stages.length * DURATION;
+    const play = button(playing ? 'Pause' : 'Play', () => { playing = !playing; draw(0); });
     button('Restart', () => { time = 0; draw(0); });
-    const picks = stages.map((s, i) => button(`${i + 1} ${s[0]}`, () => { time = i * DURATION + DURATION * .72; playing = false; draw(0); }));
+    const picks = stages.map((s, i) => button(`${i + 1} ${s[0]}`, () => { time = i * DURATION + DURATION * STILL; playing = false; draw(0); }));
     el.append(bar);
     // Do not let Reveal turn button activation or keyboard navigation into a slide change.
     const stop = e => e.stopPropagation();
@@ -94,19 +98,22 @@ export function cellJourneyFactory({ makeRenderer, disposeTree, reduced, printin
       return {group,shell,edges,facets};
     });
     const labels=[];
+    // `show` gets the stage and its progress; moving labels update `p` in draw().
     function label(text,x,y, show = ()=>true, color = '#9fb3c8') {
       const d=document.createElement('span'); d.className='journey-label'; d.textContent=text; d.style.color=color; host.append(d);
-      labels.push({d,p:new THREE.Vector3(x,y,1),show});
+      const entry={d,p:new THREE.Vector3(x,y,1),show}; labels.push(entry); return entry;
     }
     label('OUTSIDE',-9.3,4.4); label('CYTOPLASM',-4.7,4.4); label('NUCLEUS',3.1,4.4);
-    label('Cell membrane',-7.5,-4.7); label('Nuclear pore',-1.5,-.85, s=>s===3);
+    label('Cell membrane',-7.5,-4.7); label('Nuclear pore',-1.5,-1, s=>s===3||s===TX);
     label('Endosome',-5.5,2.15,s=>s===1||s===2,'#e8bb69');
     label('Degradation',-5.1,-4.1,s=>s===2,'#fb7185');
     label('2 genomes',3,3.25,s=>s===5,'#f2f7fa'); label('2 genomes',3,-.15,s=>s===5,'#f2f7fa');
-    label('4 genomes',3,0,s=>s>=6,'#f2f7fa');
-    label('mRNA export',-.3,-1.4,s=>s===7,'#fbbf24');
-    label('Ribosome',-4.7,1.1,s=>s===7,'#fbbf24');
-    label('Protein',-5.1,3,s=>s===7,'#2dd4bf');
+    label('4 genomes',3,0,s=>s===6,'#f2f7fa');
+    const polLabel=label('RNA Pol II',0,0,(s,p)=>s===TX&&p<.52,'#e5e7eb');
+    const mrnaLabel=label('mRNA',0,0,(s,p)=>s===TL||(s===TX&&p>.18),'#f87171');
+    const fivePrime=label('5′',0,0,s=>s===TL,'#f87171'), threePrime=label('3′',0,0,s=>s===TL,'#f87171');
+    label('Ribosomes',-5.3,-1.6,(s,p)=>s===TL&&p>.03&&p<.97,'#cbd5e1');
+    label('Protein',-2.6,3.3,(s,p)=>s===TL&&p>.45,'#4ade80');
     // Four unit-length strands. Each unit retains its colour through joining.
     const N=96, beadGeo=new THREE.SphereGeometry(.07,8,6), m4=new THREE.Matrix4();
     const strands=colors.map(c=>[c,0xdbeafe].map(color=>{
@@ -114,18 +121,40 @@ export function cellJourneyFactory({ makeRenderer, disposeTree, reduced, printin
       m.frustumCulled=false; scene.add(m); return m;
     }));
     const joints=Array.from({length:4},()=>mesh(new THREE.SphereGeometry(.15,12,8),0xfb923c,0,0));
-    const ribosome = new THREE.Group(); scene.add(ribosome); ribosome.position.set(-4.7,0,0);
-    for (const [y,s] of [[.18,.46],[-.23,.35]]) {
-      const m=new THREE.Mesh(new THREE.SphereGeometry(s,24,16),new THREE.MeshStandardMaterial({color:0xfbbf24})); m.position.y=y; m.scale.x=1.4; ribosome.add(m);
+    // Expression follows one transcript. Pol II walks one genome unit and the
+    // transcript peels away behind it, threads 5′-first through the pore, and
+    // is read 5′ → 3′ by a polysome. Real cells run many of each at once.
+    const polymerase = new THREE.Group(); scene.add(polymerase);
+    for (const [x,y,r] of [[0,0,.3],[.22,.16,.19],[-.18,.2,.15]]) {
+      const m=new THREE.Mesh(new THREE.SphereGeometry(r,20,14),new THREE.MeshStandardMaterial({color:0xe5e7eb,roughness:.6})); m.position.set(x,y,0); polymerase.add(m);
     }
-    const rna=tube(points(u=>[(u-.5)*1.4,.12*Math.sin(u*24),.3]),0xfbbf24,.055);
-    const proteins=Array.from({length:5},(_,i)=>{
-      const g=new THREE.Group(); scene.add(g);
-      for(let j=0;j<5;j++) { const m=new THREE.Mesh(new THREE.SphereGeometry(.15,10,8),new THREE.MeshStandardMaterial({color:0x2dd4bf})); m.position.set(Math.cos(j*2)*.18,Math.sin(j*2)*.18,j*.04);g.add(m); }
-      return g;
+    const NR=44, SPACING=.095, mrnaLength=(NR-1)*SPACING;
+    const mrna=new THREE.InstancedMesh(new THREE.SphereGeometry(.075,8,6),new THREE.MeshStandardMaterial({color:0xf87171}),NR);
+    mrna.frustumCulled=false; scene.add(mrna);
+    // Starts where the finished transcript lies beside the episome, passes the
+    // pore at (-1.55, 0) and ends where the mRNA rests for translation.
+    const exportPath=new THREE.CatmullRomCurve3([[2.4,2.6],[1,2],[-.3,1],[-1.55,0],[-2.7,-.55],[-4.6,-.65],[-6.6,-.6]].map(([x,y])=>new THREE.Vector3(x,y,.55)));
+    const pathLength=exportPath.getLength(), restHead=pathLength-.2;
+    const along=d=>exportPath.getPointAt(THREE.MathUtils.clamp(d/pathLength,0,1));
+    const M=16, chainBead=new THREE.SphereGeometry(.085,8,6);
+    const smallGeo=new THREE.SphereGeometry(.28,24,16), largeGeo=new THREE.SphereGeometry(.4,24,16);
+    // Compact fold for a released chain: beads spread over a small sphere.
+    const fold=Array.from({length:M},(_,m)=>{
+      const y=1-2*(m+.5)/M, r=Math.sqrt(1-y*y), a=m*2.4;
+      return new THREE.Vector3(Math.cos(a)*r,y,Math.sin(a)*r).multiplyScalar(.26);
+    });
+    const homes=[[-5.9,2.7],[-4.3,3.3],[-3.1,2.6],[-5.3,3.7]];
+    const ribosomes=homes.map(([hx,hy],k)=>{
+      const small=new THREE.Mesh(smallGeo,new THREE.MeshStandardMaterial({color:0x94a3b8,roughness:.55}));
+      const large=new THREE.Mesh(largeGeo,new THREE.MeshStandardMaterial({color:0xcbd5e1,roughness:.55}));
+      scene.add(small,large);
+      const chain=new THREE.InstancedMesh(chainBead,new THREE.MeshStandardMaterial({color:0x4ade80}),M);
+      chain.frustumCulled=false; scene.add(chain);
+      return {small,large,chain,start:.03+k*.15,home:new THREE.Vector3(hx,hy,.6)};
     });
     const smooth = x=>THREE.MathUtils.smoothstep(x,0,1);
     const lerp=THREE.MathUtils.lerp;
+    const ramp=(x,a,b)=>THREE.MathUtils.clamp((x-a)/(b-a),0,1);
     function genomePosition(i,u,s,p) {
       const y=2.5-i*1.65;
       const linear=new THREE.Vector3(1.2+u*3.8,y,.4);
@@ -137,14 +166,34 @@ export function cellJourneyFactory({ makeRenderer, disposeTree, reduced, printin
       if(s===5) return linear.lerp(dimer,smooth(p*1.7));
       return dimer.lerp(tetramer,s===6?smooth(p*1.7):1);
     }
+    // Pol II reads the second unit from beside the pore up towards the top, so
+    // the 5′ end of the transcript starts nearest the pore it will lead through.
+    const centre=new THREE.Vector3(3,0,.4);
+    const template=f=>genomePosition(1,lerp(.86,.14,f),TX,1);
+    const outward=v=>v.clone().sub(centre).setZ(0).normalize();
+    const wiggle=j=>Math.sin(j*.8+time*2.4)*.045;
+    function transcriptBead(j,s,p) {
+      if(s===TL){const rest=along(restHead-j*SPACING); rest.y+=wiggle(j); return rest;}
+      const f=j/(NR-1), q=ramp(p,.06,.5);
+      if(q===0||f>q) return null;
+      // Each bead hangs off the template where it was made, further out the
+      // earlier it was made: the nascent strand trails behind the polymerase.
+      const base=template(f), nascent=base.clone().addScaledVector(outward(base),(q-f)*1.3).setZ(.55);
+      nascent.y+=wiggle(j);
+      const release=smooth(ramp(p,.5,.6));
+      if(release===0) return nascent;
+      const head=lerp(mrnaLength,restHead,smooth(ramp(p,.6,1)));
+      const snake=along(head-j*SPACING); snake.y+=wiggle(j);
+      return nascent.lerp(snake,release);
+    }
     function draw(dt, settled = false) {
-      // Reduced-motion keeps controls usable. Only print seeks to a final still.
-      if (printing && settled) time=END;
-      if (playing) time=Math.min(END,time+dt);
-      if(time===END) playing=false;
-      const s=Math.min(7,Math.floor(time/DURATION)), p=Math.min(1,(time-s*DURATION)/DURATION);
+      // Reduced-motion keeps controls usable. Only print seeks to a final still,
+      // the polysome mid-translation.
+      if (printing && settled) time=END-DURATION*(1-STILL);
+      if (playing) time=(time+dt*SPEED)%END;
+      const s=Math.min(stages.length-1,Math.floor(time/DURATION)), p=Math.min(1,(time-s*DURATION)/DURATION);
       if(shown!==s){
-        shown=s; count.textContent=`${String(s+1).padStart(2,'0')} / 08`;
+        shown=s; count.textContent=`${String(s+1).padStart(2,'0')} / ${String(stages.length).padStart(2,'0')}`;
         title.textContent=stages[s][1]; body.textContent=stages[s][2]; note.textContent=stages[s][3];
         picks.forEach((b,i)=>b.setAttribute('aria-pressed',String(i===s)));
         renderer.domElement.setAttribute('aria-label', `${stages[s][1]}. ${stages[s][2]}`);
@@ -187,13 +236,57 @@ export function cellJourneyFactory({ makeRenderer, disposeTree, reduced, printin
         }m.instanceMatrix.needsUpdate=true;
       }));
       joints.forEach((m,i)=>{m.visible=s>=5;m.position.copy(genomePosition(i,0,s,p));});
-      ribosome.visible=rna.visible=s===7;
-      // Repeated transcription / export / translation, along a pore at y=0.
-      const cycle=(p*3)%1;
-      rna.position.set(lerp(2.1,-4.7,Math.min(1,cycle*1.5)),0,.7);
-      proteins.forEach((m,i)=>{m.visible=s===7&&p>(i+1)/9;m.position.set(-4.7+Math.sin(i*2)*.6,1.65+i*.25,.3);m.rotation.y=time*.4+i;});
+      // Transcription: Pol II lands at the promoter, walks to the polyA signal
+      // and lets go; the finished transcript then snakes out through the pore.
+      const q=ramp(p,.06,.5), polAt=template(q), leave=smooth(ramp(p,.5,.58));
+      polymerase.visible=s===TX&&leave<1;
+      polymerase.position.copy(polAt).addScaledVector(outward(polAt),.3*(1-smooth(ramp(p,0,.06)))+.5*leave).setZ(.65);
+      polymerase.scale.setScalar(Math.max(1e-3,smooth(ramp(p,0,.06))*(1-leave)));
+      // Inside the ring, with more clearance when the label sits beside the strand.
+      const inward=outward(polAt).negate(); polLabel.p.copy(polAt).addScaledVector(inward,.45+.8*Math.abs(inward.x));
+      mrna.visible=s===TX||s===TL;
+      const beads=[];
+      for(let j=0;j<NR;j++){
+        const pos=beads[j]=mrna.visible&&transcriptBead(j,s,p);
+        m4.makeScale(pos?1:0,pos?1:0,pos?1:0); if(pos) m4.setPosition(pos); mrna.setMatrixAt(j,m4);
+      }
+      mrna.instanceMatrix.needsUpdate=true;
+      if(s===TL){
+        fivePrime.p.set(beads[0].x-.35,beads[0].y,1); threePrime.p.set(beads[NR-1].x,beads[NR-1].y-.4,1);
+        mrnaLabel.p.set(-3.1,-1.6,1);
+      } else if(s===TX&&beads[0]){
+        // Above the nascent strand while it is made, then leading its 5′ end out.
+        const mid=beads[Math.floor(q*(NR-1)/2)];
+        mrnaLabel.p.copy(mid).addScaledVector(outward(mid),.6).setZ(1).lerp(new THREE.Vector3(beads[0].x-.65,beads[0].y-.1,1),smooth(ramp(p,.5,.6)));
+      }
+      // Translation: each ribosome assembles at the start codon, moves 5′ → 3′
+      // growing a chain from its exit tunnel, splits at the stop codon, and the
+      // released chain folds and diffuses away.
+      ribosomes.forEach(({small,large,chain,start,home},k)=>{
+        const r=s===TL?(p-start)/.5:-1, made=ramp(r,.12,.88);
+        const at=along(restHead-lerp(.08,.92,made)*mrnaLength);
+        const loaded=smooth(ramp(r,0,.07)), joined=smooth(ramp(r,.05,.12)), split=smooth(ramp(r,.88,1));
+        small.visible=large.visible=r>0&&r<1;
+        small.position.set(at.x,at.y-.2-.6*(1-loaded)-.5*split,at.z);
+        large.position.set(at.x,at.y+.33+.6*(1-joined)+.5*split,at.z);
+        const sa=Math.max(1e-3,loaded*(1-split)), la=Math.max(1e-3,joined*(1-split));
+        small.scale.set(1.35*sa,.7*sa,sa); large.scale.set(1.25*la,.85*la,la);
+        chain.visible=r>.12;
+        const exit=new THREE.Vector3(at.x+.12,at.y+.66,.6), n=Math.ceil(made*M);
+        const folded=smooth(ramp(r,.88,1.04)), drift=smooth(ramp(r,1,1.4));
+        const core=exit.clone().add(new THREE.Vector3(0,.95,0)).lerp(home,drift);
+        core.y+=Math.sin(time*.9+k)*.08*drift;
+        for(let m=0;m<M;m++){
+          // m is residue order: the N-terminus is made first, so sits furthest out.
+          const out=n-1-m, grown=new THREE.Vector3(exit.x+Math.sin(out*1.1+k)*.13*Math.min(1,out/2)-out*.035,exit.y+out*.12,exit.z+Math.cos(out*1.1+k)*.1);
+          const pos=grown.lerp(fold[m].clone().applyAxisAngle(new THREE.Vector3(0,1,0),time*.6+k).add(core),folded);
+          const vis=m<n?1:0;
+          m4.makeScale(vis,vis,vis); m4.setPosition(pos); chain.setMatrixAt(m,m4);
+        }
+        chain.instanceMatrix.needsUpdate=true;
+      });
       scene.updateMatrixWorld(); renderer.render(scene,camera);
-      labels.forEach(({d,p:pos,show})=>{const v=pos.clone().project(camera);d.style.left=`${(v.x*.5+.5)*100}%`;d.style.top=`${(-v.y*.5+.5)*100}%`;d.hidden=!show(s);});
+      labels.forEach(({d,p:pos,show})=>{const v=pos.clone().project(camera);d.style.left=`${(v.x*.5+.5)*100}%`;d.style.top=`${(-v.y*.5+.5)*100}%`;d.hidden=!show(s,p);});
       el.dataset.stage=String(s+1);
     }
     function resize(nw,nh){

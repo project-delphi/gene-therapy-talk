@@ -12,7 +12,7 @@
 // loop here starts on slide-enter and is cancelled on slide-leave.
 
 import * as THREE from 'three';
-import { cellJourneyFactory } from './cell-journey.js?v=2';
+import { cellJourneyFactory } from './cell-journey.js?v=3';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 const BG = 0x0b0f14;          // $gt-bg
