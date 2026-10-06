@@ -161,8 +161,9 @@ owners.
 
 Slide 26, **The Journey In, Step by Step**, follows attachment, endocytosis,
 membrane escape, nuclear uncoating, duplex DNA formation, two-genome and
-four-genome circular concatemers, and expression. Use Pause, Restart, or the
-numbered stage buttons. Stage selection pauses the animation.
+four-genome circular concatemers, transcription and mRNA export, and translation
+by a polysome. Once playing it loops; use Pause, Restart, or the numbered stage buttons. Stage
+selection pauses the animation.
 
 The four colours track independently delivered genomes, not replication.
 Concatemer sizes are examples, and expression need not wait for circularization.
