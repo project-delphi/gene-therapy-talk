@@ -159,7 +159,7 @@ owners.
 
 ## Cell-entry animation
 
-Slide 26, **AAV entry and gene expression**, follows attachment, endocytosis,
+Slide 26, **The Journey In, Step by Step**, follows attachment, endocytosis,
 membrane escape, nuclear uncoating, duplex DNA formation, two-genome and
 four-genome circular concatemers, and expression. Use Pause, Restart, or the
 numbered stage buttons. Stage selection pauses the animation.
