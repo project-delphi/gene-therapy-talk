@@ -114,7 +114,7 @@ Slides marked `.webonly` are built around a live render and are dropped from the
 PowerPoint export, since there is no still to fall back on. SVG diagrams are
 skipped too, because python-pptx cannot embed them.
 
-**The PowerPoint exports currently do not build.** Ten slides carry a diagram and
+**The PowerPoint exports currently do not build.** Nine slides carry a diagram and
 no body text, so they would come out as a title and a citation. The script names
 them and exits rather than reporting success over blank slides. Rasterising the
 SVGs to PNG at build time is the fix; until then the reveal deck is the only
@@ -159,7 +159,7 @@ owners.
 
 ## Cell-entry animation
 
-Slide 26, **AAV entry and gene expression**, follows attachment, endocytosis,
+Slide 26, **The Journey In, Step by Step**, follows attachment, endocytosis,
 membrane escape, nuclear uncoating, duplex DNA formation, two-genome and
 four-genome circular concatemers, and expression. Use Pause, Restart, or the
 numbered stage buttons. Stage selection pauses the animation.
