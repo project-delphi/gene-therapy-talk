@@ -748,7 +748,8 @@ So the dose has to be enormous. Hold that thought for the toxicity slides.
 :::
 
 ::: {.notes}
-The journey plays on a loop. Select any numbered stage to pause there.
+Once playing, the journey loops; with reduced motion it starts paused, so press Play.
+Select any numbered stage to pause there.
 The coloured particles represent four independently delivered vector genomes.
 The red branch shows loss to degradation, not a measured survival fraction.
 

@@ -36,7 +36,10 @@ export function cellJourneyFactory({ makeRenderer, disposeTree, reduced, printin
     const DURATION = 8, SPEED = 1.2, STILL = .72, END = stages.length * DURATION;
     const play = button(playing ? 'Pause' : 'Play', () => { playing = !playing; draw(0); });
     button('Restart', () => { time = 0; draw(0); });
-    const picks = stages.map((s, i) => button(`${i + 1} ${s[0]}`, () => { time = i * DURATION + DURATION * STILL; playing = false; draw(0); }));
+    // Paused stills land late in each stage, except where that would miss the
+    // subject: Pol II mid-transcript, and a full polysome.
+    const stillAt = i => i === TX ? .4 : i === TL ? .55 : STILL;
+    const picks = stages.map((s, i) => button(`${i + 1} ${s[0]}`, () => { time = (i + stillAt(i)) * DURATION; playing = false; draw(0); }));
     el.append(bar);
     // Do not let Reveal turn button activation or keyboard navigation into a slide change.
     const stop = e => e.stopPropagation();
@@ -109,10 +112,10 @@ export function cellJourneyFactory({ makeRenderer, disposeTree, reduced, printin
     label('Degradation',-5.1,-4.1,s=>s===2,'#fb7185');
     label('2 genomes',3,3.25,s=>s===5,'#f2f7fa'); label('2 genomes',3,-.15,s=>s===5,'#f2f7fa');
     label('4 genomes',3,0,s=>s===6,'#f2f7fa');
-    const polLabel=label('RNA Pol II',0,0,(s,p)=>s===TX&&p<.52,'#e5e7eb');
+    const polLabel=label('RNA Pol II',0,0,(s,p)=>s===TX&&p>.04&&p<.54,'#e5e7eb');
     const mrnaLabel=label('mRNA',0,0,(s,p)=>s===TL||(s===TX&&p>.18),'#f87171');
     const fivePrime=label('5′',0,0,s=>s===TL,'#f87171'), threePrime=label('3′',0,0,s=>s===TL,'#f87171');
-    label('Ribosomes',-5.3,-1.6,(s,p)=>s===TL&&p>.03&&p<.97,'#cbd5e1');
+    label('Ribosomes',-5.3,-1.6,(s,p)=>s===TL&&p>.03&&p<.85,'#cbd5e1');
     label('Protein',-2.6,3.3,(s,p)=>s===TL&&p>.45,'#4ade80');
     // Four unit-length strands. Each unit retains its colour through joining.
     const N=96, beadGeo=new THREE.SphereGeometry(.07,8,6), m4=new THREE.Matrix4();
@@ -143,14 +146,17 @@ export function cellJourneyFactory({ makeRenderer, disposeTree, reduced, printin
       const y=1-2*(m+.5)/M, r=Math.sqrt(1-y*y), a=m*2.4;
       return new THREE.Vector3(Math.cos(a)*r,y,Math.sin(a)*r).multiplyScalar(.26);
     });
-    const homes=[[-5.9,2.7],[-4.3,3.3],[-3.1,2.6],[-5.3,3.7]];
+    const homes=[[-5.9,2.7],[-4.3,3.3],[-3.1,2.6],[-5.3,3.7]], UP=new THREE.Vector3(0,1,0);
+    // Each ribosome's lifetime as a fraction of the stage; the last chain has
+    // drifted home before the loop wraps.
+    const RIBO=.44;
     const ribosomes=homes.map(([hx,hy],k)=>{
       const small=new THREE.Mesh(smallGeo,new THREE.MeshStandardMaterial({color:0x94a3b8,roughness:.55}));
       const large=new THREE.Mesh(largeGeo,new THREE.MeshStandardMaterial({color:0xcbd5e1,roughness:.55}));
       scene.add(small,large);
       const chain=new THREE.InstancedMesh(chainBead,new THREE.MeshStandardMaterial({color:0x4ade80}),M);
       chain.frustumCulled=false; scene.add(chain);
-      return {small,large,chain,start:.03+k*.15,home:new THREE.Vector3(hx,hy,.6)};
+      return {small,large,chain,start:.02+k*.13,home:new THREE.Vector3(hx,hy,.6)};
     });
     const smooth = x=>THREE.MathUtils.smoothstep(x,0,1);
     const lerp=THREE.MathUtils.lerp;
@@ -189,7 +195,7 @@ export function cellJourneyFactory({ makeRenderer, disposeTree, reduced, printin
     function draw(dt, settled = false) {
       // Reduced-motion keeps controls usable. Only print seeks to a final still,
       // the polysome mid-translation.
-      if (printing && settled) time=END-DURATION*(1-STILL);
+      if (printing && settled) time=(TL+stillAt(TL))*DURATION;
       if (playing) time=(time+dt*SPEED)%END;
       const s=Math.min(stages.length-1,Math.floor(time/DURATION)), p=Math.min(1,(time-s*DURATION)/DURATION);
       if(shown!==s){
@@ -247,11 +253,11 @@ export function cellJourneyFactory({ makeRenderer, disposeTree, reduced, printin
       mrna.visible=s===TX||s===TL;
       const beads=[];
       for(let j=0;j<NR;j++){
-        const pos=beads[j]=mrna.visible&&transcriptBead(j,s,p);
+        const pos=beads[j]=mrna.visible?transcriptBead(j,s,p):null;
         m4.makeScale(pos?1:0,pos?1:0,pos?1:0); if(pos) m4.setPosition(pos); mrna.setMatrixAt(j,m4);
       }
       mrna.instanceMatrix.needsUpdate=true;
-      if(s===TL){
+      if(s===TL&&beads[0]&&beads[NR-1]){
         fivePrime.p.set(beads[0].x-.35,beads[0].y,1); threePrime.p.set(beads[NR-1].x,beads[NR-1].y-.4,1);
         mrnaLabel.p.set(-3.1,-1.6,1);
       } else if(s===TX&&beads[0]){
@@ -263,7 +269,8 @@ export function cellJourneyFactory({ makeRenderer, disposeTree, reduced, printin
       // growing a chain from its exit tunnel, splits at the stop codon, and the
       // released chain folds and diffuses away.
       ribosomes.forEach(({small,large,chain,start,home},k)=>{
-        const r=s===TL?(p-start)/.5:-1, made=ramp(r,.12,.88);
+        if(s!==TL){small.visible=large.visible=chain.visible=false; return;}
+        const r=(p-start)/RIBO, made=ramp(r,.12,.88);
         const at=along(restHead-lerp(.08,.92,made)*mrnaLength);
         const loaded=smooth(ramp(r,0,.07)), joined=smooth(ramp(r,.05,.12)), split=smooth(ramp(r,.88,1));
         small.visible=large.visible=r>0&&r<1;
@@ -273,13 +280,13 @@ export function cellJourneyFactory({ makeRenderer, disposeTree, reduced, printin
         small.scale.set(1.35*sa,.7*sa,sa); large.scale.set(1.25*la,.85*la,la);
         chain.visible=r>.12;
         const exit=new THREE.Vector3(at.x+.12,at.y+.66,.6), n=Math.ceil(made*M);
-        const folded=smooth(ramp(r,.88,1.04)), drift=smooth(ramp(r,1,1.4));
+        const folded=smooth(ramp(r,.88,1.02)), drift=smooth(ramp(r,.98,1.3));
         const core=exit.clone().add(new THREE.Vector3(0,.95,0)).lerp(home,drift);
         core.y+=Math.sin(time*.9+k)*.08*drift;
         for(let m=0;m<M;m++){
           // m is residue order: the N-terminus is made first, so sits furthest out.
           const out=n-1-m, grown=new THREE.Vector3(exit.x+Math.sin(out*1.1+k)*.13*Math.min(1,out/2)-out*.035,exit.y+out*.12,exit.z+Math.cos(out*1.1+k)*.1);
-          const pos=grown.lerp(fold[m].clone().applyAxisAngle(new THREE.Vector3(0,1,0),time*.6+k).add(core),folded);
+          const pos=grown.lerp(fold[m].clone().applyAxisAngle(UP,time*.6+k).add(core),folded);
           const vis=m<n?1:0;
           m4.makeScale(vis,vis,vis); m4.setPosition(pos); chain.setMatrixAt(m,m4);
         }
