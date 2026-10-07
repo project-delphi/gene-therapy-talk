@@ -26,7 +26,12 @@ const SLATE = '#475569';      // neutral: no model, or a non-tropism control
 
 function el(tag, attrs, parent) {
   const n = document.createElementNS(NS, tag);
-  for (const k in attrs) n.setAttribute(k, attrs[k]);
+  // A null or undefined value means "leave this attribute off" — setting it
+  // would write the string "null", which only survives because invalid
+  // presentation-attribute values happen to be ignored.
+  for (const k in attrs) {
+    if (attrs[k] !== null && attrs[k] !== undefined) n.setAttribute(k, attrs[k]);
+  }
   if (parent) parent.appendChild(n);
   return n;
 }
@@ -357,6 +362,9 @@ export function forestFactory({ reduced, printing }) {
 
     // --- playback ---------------------------------------------------------
     const CYCLE = 13;
+    // Where in a cycle a still should sit: past the end of the result fade
+    // (seg(t, 0.78, 0.9)), so the ensemble mean paints at full opacity.
+    const SETTLED = 0.95;
     let time = 0;
     let playing = !reduced && !printing;
     let pick = -1;   // -1 = follow the clock
@@ -364,6 +372,9 @@ export function forestFactory({ reduced, printing }) {
     const ctl = controlBar(root, 'Random forest controls');
     const playBtn = ctl.button(playing ? 'Pause' : 'Play', () => {
       playing = !playing;
+      // Resuming hands the highlight back to the animation; pausing leaves
+      // whatever the presenter last chose selected.
+      if (playing) pick = -1;
       playBtn.textContent = playing ? 'Pause' : 'Play';
       draw(0);
     });
@@ -371,7 +382,7 @@ export function forestFactory({ reduced, printing }) {
     const picks = VARIANTS.map((v, i) => ctl.button(v.pep, () => {
       pick = i;
       // Land late enough in the cycle that the whole result is on screen.
-      time = i * CYCLE + CYCLE * 0.84;
+      time = i * CYCLE + CYCLE * SETTLED;
       playing = false;
       playBtn.textContent = 'Play';
       draw(0);
@@ -379,7 +390,9 @@ export function forestFactory({ reduced, printing }) {
 
     function draw(dt, settled) {
       if (playing && !settled) time += dt;
-      if (settled) time = CYCLE * 0.84;   // one-shot paint: show a finished prediction
+      // One-shot paint: show a finished prediction. A presenter's chosen variant
+      // wins, because a halted stage repaints through here on every resize.
+      if (settled && pick === -1) time = CYCLE * SETTLED;
 
       const span = CYCLE * VARIANTS.length;
       time = ((time % span) + span) % span;

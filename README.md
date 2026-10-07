@@ -120,6 +120,13 @@ Slides marked `.webonly` are built around a live render and are dropped from the
 PowerPoint export, since there is no still to fall back on. SVG diagrams are
 skipped too, because python-pptx cannot embed them.
 
+*From Mouse to Macaque* became `.webonly` when it gained the cross-species chart,
+so it now leaves the PowerPoint decks as well. Its text column still reads on its
+own, but the bang line under it has nothing left to stand on, which is the usual
+argument for the `.webonly` mark. Dropping the mark would put the text back in the
+exports and lose only the chart — worth revisiting whenever the pptx path builds
+again.
+
 **The PowerPoint exports currently do not build.** Nine slides carry a diagram and
 no body text, so they would come out as a title and a citation. The script names
 them and exits rather than reporting success over blank slides. Rasterising the
