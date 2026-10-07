@@ -13,6 +13,7 @@
 
 import * as THREE from 'three';
 import { cellJourneyFactory } from './cell-journey.js?v=3';
+import { forestFactory, crossSpeciesFactory } from './ml-viz.js?v=2';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 const BG = 0x0b0f14;          // $gt-bg
@@ -44,6 +45,9 @@ function webglAvailable() {
 
 function fallback(el, msg) {
   el.classList.add('viz-fallback');
+  // Retired: a stage showing its fallback must not be handed back to the
+  // lifecycle, or sync() keeps trying to build the thing that just failed.
+  el.dataset.vizFallback = 'true';
   const img = el.dataset.still;
   el.innerHTML = img
     ? `<img src="${img}" alt="${el.dataset.alt || ''}">`
@@ -1171,7 +1175,19 @@ function itrcpg({ host, cap }, w, h) {
 // --- registry and lifecycle ------------------------------------------------
 
 const celljourney = cellJourneyFactory({ makeRenderer, disposeTree, reduced: REDUCED, printing: PRINTING });
-const FACTORIES = { celljourney, episome, seqspace, capsid, seqscale, shuffle, latent, itrcpg };
+const forest = forestFactory({ reduced: REDUCED, printing: PRINTING });
+const crossspecies = crossSpeciesFactory({ reduced: REDUCED, printing: PRINTING });
+const FACTORIES = {
+  celljourney, episome, seqspace, capsid, seqscale, shuffle, latent, itrcpg,
+  forest, crossspecies,
+};
+
+// The ML diagrams are SVG, not WebGL — their content is mostly text, and an
+// SVG <text> stays crisp where a texture-mapped label goes soft at projector
+// size. They must therefore survive the no-WebGL path rather than being
+// replaced by a "needs WebGL" message they do not need.
+const SVG_ONLY = new Set(['forest', 'crossspecies']);
+
 const live = new Map();   // element -> { frame, resize, dispose, raf, running }
 
 function build(el) {
@@ -1259,7 +1275,7 @@ function stop(el) {
 }
 
 function containers() {
-  return Array.from(document.querySelectorAll('[data-viz]'));
+  return Array.from(document.querySelectorAll('[data-viz]:not([data-viz-fallback])'));
 }
 
 function sync(revealInstance) {
@@ -1344,8 +1360,10 @@ function init() {
   if (!els.length) return;
 
   if (!webglAvailable()) {
-    els.forEach((el) => fallback(el, 'This visualisation needs WebGL.'));
-    return;
+    const svgOnly = els.filter((el) => SVG_ONLY.has(el.dataset.viz));
+    els.filter((el) => !SVG_ONLY.has(el.dataset.viz))
+      .forEach((el) => fallback(el, 'This visualisation needs WebGL.'));
+    if (!svgOnly.length) return;
   }
 
   // A handle for troubleshooting from the console — `aavViz.state()` says what

@@ -1218,40 +1218,92 @@ So directed evolution gave a phenotype in one context and no understanding that
 generalises. Which raises the obvious question: can you learn something that does?
 :::
 
-## From Mouse to Macaque {.k-magenta}
+## What a Random Forest Actually Computes {.k-magenta .webonly}
+
+::: {.viz-stage data-viz="forest" data-prevent-swipe="true" style="height:600px"}
+:::
+
+[Tabular features, interpretable splits, no gradients — the baseline a sequence model has to beat.]{.bang}
+
+::: {.cite}
+@breiman2001
+:::
+
+::: {.notes}
+Spend a moment here, because the rest of the act assumes the audience knows what "fitted
+a model" means, and for a room of virologists that is worth ninety seconds rather than
+being skipped.
+
+Walk the animation. A variant arrives as a handful of engineered columns — charge,
+hydrophobicity, bulk, how buried residue 588 is. One tree asks a sequence of threshold
+questions and lands in a leaf, and the leaf is just the average fitness of the training
+variants that fell into it. No mechanism, no structure, no gradient: a lookup refined by
+questions.
+
+Then the two sources of disagreement, which are the whole reason this works. Each tree is
+fitted to a different bootstrap resample of the data, and at each split it is only allowed
+to consider a random subset of the features. So the three trees on screen genuinely
+disagree about the same variant — watch the three ticks land in different places — and
+averaging them cancels a large part of the variance of any one.
+
+Be clear that the numbers on screen are illustrative. The routing and the average are
+really computed from the features shown, but the features and leaf values are invented
+for the slide.
+
+Why this model class is in a virology talk: when your data is a few dozen engineered
+columns, a forest is hard to beat and it tells you which columns mattered. When your data
+is the sequence itself, it is the wrong tool — which is the next slide, and the reason the
+cross-species work used sequence models instead.
+:::
+
+## From Mouse to Macaque {.k-magenta .webonly}
 
 :::: {.columns}
-::: {.column width="52%"}
-**Fit4Function** — train one model per measurable property, on a library that uniformly
+::: {.column width="33%" .tight}
+**Fit4Function** — fit one model per *measurable* property, on a library that uniformly
 samples manufacturable sequence space.
+
+Six properties: production fitness, mouse liver transduction, and binding and
+transduction in each of two human liver cell lines.
 
 Six models combined to design a liver-targeted, manufacturable library. **88%** of
 variants met all six criteria.
 :::
-::: {.column width="48%"}
-Trained on **mouse in vivo** and **human in vitro** data.
-
-Predicted biodistribution in **macaque**.
-
-[Learn properties that transfer, not winners that do not.]{.bang}
+::: {.column width="67%"}
+::: {.viz-stage data-viz="crossspecies" data-prevent-swipe="true" style="height:620px"}
+:::
 :::
 ::::
+
+[No single predictor transfers. The six together do.]{.bang}
 
 ::: {.cite}
 @eid2024
 :::
 
 ::: {.notes}
-This is the direct answer to the AAV-PHP.B problem, and the reason it works is the
-library design rather than the model architecture.
+This is the direct answer to the AAV-PHP.B problem, and the reason it works is the library
+design rather than the model architecture.
 
 Instead of screening for one phenotype and keeping the winner, they screened a library
 that uniformly samples sequence space for many separate, individually measurable
-functions — production, biodistribution, cell binding — and fitted a model to each. Then
-they combined the models to specify a capsid satisfying all of them at once.
+functions, and fitted a model to each. Then they combined the models to specify a capsid
+satisfying all six at once.
 
-The cross-species result is the headline: models trained only on mouse in vivo and human
-in vitro data predicted what happened in macaque.
+The chart is their own transferability table. Read it bottom-up. Chance is 0.24. The best
+single predictor — transduction of a human liver cell line in a dish — gets you to 0.86.
+All six together, 0.91. The argument is not that any one model is clever; it is that
+stacking independently measurable functions is what survives the species change.
+
+Two details worth having ready. Production fitness alone scores 0.27 against a 0.24
+baseline — manufacturability tells you essentially nothing about where a capsid goes,
+which is why it has to be a separate objective rather than a proxy. And dropping the mouse
+in vivo predictor leaves the figure unchanged in their table, at 0.911 either way: four
+human in vitro assays are already carrying the tropism signal between them.
+
+If asked about the model: it is not a forest. Each property got a two-layer LSTM over a
+one-hot encoded 7-mer. The input here is the sequence itself, so a sequence model is the
+right tool — the contrast with the previous slide is deliberate.
 :::
 
 ## Predicting Fitness Before You Measure It {.k-magenta}
@@ -1261,16 +1313,19 @@ in vitro data predicted what happened in macaque.
 **Mikos, Chen & Suh** (Rice) asked a narrower question: can you predict *production*
 fitness from **structure alone**?
 
-Random-forest style models on structural features — without prior AAV fitness measurements as training labels.
+Features describing each residue's **structural microenvironment** — no measured AAV
+fitness used as training labels at all.
 :::
 ::: {.column width="48%"}
 Reported **threefold** enrichment in mutations beating wild-type production,
-compared with random mutagenesis (preprint).
+compared with random mutagenesis. *Preprint, p = 7.5 × 10⁻¹².*
 
 Production fitness is unglamorous and gates everything — a capsid you cannot manufacture
 is not a capsid.
 :::
 ::::
+
+[The columns you can compute before you run anything.]{.bang}
 
 ::: {.cite}
 @mikos2021
@@ -1285,8 +1340,14 @@ The interesting methodological claim is that structural features alone carry eno
 signal to triple your hit rate, without any measured fitness data to train on. That
 matters when you are engineering a serotype nobody has screened.
 
-If asked: this was a preprint from the Suh lab at Rice. Check for the published version
-before citing it as settled.
+This is the tabular-feature regime from two slides back: a residue's burial, packing and
+neighbourhood are columns you can compute from a deposited structure before you have run
+a single experiment. That is what makes a tree ensemble the natural choice and what makes
+the result possible at all with no AAV fitness labels.
+
+If asked: a preprint from the Suh lab at Rice, and still a preprint. Do not describe the
+specific algorithm from the podium unless you have read the methods — say "structural
+features" and move on. Check for a published version before citing it as settled.
 :::
 
 ## Discriminative or Generative {.k-magenta}
