@@ -49,7 +49,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-d11e61fd69e128792b24ac23a76c5532.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-c9339ebc078aa91ef12e4d74ba0ddc79.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -161,7 +161,7 @@
        module scripts execute in document order, so window.NGL is defined by the
        time aav-viz.js runs. -->
   <script src="./js/vendor/ngl.js" defer=""></script>
-  <script type="module" src="./js/aav-viz.js?v=cell-journey-3"></script>
+  <script type="module" src="./js/aav-viz.js?v=ml-viz-3"></script>
 </head>
 <body class="quarto-dark">
   <div class="reveal">
@@ -1409,24 +1409,55 @@ Ravi Kalia
           display:block!important;
       }</style></aside>
 </section>
-<section id="from-mouse-to-macaque" class="slide level2 k-magenta">
+<section id="what-a-random-forest-actually-computes" class="slide level2 k-magenta webonly">
+<h2>What a Random Forest Actually Computes</h2>
+<div class="viz-stage" data-viz="forest" data-prevent-swipe="true" style="height:600px">
+
+</div>
+<p><span class="bang">Tabular features, interpretable splits, no gradients — the baseline a sequence model has to beat.</span></p>
+<div class="cite">
+<p><span class="citation" data-cites="breiman2001">Breiman (<a href="#/references" role="doc-biblioref" onclick="">2001</a>)</span></p>
+</div>
+<aside class="notes">
+<p>Spend a moment here, because the rest of the act assumes the audience knows what “fitted a model” means, and for a room of virologists that is worth ninety seconds rather than being skipped.</p>
+<p>Walk the animation. A variant arrives as a handful of engineered columns — charge, hydrophobicity, bulk, how buried residue 588 is. One tree asks a sequence of threshold questions and lands in a leaf, and the leaf is just the average fitness of the training variants that fell into it. No mechanism, no structure, no gradient: a lookup refined by questions.</p>
+<p>Then the two sources of disagreement, which are the whole reason this works. Each tree is fitted to a different bootstrap resample of the data, and at each split it is only allowed to consider a random subset of the features. So the three trees on screen genuinely disagree about the same variant — watch the three ticks land in different places — and averaging them cancels a large part of the variance of any one.</p>
+<p>Be clear that the numbers on screen are illustrative. The routing and the average are really computed from the features shown, but the features and leaf values are invented for the slide.</p>
+<p>Why this model class is in a virology talk: when your data is a few dozen engineered columns, a forest is hard to beat and it tells you which columns mattered. When your data is the sequence itself, it is the wrong tool — which is the next slide, and the reason the cross-species work used sequence models instead.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="from-mouse-to-macaque" class="slide level2 k-magenta webonly">
 <h2>From Mouse to Macaque</h2>
 <div class="columns">
-<div class="column" style="width:52%;">
-<p><strong>Fit4Function</strong> — train one model per measurable property, on a library that uniformly samples manufacturable sequence space.</p>
+<div class="column tight" style="width:33%;">
+<p><strong>Fit4Function</strong> — fit one model per <em>measurable</em> property, on a library that uniformly samples manufacturable sequence space.</p>
+<p>Six properties: production fitness, mouse liver transduction, and binding and transduction in each of two human liver cell lines.</p>
 <p>Six models combined to design a liver-targeted, manufacturable library. <strong>88%</strong> of variants met all six criteria.</p>
-</div><div class="column" style="width:48%;">
-<p>Trained on <strong>mouse in vivo</strong> and <strong>human in vitro</strong> data.</p>
-<p>Predicted biodistribution in <strong>macaque</strong>.</p>
-<p><span class="bang">Learn properties that transfer, not winners that do not.</span></p>
+</div><div class="column" style="width:67%;">
+<div class="viz-stage" data-viz="crossspecies" data-prevent-swipe="true" style="height:620px">
+
+</div>
 </div></div>
+<p><span class="bang">No single predictor transfers. The six together do.</span></p>
 <div class="cite">
 <p><span class="citation" data-cites="eid2024">Eid et al. (<a href="#/references" role="doc-biblioref" onclick="">2024</a>)</span></p>
 </div>
 <aside class="notes">
 <p>This is the direct answer to the AAV-PHP.B problem, and the reason it works is the library design rather than the model architecture.</p>
-<p>Instead of screening for one phenotype and keeping the winner, they screened a library that uniformly samples sequence space for many separate, individually measurable functions — production, biodistribution, cell binding — and fitted a model to each. Then they combined the models to specify a capsid satisfying all of them at once.</p>
-<p>The cross-species result is the headline: models trained only on mouse in vivo and human in vitro data predicted what happened in macaque.</p>
+<p>Instead of screening for one phenotype and keeping the winner, they screened a library that uniformly samples sequence space for many separate, individually measurable functions, and fitted a model to each. Then they combined the models to specify a capsid satisfying all six at once.</p>
+<p>The chart is their own transferability table. Read it bottom-up. Chance is 0.24. The best single predictor — transduction of a human liver cell line in a dish — gets you to 0.86. All six together, 0.91. The argument is not that any one model is clever; it is that stacking independently measurable functions is what survives the species change.</p>
+<p>Two details worth having ready. Production fitness alone scores 0.27 against a 0.24 baseline — manufacturability tells you essentially nothing about where a capsid goes, which is why it has to be a separate objective rather than a proxy. And dropping the mouse in vivo predictor leaves the figure unchanged in their table, at 0.911 either way: four human in vitro assays are already carrying the tropism signal between them.</p>
+<p>If asked about the model: it is not a forest. Each property got a two-layer LSTM over a one-hot encoded 7-mer. The input here is the sequence itself, so a sequence model is the right tool — the contrast with the previous slide is deliberate.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1444,18 +1475,20 @@ Ravi Kalia
 <div class="columns">
 <div class="column" style="width:52%;">
 <p><strong>Mikos, Chen &amp; Suh</strong> (Rice) asked a narrower question: can you predict <em>production</em> fitness from <strong>structure alone</strong>?</p>
-<p>Random-forest style models on structural features — without prior AAV fitness measurements as training labels.</p>
+<p>Features describing each residue’s <strong>structural microenvironment</strong> — no measured AAV fitness used as training labels at all.</p>
 </div><div class="column" style="width:48%;">
-<p>Reported <strong>threefold</strong> enrichment in mutations beating wild-type production, compared with random mutagenesis (preprint).</p>
+<p>Reported <strong>threefold</strong> enrichment in mutations beating wild-type production, compared with random mutagenesis. <em>Preprint, p = 7.5 × 10⁻¹².</em></p>
 <p>Production fitness is unglamorous and gates everything — a capsid you cannot manufacture is not a capsid.</p>
 </div></div>
+<p><span class="bang">The columns you can compute before you run anything.</span></p>
 <div class="cite">
 <p><span class="citation" data-cites="mikos2021">Mikos, Chen, and Suh (<a href="#/references" role="doc-biblioref" onclick="">2021</a>)</span></p>
 </div>
 <aside class="notes">
 <p>Worth including because it attacks a different and underrated axis. Everyone optimises tropism; far fewer optimise whether the thing can be made at scale, and a variant that packages badly is worthless however well it targets.</p>
 <p>The interesting methodological claim is that structural features alone carry enough signal to triple your hit rate, without any measured fitness data to train on. That matters when you are engineering a serotype nobody has screened.</p>
-<p>If asked: this was a preprint from the Suh lab at Rice. Check for the published version before citing it as settled.</p>
+<p>This is the tabular-feature regime from two slides back: a residue’s burial, packing and neighbourhood are columns you can compute from a deposited structure before you have run a single experiment. That is what makes a tree ensemble the natural choice and what makes the result possible at all with no AAV fitness labels.</p>
+<p>If asked: a preprint from the Suh lab at Rice, and still a preprint. Do not describe the specific algorithm from the podium unless you have read the methods — say “structural features” and move on. Check for a published version before citing it as settled.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1762,6 +1795,9 @@ Ravi Kalia
 <section id="references" class="slide level2 scrollable smaller">
 <h2>References</h2>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-breiman2001" class="csl-entry" role="listitem">
+Breiman, Leo. 2001. <span>“Random Forests.”</span> <em>Machine Learning</em> 45 (1): 5–32. <a href="https://doi.org/10.1023/A:1010933404324">https://doi.org/10.1023/A:1010933404324</a>.
+</div>
 <div id="ref-bryant2021" class="csl-entry" role="listitem">
 Bryant, Drew H., Ali Bashir, Sam Sinai, Nina K. Jain, Pierce J. Ogden, Patrick F. Riley, George M. Church, Lucy J. Colwell, and Eric D. Kelsic. 2021. <span>“Deep Diversification of an <span>AAV</span> Capsid Protein by Machine Learning.”</span> <em>Nature Biotechnology</em> 39: 691–96. <a href="https://doi.org/10.1038/s41587-020-00793-4">https://doi.org/10.1038/s41587-020-00793-4</a>.
 </div>

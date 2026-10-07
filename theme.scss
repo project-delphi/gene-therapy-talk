@@ -543,3 +543,52 @@ $viz-caption-band: 46px;
 @media print {
   .reveal .cell-journey .journey-controls { display: none; }
 }
+
+// ML diagrams: SVG stages that carry their own controls. The runtime adds
+// .has-controls, which buys a second band at the foot of the stage so the
+// buttons sit below the caption rather than over the figure — the same rule
+// the caption band itself follows.
+$viz-control-band: 44px;
+
+.reveal .viz-stage.has-controls {
+  .viz-host { bottom: $viz-caption-band + $viz-control-band; }
+  .viz-caption { bottom: $viz-control-band; }
+}
+
+.reveal .ml-controls {
+  position: absolute;
+  bottom: 2px;
+  left: 8px;
+  right: 8px;
+  height: $viz-control-band - 4px;
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  justify-content: center;
+
+  button {
+    font: 17px Arial, sans-serif;
+    color: #c9d9e6;
+    border: 1px solid #3a4d5e;
+    background: $gt-surface;
+    border-radius: 4px;
+    padding: 7px 12px;
+    cursor: pointer;
+
+    &:hover { border-color: $gt-magenta; }
+    // The variant buttons report which one is on screen, so the control
+    // reflects the animation rather than only the last click.
+    &[aria-pressed='true'] { color: $gt-bg; background: $gt-magenta; border-color: $gt-magenta; }
+    &:focus-visible { outline: 3px solid white; outline-offset: 3px; }
+  }
+}
+
+// Printing flattens the deck and the buttons cannot be pressed on paper, so
+// the band is given back to the figure.
+@media print {
+  .reveal .ml-controls { display: none; }
+  .reveal .viz-stage.has-controls {
+    .viz-host { bottom: $viz-caption-band; }
+    .viz-caption { bottom: 0; }
+  }
+}

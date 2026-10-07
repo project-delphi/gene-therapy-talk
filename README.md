@@ -13,7 +13,7 @@ dose is bounded by immunogenicity and toxicity; and the only lever that moves is
 potency per particle. Machine learning is in the talk because that is the lever,
 and the space is too large to search by hand.
 
-59 slides, with speaker notes throughout and a cited bibliography.
+60 slides, with speaker notes throughout and a cited bibliography.
 
 ## Reading it
 
@@ -28,13 +28,18 @@ Open the link above. Useful keys:
 | `E` then print | export to PDF |
 | `?` | all shortcuts |
 
-Ten slides carry live 3D, across eleven canvases — the AAV2/AAV9 slide renders both
-capsids side by side. Molecular views are draggable: the AAV2 capsid; its icosahedral
-symmetry axes; an AAV2/AAV9 comparison; the four opening sequences drawn to
-scale; the interactive cell-entry journey; second-strand synthesis and circularisation; the capsid fitness
-landscape; DNA shuffling across nine serotypes; a VAE latent space; and the ITR
-hairpin with its CpG sites. They need WebGL and fall back to a static message
+Twelve slides carry a live render, across thirteen canvases — the AAV2/AAV9 slide
+draws both capsids side by side.
+
+Ten of those slides are WebGL, and their molecular views are draggable: the AAV2 capsid;
+its icosahedral symmetry axes; an AAV2/AAV9 comparison; the four opening sequences drawn
+to scale; the interactive cell-entry journey; second-strand synthesis and circularisation;
+the capsid fitness landscape; DNA shuffling across nine serotypes; a VAE latent space; and
+the ITR hairpin with its CpG sites. They need WebGL and fall back to a static message
 without it.
+
+The two machine-learning figures are SVG instead, and work without WebGL — see
+[The machine-learning figures](#the-machine-learning-figures).
 
 The symmetry axes are not drawn by hand — the runtime reads the 60 operators out
 of the deposited assembly, classifies each by its rotation angle (72°/144° →
@@ -57,11 +62,12 @@ before pushing any change to the slides.
 ## Layout
 
 ```
-index.qmd         the 58 slides, with speaker notes
+index.qmd         the 59 authored slides, with speaker notes
 references.bib    primary literature behind every claim on a slide
 theme.scss        dark theme, ported from the original PowerPoint's colour scheme
 js/aav-viz.js     visualisation runtime (lifecycle, lazy init, teardown)
 js/cell-journey.js the narrated cell-entry animation, registered into that runtime
+js/ml-viz.js      the two SVG machine-learning figures, registered into it too
 js/head.html      import map and script tags, injected via include-in-header
 js/vendor/        pinned three.js r186 and NGL 2.5.0, vendored rather than CDN
 assets/pdb/       AAV2 (1LP3) and AAV9 (3UX1) asymmetric units
@@ -113,6 +119,13 @@ PDF), and it reads the conference template out of `no_commit/`.
 Slides marked `.webonly` are built around a live render and are dropped from the
 PowerPoint export, since there is no still to fall back on. SVG diagrams are
 skipped too, because python-pptx cannot embed them.
+
+*From Mouse to Macaque* became `.webonly` when it gained the cross-species chart,
+so it now leaves the PowerPoint decks as well. Its text column still reads on its
+own, but the bang line under it has nothing left to stand on, which is the usual
+argument for the `.webonly` mark. Dropping the mark would put the text back in the
+exports and lose only the chart — worth revisiting whenever the pptx path builds
+again.
 
 **The PowerPoint exports currently do not build.** Nine slides carry a diagram and
 no body text, so they would come out as a title and a citation. The script names
@@ -170,3 +183,38 @@ Concatemer sizes are examples, and expression need not wait for circularization.
 Geometry, timing and survival fractions are schematic. Reduced-motion mode
 starts paused; the static transduction diagram is the WebGL fallback.
 The implementation is in `js/cell-journey.js`, using the existing lazy lifecycle.
+
+## The machine-learning figures
+
+Two slides in the engineering act are drawn with SVG rather than WebGL, in
+`js/ml-viz.js`. Both are mostly *text* — split tests, feature names, hit rates —
+and an SVG `<text>` stays crisp at projector size where a texture-mapped label in
+a three.js scene goes soft. They register into the same runtime as everything
+else, so they still build lazily and stop animating on slide-leave, and they are
+the two stages that survive the no-WebGL path instead of falling back.
+
+**What a Random Forest Actually Computes** routes one variant down three decision
+trees and averages the leaves they reach. The routing is really computed: the
+three trees are each restricted to a different pair of features, which is why
+they disagree about the same variant, and the ensemble value on the axis is the
+mean of the leaves actually reached. The features and leaf values themselves are
+invented for the slide, and the caption says so.
+
+**From Mouse to Macaque** charts the Fit4Function transferability result — how
+well each predictor, alone and in combination, recovers macaque liver
+transduction. The numbers are the authors' own, from `data/transferability.csv`
+in [the paper's repository](https://github.com/vector-engineering/fit4function):
+chance is 0.24, the best single predictor reaches 0.86, and all six together
+reach 0.91.
+
+Colour in both figures is amber for mouse in vivo, cyan for human in vitro and
+magenta for the combination. That set was chosen by running the palette through a
+contrast and colour-vision check against the `#0b0f14` ground rather than by eye —
+worst all-pairs ΔE 10.4 under simulated deuteranopia, 27.0 under normal vision.
+The deck's violet sits too close to cyan for deuteranopia (ΔE 5.2) and teal too
+close to cyan for tritanopia (ΔE 3.5), so neither is used where the two would be
+adjacent.
+
+Both figures carry their own Play/Pause controls, which the runtime gives a band
+at the foot of the stage via the `.has-controls` class so the buttons never cover
+the figure. Printing drops the band and paints one settled frame.
