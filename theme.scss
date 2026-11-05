@@ -485,6 +485,18 @@ $viz-caption-band: 46px;
   .portrait-role { display: block; font-size: 0.34em; color: $gt-muted; line-height: 1.3; }
 }
 
+// Two portraits side by side need more room than the 210px default.
+.reveal .portrait-row.large { gap: 0.8em; align-items: stretch; }
+.reveal .portrait-row.large .portrait { flex: 1 1 0; min-width: 0; }
+.reveal .portrait-row.large .portrait img {
+  width: 100%;
+  max-width: none;
+  height: 340px;
+  aspect-ratio: auto;
+  object-fit: cover;
+}
+.reveal .portrait-row.large .portrait .portrait-role { font-size: 0.4em; }
+
 // A 19th-century plate on a dark ground needs its own light card, or it reads
 // as a scanning artefact rather than a figure.
 .reveal .plate {
