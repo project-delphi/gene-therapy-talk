@@ -34,25 +34,23 @@ format:
 
 # Four Sequences That Worked {.act .k-violet}
 
-Four medicines that changed the last decade. Each depends on a deliberately chosen biological sequence.
+Four medicines. Each works because someone chose the sequence.
 
-## ChAdOx1: The Vector Was Already There {.k-violet}
+## Vaccine 1: A Virus as Van {.k-violet}
 
 :::: {.columns}
 ::: {.column width="52%"}
-A chimpanzee adenovirus, gutted and reloaded.
+A chimp cold virus (adenovirus), emptied and reloaded.
 
-- Spike gene swapped in for E1
-- Replication-deficient
-- Shipped at fridge temperature
+- Growth gene removed, spike gene added
+- It can no longer copy itself
 
-[≈35 kb of DNA]{.metric}
+[≈35 kb of DNA (35,000 letters)]{.metric}
 :::
 ::: {.column width="48%"}
-Billions of doses. The virus is the courier, not the medicine.
+The virus is the courier, not the medicine.
 
-The **payload was written, not discovered** — a spike sequence pasted into a vector
-backbone.
+The **gene it carries was written, not discovered**.
 :::
 ::::
 
@@ -61,28 +59,22 @@ backbone.
 :::
 
 ::: {.notes}
-Start concrete and move fast. ChAdOx1 is a chimpanzee adenovirus precisely because human
-adenovirus seroprevalence would neutralise it — already a hint of the immunology problem
-that dominates the back half of this talk.
-
-The thing to plant: the vector was off the shelf. What changed was the sequence dropped
-into it, and that took days once the genome was published.
+This is the Oxford/AstraZeneca vaccine. A vector is a virus turned into a delivery van: we delete its copying genes and load a gene we want cells to read. Why a chimp virus? Many people carry antibodies to human adenoviruses, which would stop the van. The van was off the shelf; only the sequence changed. Question: "Does it infect you?" No, it cannot copy itself. It only delivers the spike gene.
 :::
 
-## BNT162b2: The Courier Disappears {.k-violet}
+## Vaccine 2: No Virus at All {.k-violet}
 
 :::: {.columns}
 ::: {.column width="52%"}
-No virus at all. A sequence in a lipid droplet.
+Just the message, wrapped in a fat bubble.
 
-- Nucleoside-modified mRNA
-- Lipid nanoparticle delivery
-- Transient by design
+- mRNA with one building block swapped
+- Fat droplet carries it into cells
 
 [4,284 nucleotides]{.metric}
 :::
 ::: {.column width="48%"}
-Designed from a published genome in **days**.
+Designed in **days** from the virus genome.
 
 ::: {.portrait-row}
 ::: {.portrait}
@@ -104,25 +96,18 @@ Designed from a published genome in **days**.
 :::
 
 ::: {.notes}
-The contrast with the previous slide is the point: strip the virus away entirely and the
-sequence still works, as long as something gets it into a cell.
-
-Worth naming the pseudouridine modification if the room is interested — it is what keeps
-the RNA from being shredded by innate sensors, and it is the same class of problem as the
-CpG story later in this talk.
+Take the virus away and the sequence still works. Link to the central dogma: we hand the cell the mRNA, and ribosomes make spike. It never enters the nucleus or changes your DNA. The mRNA is fragile, so a lipid nanoparticle (a tiny fat bubble) carries it in. "Swapped how?" That is the next slide.
 :::
 
-## Change the Letter, Keep the Message {.k-violet}
+## One Swap Calms the Cell {.k-violet}
 
 :::: {.columns}
 ::: {.column width="58%"}
-Unmodified mRNA is read by the innate immune system as **infection**. It triggers
-interferon, and the message is destroyed before it is translated.
+Your **innate immune system** treats plain mRNA as **infection** and destroys it.
 
-**N1-methylpseudouridine** can reduce innate sensing and improve translation.
-RNA purification and delivery also shape the response.
+Swapping every uridine for **N1-methylpseudouridine** quiets the alarm.
 
-[RNA chemistry and delivery determine how much protein the cell makes.]{.bang}
+[Same message, different chemistry: the alarm stays quiet.]{.bang}
 :::
 ::: {.column width="42%"}
 ::: {.portrait-row}
@@ -140,37 +125,29 @@ RNA purification and delivery also shape the response.
 :::
 
 ::: {.notes}
-A whole slide on this because it is the same idea the deck returns to three more times.
-
-Innate immunity does not inspect what your nucleic acid *codes for*. It pattern-matches on
-chemical features that distinguish "foreign" from "self" — unmodified uridine in RNA,
-unmethylated CpG in DNA, double-stranded RNA. Karikó and Weissman's insight was that you
-can keep the message and change the features.
-
-Hold that thought. When we get to CpG depletion in the AAV genome and the TLR9 response,
-it is exactly the same manoeuvre on a different sensor — and the same reason it works.
+Think of immune receptors as locks and chemical patterns on microbes as keys. Unmodified RNA looks viral, because human cells modify their own RNA. Karikó and Weissman kept the message and changed the feature the sensor looks for. The protein is identical. We meet this same trick again later, with CpG in DNA.
 :::
 
-## Delandistrogene Moxeparvovec: A Gene Cut to Fit {.k-violet}
+## Muscular Dystrophy: A Gene Cut to Fit {.k-violet}
 
 :::: {.columns}
 ::: {.column width="52%"}
-Duchenne muscular dystrophy. One dose, intended to last.
+Duchenne muscular dystrophy: muscle breaks down without dystrophin.
 
-- rAAVrh74 to skeletal muscle
-- **Micro**-dystrophin, not dystrophin
-- Full-length gene is 11 kb — it does not fit
+- A virus (AAV) carries the gene to muscle
+- A **shortened** dystrophin
+- The full gene (11 kb) does not fit
 
-[≈5 kb cassette]{.metric}
+[≈5 kb cassette: gene plus switch]{.metric}
 :::
 ::: {.column width="48%"}
 ::: {.plate}
 ![](assets/portraits/dmd-pseudohypertrophy.jpg){fig-alt="Nineteenth-century engraving showing calf pseudohypertrophy in a child with Duchenne muscular dystrophy."}
 :::
 
-[Calf pseudohypertrophy, from Duchenne's own 1868 plates.]{.portrait-role}
+[Calf swelling, from Duchenne's 1868 plates.]{.portrait-role}
 
-[The courier is fixed. The cargo was redesigned.]{.bang}
+[The van is fixed. The cargo was redesigned.]{.bang}
 :::
 ::::
 
@@ -179,26 +156,17 @@ Duchenne muscular dystrophy. One dose, intended to last.
 :::
 
 ::: {.notes}
-This is the slide that sets up the whole middle of the talk, so do not rush it.
-
-Dystrophin is 11 kb of coding sequence. AAV packages 4.7 kb. So the therapy is not
-"dystrophin gene therapy" — it is a deliberately truncated protein, missing most of the
-central rod domain, designed to retain selected actin-binding and dystrophin-associated complex-binding functions
-and fit in a vector. This micro-dystrophin omits the full-length C-terminal domain.
-
-That is a physical constraint dictating a biological design. Flag it now; we come back to
-it with the cassette budget.
+AAV can hold only about 4.7 kb, but dystrophin is 11 kb. So the therapy uses a shortened version that keeps the key linking parts. A physical limit dictated a biological design, like a suitcase weight limit. It is a working compromise, not a full cure.
 :::
 
-## Pembrolizumab: The Odd One Out {.k-violet}
+## Cancer Antibody: The Odd One Out {.k-violet}
 
 :::: {.columns}
 ::: {.column width="52%"}
-Not a vector at all — a protein, made by cells.
+No virus: a protein made in cultured cells.
 
-- Humanised IgG4 against PD-1
-- Mouse-derived binding loops on a human frame
-- Manufactured from a cell line
+- Blocks PD-1, a brake on T cells
+- Mouse binding regions on a human frame
 
 [≈1.4 kb of coding sequence]{.metric}
 :::
@@ -211,7 +179,7 @@ Not a vector at all — a protein, made by cells.
 :::
 :::
 
-Melanoma in liver and brain, treated with surgery, radiosurgery and this antibody.
+Spread melanoma, treated with surgery, radiosurgery and this antibody.
 
 [The product is a protein. The asset is the sequence.]{.bang}
 :::
@@ -222,60 +190,182 @@ Melanoma in liver and brain, treated with surgery, radiosurgery and this antibod
 :::
 
 ::: {.notes}
-Included deliberately as the odd one out. No virus, no delivery problem, no packaging
-limit — and still fundamentally a sequence-engineering success.
-
-Humanisation is the detail worth a sentence: take murine CDR loops, graft them onto a
-human framework, then fix what breaks. That is exactly the "different, but not too
-different" design problem that comes back on the ITR slide at the end.
-
-Carter is here because he made the whole thing public himself, in August 2015 and again
-that December — so it is a case you can tell without touching anyone's private medical
-information. Metastatic melanoma with brain lesions had a median survival measured in
-months. He had the liver lesion resected, stereotactic radiosurgery to four brain
-lesions, and pembrolizumab; he stopped treatment in 2016 and lived to 100.
-
-Keep the causal claim honest if asked: he had three treatments at once, so his own case
-does not isolate the drug. The trial evidence does — Goldberg and colleagues reported
-durable intracranial responses to pembrolizumab in melanoma brain metastases the
-following year.
+This is pembrolizumab (Keytruda). Some tumours press the PD-1 brake so T cells stop attacking. The antibody binds PD-1 like a key in a lock and releases the brake. It began in a mouse, so we graft its binding loops onto a human antibody. Did it cure Carter? He had three treatments at once, so his case alone cannot say. Trials show lasting responses.
 :::
 
-## Four Sequences, Drawn to Scale {.k-violet .webonly}
+## Four Sequences, Same Scale {.k-violet .webonly}
 
 ::: {.viz-stage data-viz="seqscale" data-prevent-swipe="true" style="height:560px"}
 :::
 
-[Impact has nothing to do with length. The design problem is the same in every case.]{.bang}
+[Length does not predict impact. The design problem is the same.]{.bang}
 
 ::: {.notes}
-Let the blocks fill before talking over them. Drawn to scale, one bead per hundred bases.
-
-The visual argument: ChAdOx1 is twenty-five times the size of pembrolizumab's coding
-sequence and neither fact predicts anything about clinical impact. What they share is
-that somebody chose the sequence.
-
-And once a therapeutic is a sequence, choosing it is a search problem over a space you
-cannot enumerate. That is the whole talk.
+Let the blocks fill first. Each bead is one hundred bases. The vaccine vector is about twenty-five times longer than the antibody sequence, yet size predicts nothing. Choosing a sequence is a search problem, far too big to try exhaustively. That is the whole talk.
 :::
-
 # The Virus Worth Borrowing {.act .k-teal}
 
-AAV is a defective parasite of other viruses. That defect is exactly why we use it.
+AAV cannot copy itself alone. That defect is why we use it.
 
-## Adeno-Associated Virus, Up Close {.k-teal .webonly}
+## Success 1: Blindness {.k-teal}
+
+:::: {.columns}
+::: {.column width="55%"}
+**Problem.** Without the *RPE65* gene, light-sensing cells die.
+
+**AAV carries.** A working *RPE65* copy, injected under the retina. **Luxturna, 2017.**
+
+**Result.** People could cross an obstacle course in dim light again.
+
+[First US-approved gene therapy for an inherited disease.]{.bang}
+:::
+::: {.column width="45%"}
+::: {.plate}
+![](images/s16-win-retina.jpg){fig-alt="Photograph of the back of the eye showing a retina in advanced degeneration, with dark pigment clumps and thinned vessels."}
+:::
+
+[A retina in advanced degeneration. Photo: Christian Hamel, CC BY 2.0.]{.portrait-role}
+:::
+::::
+
+::: {.cite}
+@fda2026products
+:::
+
+::: {.notes}
+A recessive loss-of-function disease: no working gene copy, so no working enzyme. Gene therapy adds a working copy. The photo shows general retinal degeneration, not specifically RPE65 disease. The eye is small and shielded, so a tiny dose stays put.
+
+Student question: "Is it permanent?" Benefit has lasted years; lifetime is unknown.
+:::
+
+## Success 2: Weak Muscles {.k-teal}
+
+:::: {.columns}
+::: {.column width="55%"}
+**Problem.** Without *SMN1*, the nerves that move muscles die.
+
+**AAV carries.** A working *SMN1* gene, in one drip into a vein. **Zolgensma, 2019.**
+
+**Result.** Treated babies have sat up, and many have walked.
+
+[One drip, not lifelong treatment.]{.bang}
+:::
+::: {.column width="45%"}
+::: {.plate}
+![](images/s16-win-motor-unit.png){fig-alt="Diagram of motor neurons in the spinal cord sending nerves to groups of muscle fibres."}
+:::
+
+[Nerve cells in the spinal cord drive muscles. Diagram: Walsh and Sved, CC BY-SA 4.0.]{.portrait-role}
+:::
+::::
+
+::: {.cite}
+@fda2026products
+:::
+
+::: {.notes}
+The muscle is fine; the nerve telling it to move is dying. AAV9 can cross from blood into the nervous system. Treat early, because dead neurons are not replaced.
+
+Student question: "Why a vein?" For babies, the blood route is simplest.
+:::
+
+## Success 3: Blood That Cannot Clot {.k-teal}
+
+:::: {.columns}
+::: {.column width="55%"}
+**Problem.** In haemophilia B, the liver lacks clotting factor IX.
+
+**AAV carries.** A working factor IX gene, in one drip. The liver makes the protein. **Hemgenix, 2022.**
+
+**Result.** Bleeding fell and most people stopped regular injections.
+
+[The patient's own liver becomes the factory.]{.bang}
+:::
+::: {.column width="45%"}
+::: {.plate}
+![](images/s16-win-factor-vials.jpg){fig-alt="Photograph of two vials of freeze-dried clotting factor concentrate for haemophilia."}
+:::
+
+[Clotting-factor concentrate, the lifelong infusion gene therapy aims to replace. Photo: JJEv810, CC BY-SA 4.0.]{.portrait-role}
+:::
+::::
+
+::: {.cite}
+@fda2026products
+:::
+
+::: {.notes}
+X-linked recessive, as in Mendelian genetics. We add an extra working copy; we do not repair the faulty gene. The vials are factor VIII (haemophilia A), shown only for the infusion burden.
+
+Factor IX is small, 1.4 kb, so it fits in AAV's 4.7 kb space. Remember this size limit; it returns.
+:::
+
+## Success 4: Deafness {.k-teal}
+
+:::: {.columns}
+::: {.column width="55%"}
+**Problem.** Without *OTOF*, ear cells cannot signal to the brain.
+
+**AAV carries.** A working *OTOF* gene, split across two viruses, into the cochlea. **Otarmeni, 2026.**
+
+**Result.** Children who had never heard began to hear speech.
+
+[First approved treatment for genetic deafness.]{.bang}
+:::
+::: {.column width="45%"}
+::: {.plate}
+![](images/s16-win-ear.png){fig-alt="Labelled cross-section diagram of the human ear showing the outer ear, middle ear and the spiral-shaped cochlea."}
+:::
+
+[The cochlea is the spiral in the inner ear. Diagram: Chittka and Brockmann, CC BY 2.5.]{.portrait-role}
+:::
+::::
+
+::: {.cite}
+@fda2026products
+:::
+
+::: {.notes}
+The gene is about 6 kb, over the 4.7 kb limit. So two viruses each carry half, and the halves join inside the cell. Think of a long letter in two envelopes.
+
+Student question: "Does it always work?" Less efficiently than one virus, since both halves must enter the same cell.
+:::
+
+## What Is a Virus? {.k-teal .webonly}
+
+:::: {.columns}
+::: {.column width="42%"}
+A virus is **instructions in a protein shell**.
+
+- **Shell:** protects and sticks to a cell
+- **Instructions:** DNA or RNA
+- **No machinery:** it borrows yours
+
+[A virus is a delivery van carrying instructions.]{.bang}
+:::
+::: {.column width="58%"}
+::: {.viz-stage data-viz="virusdelivery" data-caption="Shells dock, instructions enter, the cell makes protein." data-prevent-swipe="true" style="height:560px"}
+:::
+:::
+::::
+
+::: {.notes}
+One idea: a virus is a parcel of instructions in a shell, and it borrows our machinery. The shell is called the capsid. The bridge: keep the van, swap the instructions. That is gene therapy, and AAV is our van.
+:::
+
+## AAV Up Close {.k-teal .webonly}
 
 :::: {.columns}
 ::: {.column width="40%"}
-- 4.7 kb single-stranded DNA
-- 60 subunits, **T = 1**
-- ≈26 nm across
-- No established human disease from natural AAV infection
+- DNA genome of 4.7 kb
+- Shell (capsid) of 60 protein pieces
+- About 26 nm across
+- No known disease in humans
 
 [Drag it.]{.bang}
 :::
 ::: {.column width="60%"}
-::: {.viz-stage data-viz="capsid" data-pdb="assets/pdb/1lp3.cif" data-assembly="BU1" data-rep="spacefill" data-caption="AAV2, PDB 1LP3 — 60 subunits from icosahedral symmetry" data-prevent-swipe="true" style="height:620px"}
+::: {.viz-stage data-viz="capsid" data-pdb="assets/pdb/1lp3.cif" data-assembly="BU1" data-rep="spacefill" data-caption="AAV2, PDB 1LP3: 60 subunits" data-prevent-swipe="true" style="height:620px"}
 :::
 :::
 ::::
@@ -285,32 +375,23 @@ AAV is a defective parasite of other viruses. That defect is exactly why we use 
 :::
 
 ::: {.notes}
-Live render of the deposited AAV2 structure — one asymmetric unit, sixty symmetry
-operators applied in the browser. Colour runs from capsid interior to exterior, which is
-the convention in the structural literature.
+A live 3D model of the real AAV2 shell. Turn it to the spikes: they bind the cell's receptor, like lock and key. Everything we engineer later happens on the outside of this object.
 
-Turn it to a 3-fold axis: those spikes are the receptor-binding surface. Then a 5-fold:
-that channel is how the genome gets in and out.
-
-Everything engineered in the back half of this talk happens on the outside of this
-object.
+Student question: "Does AAV make us ill?" No established disease, which is why it suits medicine.
 :::
 
 ## Where the Symmetry Is {.k-teal .webonly}
 
 :::: {.columns}
 ::: {.column width="32%" .tight}
-Sixty identical subunits, related by the rotation group of an icosahedron.
+Sixty identical pieces, arranged like a 20-sided ball.
 
-- [**5-fold** ×6 — a channel at each]{style="color:#f472b6"}
-- [**3-fold** ×10 — the protrusions]{style="color:#fbbf24"}
-- [**2-fold** ×15 — a depression at each]{style="color:#38bdf8"}
-
-Every axis passes through the centre. Each order is a different local
-environment, and they behave differently.
+- [**5-fold** ×6: a channel]{style="color:#f472b6"}
+- [**3-fold** ×10: the spikes]{style="color:#fbbf24"}
+- [**2-fold** ×15: a dip]{style="color:#38bdf8"}
 :::
 ::: {.column width="68%"}
-::: {.viz-stage data-viz="capsid" data-pdb="assets/pdb/1lp3.cif" data-assembly="BU1" data-rep="spacefill" data-opacity="0.45" data-axes="5,3,2" data-spin="0.1" data-caption="Axes computed from the 60 symmetry operators, not assumed" data-prevent-swipe="true" style="height:600px"}
+::: {.viz-stage data-viz="capsid" data-pdb="assets/pdb/1lp3.cif" data-assembly="BU1" data-rep="spacefill" data-opacity="0.45" data-axes="5,3,2" data-spin="0.1" data-caption="Symmetry axes computed from the structure" data-prevent-swipe="true" style="height:600px"}
 :::
 :::
 ::::
@@ -320,58 +401,41 @@ environment, and they behave differently.
 :::
 
 ::: {.notes}
-The axes here are not drawn by hand. The runtime reads the sixty symmetry operators out
-of the deposited assembly, takes the rotation angle of each one — 72° and 144° mean a
-5-fold, 120° a 3-fold, 180° a 2-fold — and recovers the axis direction from the matrix.
-Six, ten and fifteen lines, exactly as the icosahedral group requires.
-
-Why a virologist should care about each:
-
-- **5-fold** — a pore runs down it. The VP1 N-terminus is externalised through it, and
-  the genome is threaded in through it during packaging.
-- **3-fold** — the protrusions. Receptor binding, and most neutralising antibody epitopes.
-  This is where almost all engineering happens.
-- **2-fold** — a depression. Shallow, and generally less tolerant of insertion.
-
-The shell is at 45% opacity so you can see the axes pass right through. Drag it: line up a
-5-fold and you are looking straight down the pore.
+Point at the three axis types. Five-fold: a pore the genome passes through. Three-fold: the spikes, where the virus binds cells and antibodies attach; most engineering happens here. Two-fold: a shallow dip. Message: not every place on the shell is equal.
 :::
 
-## Everything in 4.7 Kilobases {.k-teal}
+## The Genome at a Glance {.k-teal}
 
 ::: {.diagram}
 ![](assets/diagrams/wt-genome.svg){fig-alt="Scale map of the wild-type AAV2 genome showing the two ITRs, the p5, p19 and p40 promoters, the rep and cap open reading frames, and the nested AAP and MAAP accessory reading frames."}
 :::
 
-Two genes. Three promoters. Two more proteins hidden inside *cap*.
+Two genes: *rep* copies and packages. *cap* builds the shell. Short DNA hairpins (ITRs) mark each end.
 
 ::: {.cite}
 @samulski2014
 :::
 
 ::: {.notes}
-Orientation slide — do not read it out. Point at four things and move on: the ITRs at
-each end, *rep*, *cap*, and the three promoters named for where they sit in map units.
-
-The next three slides take each piece in turn.
+Do not read this out. Point at the ITRs: hairpin ends the cell uses as copy and packaging labels. Then *rep* and *cap*. A promoter is the on-switch before a gene, as in the lac operon.
 :::
 
-## Four Rep Proteins We Throw Away {.k-teal}
+## Rep Proteins We Throw Away {.k-teal}
 
 :::: {.columns}
 ::: {.column width="50%"}
-**From p5** — Rep78, Rep68
+**Rep78 and Rep68**
 
-Nick the terminal resolution site. Drive integration at **AAVS1** on chromosome 19.
+Start copying. They can also insert viral DNA at one spot on chromosome 19.
 
-**From p19** — Rep52, Rep40
+**Rep52 and Rep40**
 
-Motor proteins. Thread the genome into a preformed capsid.
+Motors that pull the genome into the shell.
 :::
 ::: {.column width="50%"}
-Each pair is one unspliced and one spliced product. All four are SF3 helicases, 3′→5′.
+The numbers are sizes in kilodaltons.
 
-[Delete *rep* and you delete site-specific integration.]{.bang}
+[Delete *rep* and the virus loses its fixed insertion site.]{.bang}
 :::
 ::::
 
@@ -380,33 +444,28 @@ Each pair is one unspliced and one spliced product. All four are SF3 helicases, 
 :::
 
 ::: {.notes}
-The splicing detail is worth stating precisely because it is commonly garbled: p5 gives
-Rep78 unspliced and Rep68 spliced; p19 gives Rep52 and Rep40 the same way.
+Alternative splicing, as students know: p5 gives Rep78 (unspliced) and Rep68 (spliced); p19 gives Rep52 and Rep40. Medical vectors drop *rep*. That avoids random insertion and cancer risk. The DNA floats free as a loop, so the effect fades where cells divide.
 
-The line that matters for later: wild-type AAV has a mechanism for permanent residence,
-and recombinant vectors throw it away. That trade — insertional mutagenesis risk against
-episomal dilution — is why expression fades in dividing tissue.
+Student question: "Does the gene enter my chromosomes?" Mostly not, by design.
 :::
 
-## Three Capsid Proteins, Unequal Shares {.k-teal}
+## Three Shell Proteins {.k-teal}
 
 :::: {.columns}
 ::: {.column width="50%"}
-One ORF, three start sites.
+One gene, three versions.
 
 | | | |
 |---|---|---|
-| **VP1** | 87 kDa | PLA₂ + NLS |
-| **VP2** | 73 kDa | dispensable |
-| **VP3** | 62 kDa | the shell |
+| **VP1** | 87 kDa | has a membrane-breaking tail |
+| **VP2** | 73 kDa | not essential |
+| **VP3** | 62 kDa | most of the shell |
 
 :::
 ::: {.column width="50%"}
-Roughly **1 : 1 : 10** across the 60 subunits — about five, five and fifty.
+Ratio about **1 : 1 : 10**.
 
-VP1 is a minority subunit, and endosomal escape depends entirely on it.
-
-[Five copies out of sixty decide whether the particle ever gets out of the endosome.]{.bang}
+[Five VP1 copies let the virus escape the endosome.]{.bang}
 :::
 ::::
 
@@ -415,32 +474,25 @@ VP1 is a minority subunit, and endosomal escape depends entirely on it.
 :::
 
 ::: {.notes}
-The ratio is ≈1:1:10, not 1:1:5 — you will see 1:1:5 misquoted, and it contradicts VP3
-being about 85% of the capsid. It also drifts with serotype and with prep, which is why
-it is a release-critical attribute.
-
-The VP1 point is the one to land. Its unique N-terminal region carries a phospholipase A2
-domain that is buried in the intact particle and externalised under endosomal
-acidification. That is what breaches the membrane — and there are only about five copies
-per capsid.
+All three come from one gene with different start points. The cell swallows the virus into a bubble, the endosome. VP1's hidden tail, an enzyme that cuts membranes, is exposed when the bubble turns acidic. That frees the virus. The ratio is 1:1:10, not 1:1:5.
 :::
 
-## Two Genes in the Same Sequence {.k-teal}
+## Two Hidden Genes {.k-teal}
 
 :::: {.columns}
 ::: {.column width="50%"}
-**AAP** — assembly-activating protein
+**AAP**
 
-Non-canonical CTG start, nested inside *cap*. Scaffolds assembly in the nucleolus.
+Hidden inside *cap*. Helps build the shell.
 
-**MAAP** — membrane-associated accessory protein
+**MAAP**
 
-A **+1** frame inside the VP3 region. Promotes egress.
+A different reading frame of the same DNA. Helps the virus leave the cell.
 :::
 ::: {.column width="50%"}
-MAAP was not found by looking. It fell out of a comprehensive mutational scan in 2019.
+A 2019 mutation scan revealed MAAP.
 
-[A previously unannotated gene emerged from systematic mutational data.]{.bang}
+[A gene nobody had spotted emerged from the data.]{.bang}
 :::
 ::::
 
@@ -449,36 +501,26 @@ MAAP was not found by looking. It fell out of a comprehensive mutational scan in
 :::
 
 ::: {.notes}
-This slide is a deliberate plant for the ML section, and in a virology room it lands
-harder than any engineering result.
-
-Ogden and colleagues did a comprehensive single-mutant scan of the AAV2 capsid and
-measured fitness by sequencing. The mutational data did not behave the way a
-single-reading-frame model predicted — and out of that fell a previously unannotated
-viral gene, in the +1 frame, thirty years after the genome was first sequenced.
-
-The mutational scan revealed biology that targeted experiments had missed. Hold that
-thought until *What Deep Mutational Scanning Measures*.
+DNA is read in triplets, so shifting one letter gives a different protein. Viruses overlap genes to save space. Ogden and colleagues mutated the shell gene letter by letter. The results did not fit one reading frame, and MAAP emerged. Hold this thought for mutational scanning later.
 :::
 
 ## Defective by Design {.k-teal}
 
 :::: {.columns}
 ::: {.column width="50%"}
-AAV cannot replicate alone. It needs a helper.
+AAV needs a **helper virus** to copy itself.
 
-**Adenovirus** — E1A, E1B55K, E2A, E4orf6, VA RNA
+**Adenovirus**, a cold virus, can help.
 
-**HSV-1** — UL5, UL8, UL52, UL29, UL30
+**Herpes simplex virus** can too.
 :::
 ::: {.column width="50%"}
-For a vector this is a feature:
+For medicine, this is a feature:
 
-- Helper functions supplied from a plasmid
-- No helper virus needed in plasmid-based production
-- A vector that cannot replicate cannot spread
+- In the lab, helper genes come on a **plasmid** (a small DNA circle)
+- A vector that cannot copy cannot spread
 
-[Replication incompetence is not a limitation. It is the product.]{.bang}
+[Not copying itself is the safety feature.]{.bang}
 :::
 ::::
 
@@ -487,11 +529,9 @@ For a vector this is a feature:
 :::
 
 ::: {.notes}
-The pivot of the section. Natural AAV's dependence on a co-infecting helper looks like
-weakness; for a vector it is the most useful property it has, and it is most of the
-safety argument.
+The pivot of the section: dependence on a helper looks like a weakness but is the safety argument. AAV is a parasite of other viruses. The lab supplies helper genes on a plasmid instead.
 
-Note the name: *Dependoparvovirus*. The genus is named for the defect.
+Student question: "Could an adenovirus infection make it spread?" The vector carries no *rep* or *cap*, so no.
 :::
 
 ## Why Not Adenovirus? {.k-teal}
@@ -500,52 +540,46 @@ Note the name: *Dependoparvovirus*. The genus is named for the defect.
 ::: {.column width="50%"}
 **Good vaccine**
 
-- ≈8 kb payload
-- Efficient, high expression
+- Carries a larger gene
+- Strong gene expression
 - Strong immune response
 :::
 ::: {.column width="50%"}
 **Poor gene therapy**
 
-- That same response clears transduced cells
-- High seroprevalence
-- Inflammatory at therapeutic doses
+- Immune system kills treated cells
+- Many people already have antibodies
+- Inflammation at therapeutic doses
 :::
 ::::
 
-A vaccine wants an immune response. A gene therapy does not.
+A vaccine wants an immune response. Gene therapy does not.
 
 ::: {.cite}
 @dunbar2018
 :::
 
 ::: {.notes}
-One sentence explains the entire divergence in vector choice, and it is the one on the
-slide.
-
-The honest caveat, because this room will think it: AAV's low immunogenicity is relative
-and dose-dependent. At the systemic doses used for muscle and liver it is emphatically
-not silent. We spend a whole act on that.
+Seroprevalence: how many people carry antibodies to a virus. Memory means a fast, strong second response, and the vector is neutralised on arrival. One caveat: AAV is only relatively quiet. At high blood doses it is not silent. We return to this.
 :::
 
-## Serotypes Are Surface Chemistry {.k-teal .webonly}
+## Serotypes: Same Shell, New Surface {.k-teal .webonly}
 
 :::: {.columns}
 ::: {.column width="32%" .tight}
-Same fold. Same **T = 1** shell. Nine variable loops on the outside.
+Same fold, same 60 pieces. Only the outer loops differ.
 
-- **AAV2** → heparan sulfate
-- **AAV9** → terminal galactose
-- **VR-IV** differs: AAV9's spikes are blunter
+- **AAV2** sticks to heparan sulfate
+- **AAV9** sticks to galactose
 
-[Tropism lives on these loops.]{.bang}
+[Surface loops decide which tissue a virus reaches.]{.bang}
 :::
 ::: {.column width="34%"}
-::: {.viz-stage data-viz="capsid" data-pdb="assets/pdb/1lp3.cif" data-assembly="BU1" data-rep="spacefill" data-caption="AAV2 — PDB 1LP3" data-prevent-swipe="true" style="height:560px"}
+::: {.viz-stage data-viz="capsid" data-pdb="assets/pdb/1lp3.cif" data-assembly="BU1" data-rep="spacefill" data-caption="AAV2, PDB 1LP3" data-prevent-swipe="true" style="height:560px"}
 :::
 :::
 ::: {.column width="34%"}
-::: {.viz-stage data-viz="capsid" data-pdb="assets/pdb/3ux1.cif" data-assembly="BU1" data-rep="spacefill" data-caption="AAV9 — PDB 3UX1" data-prevent-swipe="true" style="height:560px"}
+::: {.viz-stage data-viz="capsid" data-pdb="assets/pdb/3ux1.cif" data-assembly="BU1" data-rep="spacefill" data-caption="AAV9, PDB 3UX1" data-prevent-swipe="true" style="height:560px"}
 :::
 :::
 ::::
@@ -555,21 +589,15 @@ Same fold. Same **T = 1** shell. Nine variable loops on the outside.
 :::
 
 ::: {.notes}
-Both rendered identically and at the same scale, so the comparison is fair.
+A serotype is a variant defined by antibody recognition. Tropism is which cells it enters: shell loops are the ligand, cell-surface sugars the receptor. Both shells share a fold, like two enzymes of one family. So we edit loops, not redesign a fold.
 
-There is no "AAV2 protein" and "AAV9 protein" in any deep sense. Same β-barrel fold,
-different surface loops — and those loops decide which glycan it binds, which tissue it
-reaches, and which antibodies recognise it.
-
-That is why capsid engineering is tractable at all. You are not redesigning a fold, you
-are editing loops on a scaffold that tolerates it.
+Student question: "Just pick the right serotype?" Often yes; engineering does better.
 :::
-
 # From Virus to Vector {.act .k-cyan}
 
-Delete everything that makes it a virus. Keep 145 base pairs at each end.
+A vector is a virus rebuilt as a delivery van. Every viral gene goes. Only the end "handles" stay.
 
-## Strip It Down to the ITRs {.k-cyan}
+## Keep Only the End Handles {.k-cyan}
 
 ::: {.diagram}
 ![](assets/diagrams/raav-cassette.svg){fig-alt="Two recombinant AAV expression cassettes drawn to scale against the 4.7 kb packaging limit, with Factor IX, micro-dystrophin and B-domain-deleted Factor VIII coding sequences drawn to the same scale."}
@@ -580,31 +608,26 @@ Delete everything that makes it a virus. Keep 145 base pairs at each end.
 :::
 
 ::: {.notes}
-Everything competes for the same 4.7 kb, and the regulatory elements are not free — CAG
-alone eats more than a third of the budget.
+The virus's own genes are gone. What is left is a small cassette between two end sequences (ITRs), which the cell needs to copy and package the DNA. The cassette holds our therapeutic gene plus a promoter, the on-switch.
 
-Two things this audience will appreciate. Element order is not cosmetic: WPRE has to sit
-in the 3′ UTR upstream of the polyA signal or it is simply not transcribed. And WPRE is
-not free either — it carries a truncated Woodchuck hepatitis X ORF, which is why the
-field moved to WPRE3 and mut6 variants.
+Everything must fit in one protein shell, the capsid, which holds only about 4.7 kb. Think of a suitcase of fixed size.
 :::
 
-## The Budget Decides the Medicine {.k-cyan}
+## Size Decides the Medicine {.k-cyan}
 
 :::: {.columns}
 ::: {.column width="50%"}
-| Payload | Size | Fits? |
+| Gene to deliver | Size | Fits? |
 |---|---|---|
-| Factor IX | 1.4 kb | easily |
-| micro-dystrophin | 3.8 kb | compact cassette only |
-| BDD Factor VIII | 4.4 kb | nothing left over |
-| **dystrophin** | **11 kb** | **never** |
+| Factor IX (clotting protein) | 1.4 kb | easily |
+| micro-dystrophin (short muscle protein) | 3.8 kb | just |
+| Factor VIII (trimmed clotting protein) | 4.4 kb | no room left |
+| **dystrophin (full length)** | **11 kb** | **never** |
 :::
 ::: {.column width="50%"}
-This is why Duchenne therapy is micro-dystrophin, and why haemophilia A is harder than
-haemophilia B.
+Duchenne therapy uses a shrunken "micro" dystrophin. Haemophilia A is harder to treat than B.
 
-[A physical limit on a capsid is dictating protein design.]{.bang}
+[A shell's size limit shapes the medicine.]{.bang}
 :::
 ::::
 
@@ -613,36 +636,32 @@ haemophilia B.
 :::
 
 ::: {.notes}
-Call back to *Delandistrogene Moxeparvovec* explicitly. The packaging limit is not an inconvenience, it is the
-reason an entire therapeutic class looks the way it does.
+Let the table do the work. Dystrophin's gene is about 11 kb, over twice the suitcase, so the therapy delivers a shortened version. Factor IX is small, so haemophilia B got there first. Factor VIII leaves no room for a promoter.
 
-Factor IX is small and comfortable, which is why haemophilia B got there first.
-B-domain-deleted Factor VIII at 4.4 kb leaves essentially no room for a promoter, and
-that is why that programme has been so much harder.
+Caveat: micro-dystrophin keeps the key parts but is not the full protein.
 :::
 
-## What the Budget Produced {.k-cyan .smaller}
+## What the Limit Produced {.k-cyan .smaller}
 
 :::: {.columns}
 ::: {.column width="62%"}
-| Product | Vector | Payload | Route |
+| Product | Delivery virus | Gene delivered | Where it is given |
 |---|---|---|---|
-| Zolgensma (2019) | AAV9 | *SMN1* 0.9 kb | intravenous |
-| Itvisma (2025) | AAV9 | *SMN1* 0.9 kb | intrathecal |
-| Hemgenix (2022) | AAV5 | *F9* Padua 1.4 kb | intravenous |
-| Kebilidi (2024) | AAV2 | *DDC* 1.4 kb | intraputaminal |
-| Fayuvi (2026) | AAV9 | *SGSH* 1.5 kb | intravenous |
-| Luxturna (2017) | AAV2 | *RPE65* 1.6 kb | subretinal |
-| Elevidys (2023) | AAVrh74 | micro-dystrophin 3.8 kb | intravenous |
-| Otarmeni (2026) | **AAV1 × 2** | *OTOF* 6.0 kb | intracochlear |
+| Zolgensma (2019) | AAV9 | *SMN1* 0.9 kb | into a vein |
+| Itvisma (2025) | AAV9 | *SMN1* 0.9 kb | into spinal fluid |
+| Hemgenix (2022) | AAV5 | *F9* Padua 1.4 kb | into a vein |
+| Kebilidi (2024) | AAV2 | *DDC* 1.4 kb | into the brain |
+| Fayuvi (2026) | AAV9 | *SGSH* 1.5 kb | into a vein |
+| Luxturna (2017) | AAV2 | *RPE65* 1.6 kb | under the retina |
+| Elevidys (2023) | AAVrh74 | micro-dystrophin 3.8 kb | into a vein |
+| Otarmeni (2026) | **AAV1 × 2** | *OTOF* 6.0 kb | into the inner ear |
 :::
 ::: {.column width="38%"}
-Ordered by payload. Every one but the last sits well inside the 4.7 kb budget.
+Sorted by gene size. Only the last is too big.
 
-*OTOF* is **6 kb**. It does not fit — so otoferlin ships as **two vectors**, each
-carrying part of the coding sequence, reconstituted inside the hair cell.
+*OTOF* is **6 kb**, so it is split across **two vectors**. The cell stitches it back together.
 
-[The budget did not move. The architecture did.]{.bang}
+[The limit did not move. The design did.]{.bang}
 :::
 ::::
 
@@ -651,67 +670,18 @@ carrying part of the coding sequence, reconstituted inside the hair cell.
 :::
 
 ::: {.notes}
-The list is short, and that is the point. Read down the payload column against the table
-you just showed: every approved product but one is a small gene, exactly as the budget
-predicts. Nobody has approved an 11 kb transgene, because nobody can.
+Read down the gene sizes: all but one are small, as the limit predicts. The number after AAV names the serotype, a shell variant that targets different tissues.
 
-*Otarmeni* is the slide's payoff and it is only months old — approved April 2026 for
-*OTOF*-related deafness. Otoferlin is 1,997 residues, about 6 kb of coding sequence, so
-it cannot be packaged. The product is two AAV1 vectors carrying overlapping halves, and
-the full-length coding sequence is reconstituted in the transduced hair cell. That is the
-packaging limit being designed around rather than obeyed — and it costs you a second
-vector, a second dose of capsid antigen, and a dependence on both halves reaching the
-same cell.
+Otarmeni (2026) treats deafness from *OTOF* faults using two vectors, each with half the gene. The cost is a second vector and needing both halves in one cell.
 
-Now read the route column, because it is the quieter lesson and it sets up the dose
-ceiling. Subretinal, intraputaminal and intracochlear are small, enclosed,
-immune-privileged compartments: the dose is tiny and it stays where you put it. The
-intravenous products are the ones carrying the safety burden. Elevidys has carried a
-boxed warning since November 2025 for serious liver injury and acute liver failure, after
-two deaths in non-ambulatory patients, and its indication is now restricted to ambulatory
-patients aged four and over.
-
-Zolgensma and Itvisma are worth a sentence: same vector, same transgene, different route.
-Intrathecal delivery was approved in November 2025 precisely so that older, heavier
-patients could be dosed without the systemic load an intravenous dose would require. When
-you cannot lower the dose, you change where it goes.
-
-If asked what is missing: three AAV products have left the market. Glybera, the first
-gene therapy approved in the West, was withdrawn in 2017. Beqvez was discontinued by
-Pfizer in February 2025, having treated no commercial patients. Roctavian — the BDD
-Factor VIII product from the previous slide — was voluntarily withdrawn in February 2026
-after BioMarin could not find a buyer. None of those three failed because the biology
-failed. Approval is not the finish line, and this is a field where working and selling
-are different problems.
-:::
-
-## ssAAV or scAAV: Capacity Against Onset {.k-cyan}
-
-::: {.diagram}
-![](assets/diagrams/ss-vs-sc.svg){fig-alt="Single-stranded AAV compared with self-complementary AAV, showing that deleting the terminal resolution site from one ITR causes a covalently linked dimer to be packaged, trading half the capacity for immediate expression."}
-:::
-
-::: {.cite}
-@mccarty2001
-:::
-
-::: {.notes}
-The mechanism is one sentence. Rep resolves each ITR by nicking the terminal resolution
-site. Delete the trs from one ITR, Rep cannot resolve it, and the replication intermediate
-is packaged as a covalently linked dimer — a genome carrying its own complement.
-
-It snap-anneals on release, skipping second-strand synthesis entirely. Weeks become days.
-The cost is exactly half the capacity.
-
-Straight trade: capacity against onset.
+Under the retina, in the brain and in the ear, the dose is small and stays put.
 :::
 
 # Getting In {.act .k-amber}
 
-Eight steps between the syringe and a transcribing genome. Most of the dose does not
-survive them.
+Between injection and a working gene, most of the dose is lost.
 
-## From the Needle to the Cell {.k-amber}
+## From Needle to Cell {.k-amber}
 
 ::: {.diagram}
 ![](assets/diagrams/journey.svg){fig-alt="The journey of an AAV dose from the infusion needle to the target cell in four magnifications — infusion into a vein, circulation where antibodies and liver and spleen clearance remove most of the dose, extravasation across the vessel wall, and arrival at the cell surface — with a tapering band showing the surviving fraction collapsing at every stage."}
@@ -722,23 +692,12 @@ survive them.
 :::
 
 ::: {.notes}
-Everything on the next slide happens *inside* a cell. This one is about getting there,
-and it is where most of the dose is already gone.
+Most of the dose is lost on the way. Many people already carry antibodies that block AAV, so trials screen for them, and a second dose usually fails. The liver and spleen mop up particles. The vessel wall is also a barrier.
 
-Three things to say over it. Pre-existing neutralising antibodies are the big one — a
-large fraction of adults are seropositive for common serotypes, which is why trials
-screen for it and why you cannot redose. Liver and spleen take vector regardless of
-where you wanted it to go. And the endothelium is a real barrier: fenestrated in liver,
-continuous in muscle, tight junctions at the brain.
-
-The honest framing for the band at the bottom: it is qualitative. The exact fractions
-depend on serotype, route, species and assay, and anyone who quotes you a single number
-for "percentage reaching target" is selling something.
-
-So the dose has to be enormous. Hold that thought for the toxicity slides.
+The tapering band is illustrative; no single percentage is reliable. So doses must be huge.
 :::
 
-## The Journey In, Step by Step {#aav-cell-journey .k-amber .webonly}
+## The Journey In {#aav-cell-journey .k-amber .webonly}
 
 ::: {.viz-stage data-viz="celljourney" data-still="assets/diagrams/transduction.svg" data-alt="AAV attaches, enters by endocytosis, escapes vesicular degradation, reaches the nucleus, uncoats, forms duplex DNA and circular episomes, and is transcribed by RNA polymerase II; the mRNA is exported through a nuclear pore and translated by ribosomes into protein." data-prevent-swipe="true" style="height:650px"}
 :::
@@ -748,74 +707,20 @@ So the dose has to be enormous. Hold that thought for the toxicity slides.
 :::
 
 ::: {.notes}
-Once playing, the journey loops; with reduced motion it starts paused, so press Play.
-Select any numbered stage to pause there.
-The coloured particles represent four independently delivered vector genomes.
-The red branch shows loss to degradation, not a measured survival fraction.
+This is the central dogma in motion. The virus binds a receptor, the cell takes it in, and many particles are digested in lysosomes (the red branch). Survivors reach the nucleus and the shell opens. The DNA becomes double-stranded, is transcribed, and the mRNA is translated into protein.
 
-The entry route is simplified. Endosomal and Golgi trafficking precede nuclear
-entry, and the site of membrane escape and the precise mechanism of nuclear
-uncoating remain incompletely resolved. Capsid opening is a teaching schematic.
-
-The two-genome and four-genome views illustrate possible circular concatemers.
-They do not mean that the vector replicates, or that every dimer becomes a tetramer.
-Monomers, linear forms and other concatemer arrangements also occur. Host DNA repair
-contributes to joining, with pathway use depending on cell type and context.
-
-Transcription requires an accessible duplex template, not completion of a fixed
-circularization sequence. One polymerase and one transcript stand in for many:
-the mRNA leaves the nucleus 5′ end first, and in the cytoplasm several ribosomes
-read it at once, each releasing a chain that folds into protein. Persistent
-episomes become chromatinized, omitted here for clarity.
-
-Primary evidence for nuclear entry before uncoating:
-https://pubmed.ncbi.nlm.nih.gov/10684294/
-Genome repair and concatemer formation:
-https://pmc.ncbi.nlm.nih.gov/articles/PMC2918998/
+Press Play, or select a numbered stage to pause. The red branch is not a measured fraction. The route is simplified.
 :::
 
-## Two Bottlenecks Inside the Cell {.k-amber}
-
-:::: {.columns}
-::: {.column width="50%"}
-**Endosomal escape**
-
-Needs VP1u's PLA₂ domain, externalised at low pH.
-
-Five copies per capsid.
-:::
-::: {.column width="50%"}
-**Second-strand synthesis**
-
-The packaged strand is transcriptionally inert until it is made double-stranded.
-
-scAAV exists to skip this.
-:::
-::::
-
-[Potency also depends on targeting, nuclear entry, uncoating and expression.]{.bang}
-
-::: {.cite}
-@girod2002; @mccarty2001
-:::
-
-::: {.notes}
-Pulled out of the pipeline because these are the two places the money goes.
-
-These are two useful examples, not a universal ranking. Which step limits transduction
-depends on the capsid and target cell. Improving productive delivery can reduce the dose — which is the argument the whole back half of the talk rests on.
-:::
-
-## What the Genome Becomes {.k-amber .webonly}
+## What Happens to the DNA {.k-amber .webonly}
 
 :::: {.columns}
 ::: {.column width="34%" .tight}
-- Second strand synthesised
-- Host repair joins vector DNA ends
-- Circular monomers and concatemers
-- Chromatinised with host nucleosomes
+- Cell copies the second strand
+- Repair enzymes join the ends into circles
+- Histones wrap the circles
 
-The damage response is **not** evaded. MRN and ATM/ATR sense those hairpin ends.
+The cell still notices this DNA.
 :::
 ::: {.column width="66%"}
 ::: {.viz-stage data-viz="episome" data-prevent-swipe="true" style="height:580px"}
@@ -828,13 +733,11 @@ The damage response is **not** evaded. MRN and ATM/ATR sense those hairpin ends.
 :::
 
 ::: {.notes}
-Four looping phases: delivered single strand, second-strand synthesis, circularisation,
-chromatinised episome.
+Four phases: single strand, second strand, circles, then an episome, which is DNA persisting in the nucleus as a small circle. Wrapped in histones means it looks like your own DNA.
 
-Two things the literature gets sloppy about in talks. NHEJ can contribute strongly to circularization, but pathway use depends on cell type.
-Homologous recombination can also contribute to genome joining. And concatemers
-are not invisible to the damage machinery; the MRN complex senses those hairpin ends.
-"Chromatinised and tolerated" is accurate. "Undetected" is not.
+It is not invisible: the cell's break-sensing proteins detect the hairpin ends. "Tolerated" is accurate; "undetected" is not.
+
+Question: does it integrate? Mostly no.
 :::
 
 ## From Hairpin to Chromatin {.k-amber}
@@ -848,39 +751,27 @@ are not invisible to the damage machinery; the MRN complex senses those hairpin 
 :::
 
 ::: {.notes}
-The printable version of the animation before it, and the slide to use if the room wants
-the mechanism written down.
+The still version of the animation. The strand arrives folded into hairpins. The cell builds the second strand and repair enzymes join the ends into circles. Histones assemble, and it is transcribed like any gene.
 
-The sequence to narrate: the strand arrives inert, gets a second strand, the two ITR
-ends undergo repair-mediated joining. Circular monomers and concatemers can form.
-NHEJ and homologous repair contributions vary by context. Most persistent vector DNA
-is episomal, although low-frequency integration can occur. Then host nucleosomes
-assemble on it and it is transcribed like any other chromatin.
-
-The payoff is the right-hand box. Transcribed but never replicated is the whole clinical
-story: wonderful in a neuron or a cardiomyocyte, a dilution problem in a liver that is
-still growing. And because the first dose raises antibodies, you do not get a second go.
+The DNA is read but never copied. Fine in non-dividing cells; in a growing liver, copies dilute.
 :::
 
 ## Why Expression Fades {.k-amber}
 
 :::: {.columns}
 ::: {.column width="50%"}
-The episome is **not replicated** when the cell divides.
+The circle is **not copied** when the cell divides.
 
-**Post-mitotic** — neurons, cardiomyocytes, muscle. Episomes can support durable
-expression, depending on the tissue and vector.
+**Non-dividing cells** (neurons, muscle): circles can last.
 
-**Dividing** — paediatric liver is the clinical case. Hepatocytes expand out from under
-the vector.
+**Dividing cells** (a child's liver): the vector is diluted.
 :::
 ::: {.column width="50%"}
-This is the bill for deleting *rep*.
+The price of deleting *rep*, the gene that let the virus integrate.
 
-Wild-type AAV integrated at AAVS1. Recombinant vectors gave that up for safety, and took
-dilution in exchange.
+Safety gained; permanence lost.
 
-[Decades of expression is the hypothesis under test, not a result.]{.bang}
+[Lasting for decades is untested.]{.bang}
 :::
 ::::
 
@@ -889,23 +780,17 @@ dilution in exchange.
 :::
 
 ::: {.notes}
-Avoid promising lifelong expression. Duration varies by product, tissue and patient,
-and long-term follow-up is essential.
+Link to DNA replication: the circle has no origin of replication the cell uses, so at mitosis copies are shared out and diluted. Neurons never divide, so nothing dilutes.
 
-The paediatric liver problem deserves a beat because it is where the biology bites a real
-programme: you cannot simply redose, because the antibody response to the first dose
-blocks the second.
+Do not promise lifelong expression. A first dose raises antibodies, so redosing usually fails.
 
-That closes the biology arc. If you only get one shot, the dose has to be right — and the
-dose has to be manufactured.
+Why delete rep? Integration carries its own safety risk.
 :::
-
 # Making It at Scale {.act .k-green}
 
-A dose is 10¹³–10¹⁴ genomes per kilogram. For an adult that is a bioprocess, not a bench
-prep.
+One patient needs trillions of virus particles. That is a factory job.
 
-## Two Platforms, Three Components {.k-green}
+## Two Ways to Grow the Virus {.k-green}
 
 ::: {.diagram}
 ![](assets/diagrams/manufacturing.svg){fig-alt="HEK293 triple transfection compared with the Sf9 baculovirus expression system, showing the genetic components each platform delivers and a comparison of scale, yield and capsid protein modification."}
@@ -916,51 +801,50 @@ prep.
 :::
 
 ::: {.notes}
-Three components have to reach the cell: the ITR-flanked cassette, rep and cap, and
-helper functions. Mammalian systems transfect them; insect systems infect with
-baculovirus and need no adenoviral helper at all.
+Think of cell culture from a practical, just on a huge scale. A cell needs three sets of instructions: the gene with its end sequences, the virus's own protein genes, and helper genes.
 
-Be careful with the full:empty claim. You will hear that mammalian systems give cleaner
-preparations. It does not survive scrutiny — full:empty is dominated by process and
-cassette design, not by host.
+In human cells we transfect plasmids in. In insect cells, a second virus, baculovirus, carries them in.
+
+Which gives cleaner batches? The evidence does not support a clear winner. Process and gene design matter more than cell type.
 :::
 
-## HEK293 Already Has E1 {.k-green}
+## Henrietta Lacks: Where Cell Lines Began {.k-green}
 
 :::: {.columns}
 ::: {.column width="52%"}
-The helper plasmid carries **E2A, E4orf6 and VA RNA**.
+**1951, Baltimore.** Henrietta Lacks, 31, is treated for cervical cancer. A doctor takes a tumour sample. **Nobody asks her.**
 
-It does not carry E1.
+Her cells **kept dividing in a dish**. They became **HeLa**.
 
-HEK293 is adenovirus-E1-transformed — that is what makes it HEK293.
+[The first human cells that would not die.]{.bang}
 :::
 ::: {.column width="48%"}
-E1 functions come from the producer cell. The helper plasmid supplies the remaining
-adenoviral functions used in this platform.
+::: {.portrait-row .large}
+::: {.portrait}
+![](images/s33-lacks-statue.jpg){fig-alt="Close-up of the bronze statue of Henrietta Lacks in Bristol, showing her face in profile."}
 
-[Helper functions come from both the cell and the plasmid.]{.bang}
+[Statue of Henrietta Lacks, Bristol. Photo: 14GTR, CC BY-SA 4.0.]{.portrait-role}
+:::
+::: {.portrait}
+![](images/s33-hela-cell.jpg){fig-alt="False-colour scanning electron micrograph of a HeLa cell with long filaments spreading across the surface beneath it."}
+
+[A HeLa cell, scanning electron micrograph. Photo: NIH, public domain.]{.portrait-role}
+:::
+:::
 :::
 ::::
 
-::: {.cite}
-@urabe2002
-:::
-
 ::: {.notes}
-A whole slide for one fact, because it is the detail that separates someone who has read
-the protocol from someone who has run it — and because the error is extremely common in
-review figures.
+Our factory runs on cultured human cells, and cell lines start with her.
 
-Adenovirus E1 transformed the original HEK cells in 1977. The line carries it
-constitutively. So the triple transfection supplies E2A, E4orf6 and VA RNA, and nothing
-else of adenoviral origin.
+She was treated in 1951 and died that year. Her tumour cells did not die, so labs never ran out. HeLa helped test the polio vaccine.
 
-On the insect side, the pleasant surprise: baculovirus infection provides a permissive
-environment by itself, so no adenoviral helper is required at all.
+Neither she nor her family were asked or told. That was legal then, and it shaped today's consent rules.
+
+Is AAV made in HeLa? No, it is HEK293, from embryonic kidney.
 :::
 
-## Downstream: Capture, Polish, Concentrate {.k-green}
+## Purifying the Virus in Three Steps {.k-green}
 
 ::: {.diagram}
 ![](assets/diagrams/downstream.svg){fig-alt="The rAAV downstream purification train — clarification, camelid VHH affinity capture, anion exchange polishing to separate full from empty capsids, and tangential flow filtration — followed by the critical quality attributes."}
@@ -971,30 +855,27 @@ environment by itself, so no adenoviral helper is required at all.
 :::
 
 ::: {.notes}
-The affinity step captures every intact capsid, full and empty alike, because the ligand
-binds the surface and knows nothing about the contents.
+Like purifying a protein from a lysate: capture, polish, concentrate.
 
-So separating full from empty is a separate polishing step, working on the small charge
-difference the packaged genome contributes. CsCl and iodixanol do the same job at bench
-scale and do not scale to commercial batches.
+Capture uses beads that stick to the virus shell, like an antibody to its antigen. But the beads cannot tell full shells from empty ones.
+
+Polishing removes the empty ones, using a small charge difference. Ultracentrifuges do this on the bench, but not at factory scale.
 :::
 
-## Empty Capsids Are Not Free {.k-green}
+## Why Empty Capsids Matter {.k-green}
 
 :::: {.columns}
 ::: {.column width="52%"}
-An empty capsid delivers nothing and still:
+An empty capsid is a shell with no gene. The body still sees it.
 
-- presents capsid antigen
-- consumes immune tolerance
-- counts toward total particle dose
+- Foreign protein for immunity to attack
+- Uses up the patient's tolerance
+- Counts towards the dose
 :::
 ::: {.column width="48%"}
-Which is why full:empty ratio is a **release-critical** attribute and not a cosmetic one.
+Every batch is checked for full versus empty shells.
 
-Measured by AUC, mass photometry, charge-detection MS.
-
-[Antigen without benefit.]{.bang}
+[Foreign protein, no benefit.]{.bang}
 :::
 ::::
 
@@ -1003,18 +884,14 @@ Measured by AUC, mass photometry, charge-detection MS.
 :::
 
 ::: {.notes}
-This is the bridge into the immunology act, so make it explicitly.
+This bridges into immunology. The immune system reacts to the shell, and cannot tell full from empty.
 
-The patient's immune system responds to capsid protein. It cannot tell a full particle
-from an empty one. So every empty capsid in the vial spends part of a budget that is
-strictly limited, and buys nothing with it.
-
-That means a manufacturing attribute is directly setting a clinical ceiling.
+So each empty capsid spends part of a limited budget and delivers nothing. A manufacturing quality sets a clinical ceiling.
 :::
 
 # The Dose Ceiling {.act .k-coral}
 
-Efficacy rises with dose. So does toxicity. The gap between them is the whole problem.
+A bigger dose works better, but harms more.
 
 ## The Therapeutic Window {.k-coral}
 
@@ -1027,103 +904,87 @@ Efficacy rises with dose. So does toxicity. The gap between them is the whole pr
 :::
 
 ::: {.notes}
-The hinge of the talk. Everything before is setup; everything after is a response to this
-slide.
+This is the hinge of the talk. It is a dose-response curve: one line for benefit, one for harm.
 
-Say the argument out loud: you cannot move the toxicity curve much, because it is driven
-by total capsid dose. You *can* move the efficacy curve, by building a capsid that does
-more per particle. That is why capsid engineering is a commercial priority and not an
-academic one.
+The window between them is narrow. Low end: some patients carry antibodies and are excluded. High end: immune and liver damage.
+
+We cannot move the harm curve much. We can shift benefit left with a better capsid. That is why capsid engineering matters.
 :::
 
 ## Three Ways the Dose Fails {.k-coral}
 
 :::: {.columns}
 ::: {.column width="33%"}
-**Before**
+**Before treatment**
 
-Pre-existing neutralising antibodies exclude a large share of patients. Worst for AAV2.
+**Neutralising antibodies** block the virus. These patients cannot be treated.
 :::
 ::: {.column width="33%"}
-**At dose**
+**At the right dose**
 
-Capsid-specific CD8 T cells clear transduced hepatocytes — expression rises, then falls.
+**Killer T cells** destroy liver cells showing viral protein. Gene expression falls.
 :::
 ::: {.column width="34%"}
-**Above dose**
+**Above the right dose**
 
-Complement, hepatotoxicity, thrombotic microangiopathy, dorsal root ganglion toxicity.
+**Complement** (blood proteins that attack foreign surfaces), plus liver and nerve damage.
 :::
 ::::
-
-Unmethylated **CpG** can activate TLR9 and promote adaptive responses.
-These toxicities have multiple mechanisms.
 
 ::: {.cite}
 @mingozzi2013; @faust2013; @hinderer2018
 :::
 
 ::: {.notes}
-Manno 2006 is the foundational observation for the middle column: in the first haemophilia
-B trial, Factor IX expression rose and then fell, tracking a T cell response to capsid —
-not to the transgene. The vector worked; the immune system removed the cells that had
-taken it up.
+Walk left to right. Many people met natural AAV and made antibodies, which is immune memory. They block the vector from entering cells.
 
-The right-hand column is why high-dose systemic programmes have had serious adverse
-events, and it is what sets the practical ceiling today.
+Middle: in the first haemophilia B trial, clotting Factor IX rose then fell. A T cell response to the capsid removed the treated liver cells.
 
-The CpG line is the thread into the ITR engineering slide at the end.
+Right: high doses activate complement and injure liver and nerves. These set today's ceiling.
 :::
-
 # Engineering the Modules {.act .k-magenta}
 
-Three parts of the cassette can be designed: the capsid, the promoter, the ITRs. Each is
-a different kind of search.
+We can redesign three parts of a gene therapy vector: the shell, the switch and the DNA ends.
 
-## Three Modules, Three Searches {.k-magenta}
+## Three Parts, Three Problems {.k-magenta}
 
 :::: {.columns}
 ::: {.column width="33%"}
 **Capsid**
 
-Where it goes, and whether antibodies see it.
+The protein shell. It picks the target cells and dodges antibodies.
 
 *A protein-surface problem.*
 :::
 ::: {.column width="33%"}
 **Promoter**
 
-Which cells express, and how much.
+The DNA switch. It sets where, and how strongly, the gene turns on.
 
-*A regulatory-grammar problem.*
+*A gene-regulation problem.*
 :::
 ::: {.column width="34%"}
 **ITR**
 
-Packaging, persistence, and innate sensing.
+Short DNA repeats at both ends. They help packaging and persistence.
 
-*A structure-constrained problem.*
+*A DNA-shape problem.*
 :::
 ::::
 
 ::: {.notes}
-Set the map before walking it. These are genuinely different problems and they need
-different methods — which is the reason the back of this talk is not just "apply a
-transformer".
+You know promoters from gene regulation; a capsid is the virus's protein coat. ITRs are short repeats at each end of the vector's DNA. They help pack it and keep it in the cell.
 
-The capsid has the most data and the most commercial pull, so it gets the most slides.
+These are three different problems, so they need different methods. We spend longest on the capsid, which has the most data.
 :::
 
-## The Search Space Is the Problem {.k-magenta .webonly}
+## The Search Space Is Huge {.k-magenta .webonly}
 
 :::: {.columns}
 ::: {.column width="40%" .tight}
-VP1 is **735 residues**.
+The capsid protein has **735 amino acids**. Each can be one of 20.
 
-A 60-residue window is 20⁶⁰ ≈ 1.15 × 10⁷⁸ — about the atom count of the observable
-universe. It takes **62** to exceed it.
-
-But nobody designs the whole capsid.
+A 60-residue stretch alone has about 10⁷⁸ possible sequences.
 :::
 ::: {.column width="60%"}
 ::: {.viz-stage data-viz="seqspace" data-prevent-swipe="true" style="height:560px"}
@@ -1131,22 +992,16 @@ But nobody designs the whole capsid.
 :::
 ::::
 
-[A 7-mer insertion at VR-VIII is 20⁷ ≈ 1.3 × 10⁹ — and that already outruns any in vivo screen.]{.bang}
+[Nine orange peaks are measured natural capsids. The rest is untested.]{.bang}
 
 ::: {.cite}
 @arnold2009
 :::
 
 ::: {.notes}
-State this carefully, because the usual version of the slide is wrong. 20⁶⁰ is about
-1.15 × 10⁷⁸, which is *smaller* than 10⁸⁰. You need 62 residues to pass the atom count.
-Getting it right is more impressive than overstating it, and this room will check.
+Each point is a possible sequence. The nine orange peaks are natural AAV serotypes we have measured. Everything else is dark: nobody has tested it.
 
-The real argument is the bang line. The space we actually search is tiny by comparison —
-seven residues — and it is still a billion variants against a screen that handles maybe
-10⁶ to 10⁸ in a pooled selection, with a noisy readout.
-
-Nine orange peaks are the serotypes we know. Everything else is unmeasured.
+In practice we change a short stretch, say seven amino acids: 20 to the 7, about 1.3 billion variants. Each test needs virus made and injected into an animal, so we cannot test them all.
 :::
 
 ## Capsid Shuffling {.k-magenta .webonly}
@@ -1154,26 +1009,21 @@ Nine orange peaks are the serotypes we know. Everything else is unmeasured.
 ::: {.viz-stage data-viz="shuffle" data-prevent-swipe="true" style="height:520px"}
 :::
 
-Fragment the *cap* genes of several serotypes, reassemble, select. Every chimera is a
-mosaic of whichever parents crossed over.
+[Parent genes are cut up and reassembled. Each colour is one parent.]{.bang}
+
+Cut up several natural capsid genes. Let them reassemble as mosaics. Keep the ones that work.
 
 ::: {.cite}
 @grimm2008
 :::
 
 ::: {.notes}
-DNA shuffling, applied to capsids. Digest the cap genes from a handful of natural
-serotypes, let them reassemble on each other as templates, and you get chimeras carrying
-blocks from several parents at once.
+This is directed evolution: make a diverse library of variants, put it in the target tissue, and keep what gets in. It is natural selection in a test tube.
 
-Then put the library through selection in the tissue you care about and sequence the
-survivors.
-
-The strength is that it explores combinations no single point-mutation scan would reach.
-The weakness is on the next slide but one.
+Shuffling builds the library, like recombination in meiosis swapping blocks between parents. It finds combinations that one-mutation-at-a-time never would.
 :::
 
-## What Shuffling Produced {.k-magenta}
+## What Shuffling Gave Us {.k-magenta}
 
 ::: {.diagram}
 ![](assets/diagrams/shuffling.svg){fig-alt="Capsid shuffling in four stages: the cap genes of nine natural serotypes are digested into fragments, the fragments prime on one another and reassemble into a library of chimeras whose coloured blocks show which parent contributed each stretch, and selection returns a single survivor, AAV-DJ, a mosaic of AAV2, AAV8 and AAV9. A panel notes that what you do not get is any function mapping sequence to fitness."}
@@ -1184,90 +1034,69 @@ The weakness is on the next slide but one.
 :::
 
 ::: {.notes}
-Give shuffling its due. It produced genuinely useful reagents, AAV-DJ among them, and
-dismissing it would be wrong.
+Shuffling gave useful tools, such as AAV-DJ. But we get one winner and no rule linking sequence to performance.
 
-But note what you get at the end: a sequence that survived, and no function that maps
-sequence to fitness. Run the screen again in a different tissue and you start from
-scratch.
-
-That is the gap the machine-learning work is trying to close.
+Change tissue and you must start the screen again. Machine learning aims to close that gap.
 :::
 
-## Peptide Display: One Loop, a Billion Variants {.k-magenta}
+## One Loop, a Billion Variants {.k-magenta}
 
 ::: {.diagram}
 ![](assets/diagrams/peptide-display.svg){fig-alt="Peptide display in four stages: a random 7-mer is inserted into the VR-VIII loop at residue 588 of AAV9, giving 20⁷ ≈ 1.3 billion variants; the library is injected and recovered from the target tissue; the enriched sequence TLAVPFK defines AAV-PHP.B, which crosses the mouse blood-brain barrier about 40-fold better than AAV9. A band underneath notes the advantage runs through Ly6a, a mouse protein with no functional primate equivalent."}
 :::
 
-[The screen was right. The model organism was the problem.]{.bang}
+[It worked in mice. Mice were the wrong model.]{.bang}
 
 ::: {.cite}
 @deverman2016
 :::
 
 ::: {.notes}
-This is the single best cautionary tale in the field and it belongs in a virology talk.
+Insert seven random amino acids into one surface loop, inject into mice, and recover virus from the brain. The winner, AAV-PHP.B, crossed the mouse blood-brain barrier far better.
 
-AAV-PHP.B was found by selecting for variants that transduced neurons in mice, recovered
-through a Cre-dependent scheme. It works beautifully — in C57BL/6. It does not transfer
-to non-human primates, because the mechanism runs through LY6A, a GPI-anchored mouse
-protein with no functional primate equivalent.
-
-So directed evolution gave a phenotype in one context and no understanding that
-generalises. Which raises the obvious question: can you learn something that does?
+It failed in primates, because it used a mouse protein, LY6A, that primates lack. The screen did its job; we picked the wrong animal.
 :::
 
-## What a Random Forest Actually Computes {.k-magenta .webonly}
+## What Is a Model? {.k-magenta}
+
+**Model**: a rule learned from examples that predicts.
+
+**Training**: adjusting the rule to fit the examples.
+
+**Testing**: checking it on examples it has *never seen*.
+
+::: {.notes}
+A model takes an input, here a protein variant, and predicts an outcome. Nobody writes the rule; it is learned from data.
+
+Training is like fitting a line to a scatter plot. Testing holds data back, so we know the model has not just memorised, like a student who memorises past papers.
+:::
+
+## How a Random Forest Predicts {.k-magenta .webonly}
 
 ::: {.viz-stage data-viz="forest" data-prevent-swipe="true" style="height:600px"}
 :::
 
-[Tabular features, interpretable splits, no gradients — the baseline a sequence model has to beat.]{.bang}
+[Follow one variant down three trees. Do they agree?]{.bang}
 
 ::: {.cite}
 @breiman2001
 :::
 
 ::: {.notes}
-Spend a moment here, because the rest of the act assumes the audience knows what "fitted
-a model" means, and for a room of virologists that is worth ninety seconds rather than
-being skipped.
+A decision tree is like a field-guide key: yes/no questions ending in an answer. Here the questions are about charge, bulk and so on.
 
-Walk the animation. A variant arrives as a handful of engineered columns — charge,
-hydrophobicity, bulk, how buried residue 588 is. One tree asks a sequence of threshold
-questions and lands in a leaf, and the leaf is just the average fitness of the training
-variants that fell into it. No mechanism, no structure, no gradient: a lookup refined by
-questions.
-
-Then the two sources of disagreement, which are the whole reason this works. Each tree is
-fitted to a different bootstrap resample of the data, and at each split it is only allowed
-to consider a random subset of the features. So the three trees on screen genuinely
-disagree about the same variant — watch the three ticks land in different places — and
-averaging them cancels a large part of the variance of any one.
-
-Be clear that the numbers on screen are illustrative. The routing and the average are
-really computed from the features shown, but the features and leaf values are invented
-for the slide.
-
-Why this model class is in a virology talk: when your data is a few dozen engineered
-columns, a forest is hard to beat and it tells you which columns mattered. When your data
-is the sequence itself, it is the wrong tool — which is the next slide, and the reason the
-cross-species work used sequence models instead.
+Each tree sees different data, so they disagree a little. Averaging their answers cancels much of the error. The numbers on screen are illustrative.
 :::
 
 ## From Mouse to Macaque {.k-magenta .webonly}
 
 :::: {.columns}
 ::: {.column width="33%" .tight}
-**Fit4Function** — fit one model per *measurable* property, on a library that uniformly
-samples manufacturable sequence space.
+**Fit4Function**: one model per measurable property.
 
-Six properties: production fitness, mouse liver transduction, and binding and
-transduction in each of two human liver cell lines.
+Six properties, combined.
 
-Six models combined to design a liver-targeted, manufacturable library. **88%** of
-variants met all six criteria.
+**88%** of designed variants met all six.
 :::
 ::: {.column width="67%"}
 ::: {.viz-stage data-viz="crossspecies" data-prevent-swipe="true" style="height:620px"}
@@ -1275,82 +1104,45 @@ variants met all six criteria.
 :::
 ::::
 
-[No single predictor transfers. The six together do.]{.bang}
+[No one predictor carries across species. All six together do.]{.bang}
 
 ::: {.cite}
 @eid2024
 :::
 
 ::: {.notes}
-This is the direct answer to the AAV-PHP.B problem, and the reason it works is the library
-design rather than the model architecture.
+This answers the AAV-PHP.B problem. The team screened a library spread evenly, measured six functions, and trained one model for each.
 
-Instead of screening for one phenotype and keeping the winner, they screened a library
-that uniformly samples sequence space for many separate, individually measurable
-functions, and fitted a model to each. Then they combined the models to specify a capsid
-satisfying all six at once.
-
-The chart is their own transferability table. Read it bottom-up. Chance is 0.24. The best
-single predictor — transduction of a human liver cell line in a dish — gets you to 0.86.
-All six together, 0.91. The argument is not that any one model is clever; it is that
-stacking independently measurable functions is what survives the species change.
-
-Two details worth having ready. Production fitness alone scores 0.27 against a 0.24
-baseline — manufacturability tells you essentially nothing about where a capsid goes,
-which is why it has to be a separate objective rather than a proxy. And dropping the mouse
-in vivo predictor leaves the figure unchanged in their table, at 0.911 either way: four
-human in vitro assays are already carrying the tropism signal between them.
-
-If asked about the model: it is not a forest. Each property got a two-layer LSTM over a
-one-hot encoded 7-mer. The input here is the sequence itself, so a sequence model is the
-right tool — the contrast with the previous slide is deliberate.
+Chart question: do predictions carry over to the macaque? Chance is 0.24. The best single predictor scores 0.86; all six together score 0.91.
 :::
 
-## Predicting Fitness Before You Measure It {.k-magenta}
+## Predict Fitness Before Measuring {.k-magenta}
 
 :::: {.columns}
 ::: {.column width="52%"}
-**Mikos, Chen & Suh** (Rice) asked a narrower question: can you predict *production*
-fitness from **structure alone**?
+Can **3D structure alone** predict how well a capsid is *produced*?
 
-Features describing each residue's **structural microenvironment** — no measured AAV
-fitness used as training labels at all.
+No measured AAV data was used to train.
 :::
 ::: {.column width="48%"}
-Reported **threefold** enrichment in mutations beating wild-type production,
-compared with random mutagenesis. *Preprint, p = 7.5 × 10⁻¹².*
+**Threefold** more mutations beat the natural capsid than random ones. *Preprint.*
 
-Production fitness is unglamorous and gates everything — a capsid you cannot manufacture
-is not a capsid.
+A capsid you cannot make is no medicine.
 :::
 ::::
 
-[The columns you can compute before you run anything.]{.bang}
+[All of this can be calculated from a structure.]{.bang}
 
 ::: {.cite}
 @mikos2021
 :::
 
 ::: {.notes}
-Worth including because it attacks a different and underrated axis. Everyone optimises
-tropism; far fewer optimise whether the thing can be made at scale, and a variant that
-packages badly is worthless however well it targets.
+Most work asks which tissue a capsid reaches. Few ask whether we can make enough of it.
 
-The interesting methodological claim is that structural features alone carry enough
-signal to triple your hit rate, without any measured fitness data to train on. That
-matters when you are engineering a serotype nobody has screened.
-
-This is the tabular-feature regime from two slides back: a residue's burial, packing and
-neighbourhood are columns you can compute from a deposited structure before you have run
-a single experiment. That is what makes a tree ensemble the natural choice and what makes
-the result possible at all with no AAV fitness labels.
-
-If asked: a preprint from the Suh lab at Rice, and still a preprint. Do not describe the
-specific algorithm from the podium unless you have read the methods — say "structural
-features" and move on. Check for a published version before citing it as settled.
+Structure alone, such as how buried a residue is, tripled the hit rate. This is a preprint, not yet peer reviewed, so call it promising, not settled.
 :::
-
-## Discriminative or Generative {.k-magenta}
+## Score or Propose? {.k-magenta}
 
 ::: {.diagram}
 ![](assets/diagrams/disc-vs-gen.svg){fig-alt="Discriminative versus generative models over sequence space. A discriminative model learns P(Y|X): it draws a boundary through the small labelled region and has uncertain predictions outside its training distribution. A generative model learns P(X), a distribution over training sequences, from sequences without phenotype labels, and new candidates can be sampled from it. A pipeline underneath shows the combination: generate candidates, score them, measure only the survivors."}
@@ -1361,24 +1153,20 @@ features" and move on. Check for a published version before citing it as settled
 :::
 
 ::: {.notes}
-Do not let this become a generic ML slide. The reason the distinction matters here is the
-specific shape of the data: a vast space, a tiny labelled fraction, and a strong prior
-available from evolution in the form of sequences that exist and work.
+A scoring model judges a variant you hand it, but it needs measured examples, so it guesses far from them. A generative model learns what working sequences look like, from sequences alone, then proposes new ones. Best pipeline: generate, score, then measure only the survivors in the lab.
 
-A discriminative model can only tell you about the neighbourhood you have labels for. A
-generative model learns the shape of the viable region itself.
+Question: is it just copying? No, it learns the pattern, so samples are new but familiar.
 :::
 
-## What a VAE Actually Does {.k-magenta .webonly}
+## What a VAE Does {.k-magenta .webonly}
 
 :::: {.columns}
 ::: {.column width="36%" .tight}
-**Encoder** squeezes a sequence into a few numbers.
+A **VAE** squeezes, then rebuilds.
 
-**Decoder** rebuilds a sequence from them.
+**Encoder**: sequence to a few numbers.
 
-Training forces the middle to be a smooth, well-populated cloud — so you can **sample**
-it, and **interpolate** across it.
+**Decoder**: numbers back to a sequence.
 :::
 ::: {.column width="64%"}
 ::: {.viz-stage data-viz="latent" data-prevent-swipe="true" style="height:560px"}
@@ -1386,122 +1174,95 @@ it, and **interpolate** across it.
 :::
 ::::
 
+[Move the marker: the sequence changes smoothly.]{.bang}
+
 ::: {.cite}
 @ng2001; @bryant2021
 :::
 
 ::: {.notes}
-Explain it in one breath: a VAE is an autoencoder with a penalty that forces the latent
-distribution towards a simple prior. Without that penalty you get a lookup table with
-holes in it. With it, the space between training points is meaningful.
+Like describing a face with a few numbers: width, eye spacing, nose length. The encoder does that for sequences; the decoder rebuilds one. Training keeps similar sequences close, so the map is smooth. Point at the strip: it changes gradually as the marker moves.
 
-That is the whole value here. Sequence space is discrete and astronomically large. A
-latent space is continuous and small, and sampled points can decode to plausible candidates — so you can wander it, interpolate between two capsids, or sample a thousand
-candidates that all look like things evolution could have made.
-
-The strip underneath is the decoded sequence. Watch it change smoothly as the sampler
-moves. That smoothness is the property you are paying for.
+Question: do decoded sequences work? Not automatically. They are candidates to test.
 :::
-
-## The Generative Toolkit {.k-magenta}
+## Models That Design Proteins {.k-magenta}
 
 :::: {.columns}
 ::: {.column width="50%"}
-**VAE** — smooth latent space, easy to sample and interpolate
+A **generative model** learns patterns from many examples, then writes new ones that fit.
 
-**GAN** — sharp samples, harder to train, no likelihood
-
-**Diffusion** — strong sample quality, slower to generate
+Like autocomplete for proteins.
 :::
 ::: {.column width="50%"}
-**Autoregressive / protein language models** — trained on everything nature has made,
-then conditioned
+The examples are sequences nature already made.
 
-Good at "does this look like a real protein", which is exactly the prior we want.
+The model proposes new ones.
 :::
 ::::
 
-[The model class matters less than the data it is fitted to.]{.bang}
+[Data matters more than the type of model.]{.bang}
 
 ::: {.cite}
 @bryant2021
 :::
 
 ::: {.notes}
-Keep this brisk — the audience is virologists, not an ML conference. The useful framing is
-what each class buys you rather than how it is trained.
+Autocomplete learns how sentences look. Here the sentences are protein sequences. You may hear VAE, GAN or diffusion: different pattern-learners, and you needn't know them. AAV results improved because experiments gave enough measured examples, not because of a fancier model.
 
-The bang line is the honest summary. The reason the AAV results improved was not a
-switch from VAE to transformer, it was deep mutational scanning producing enough labelled
-data to fit anything at all.
+Question: is it guessing? It makes educated proposals; the experiment decides.
 :::
 
-## What Deep Mutational Scanning Measures {.k-magenta}
+## Mutate Everything, Measure Everything {.k-magenta}
 
 ::: {.diagram}
 ![](assets/diagrams/dms.svg){fig-alt="Deep mutational scanning compared with directed evolution. A comprehensive library containing every variant goes through one selection; the population is sequenced before and after, and each variant's fitness is the log ratio of its counts, so enrichment and depletion can be estimated for adequately sampled variants. Directed evolution runs the same selection but reads only the enriched survivors and discards the failures."}
 :::
 
-[Counts before and after selection reveal both enrichment and depletion.]{.bang}
+[Count variants before and after: winners rise, losers fall.]{.bang}
 
 ::: {.cite}
 @ogden2019
 :::
 
 ::: {.notes}
-Spell out the mechanic, because it is what changed the field and it is simpler than people
-expect.
+Change every position to every other amino acid, then test the whole library. Sequence it before and after. A variant's sequence is its name tag: counts up means it works, counts down means it fails. Directed evolution keeps only survivors, like studying only marathon finishers. Models need the failures too.
 
-You are not screening and picking. You are counting. Each variant carries its own sequence
-as its barcode, so you read the whole population before and after selection, and the
-log-ratio is the fitness. One experiment, the entire library, enrichment and depletion estimated for adequately sampled variants.
-Missing output counts can indicate depletion but are limited by sampling depth.
-
-That last point is the one to press. Selection hands you survivors. A fitness landscape
-needs the failures too, because that is what tells the model where viability ends. This is
-precisely why the ML results arrived when DMS did, and not before.
+Caveat: a rare variant can vanish by chance.
 :::
 
-## Machine-Guided Capsid Design {.k-magenta}
+## Letting Data Teach the Model {.k-magenta}
 
 ::: {.diagram}
 ![](assets/diagrams/machine-guided.svg){fig-alt="Machine-guided capsid design. The input changed from nine natural serotypes to a comprehensive measured landscape covering every single substitution across VP1. A schematic plot shows the fraction of a library that remains viable against substitutions from wild type: random mutagenesis collapses within a few substitutions while a model-designed library stays viable much further out. A loop underneath — measure, fit, design, measure again — notes that every round enlarges the training set."}
 :::
 
-[Sequence → fitness, learned rather than assumed.]{.bang}
+[The model learns what works, instead of us assuming.]{.bang}
 
 ::: {.cite}
 @ogden2019; @bryant2021
 :::
 
 ::: {.notes}
-This is the slide that earns the title of the talk, and it closes the loop with *Two Genes in
-the Same Sequence*.
+Measured scores become training data. The model designs new versions, we measure them, and results feed the next round. Point at the graph: random changes quickly break the capsid, like typos in a manual. A model-designed library survives many more changes.
 
-The honest caveat if someone asks: viability and packaging are the easy labels. Tissue
-tropism and immune evasion in humans are much harder to measure at library scale, and
-that is where the field actually is.
+Caveat: we measure assembly at scale, not targeting or immune escape.
 :::
 
-## Promoter Engineering: The Underrated Module {.k-magenta}
+## Promoters: Where a Gene Switches On {.k-magenta}
 
 :::: {.columns}
 ::: {.column width="50%"}
-The objective: express **only** in the target tissue, in as few bases as possible.
+A **promoter** is DNA beside a gene where transcription starts.
 
-Every base here is a base not spent on the transgene.
-
-Build from transcription-factor binding motifs and chromatin accessibility data rather
-than borrowing a viral promoter.
+Goal: gene on **only** in the target tissue, in as little DNA as possible.
 :::
 ::: {.column width="50%"}
-Why it matters beyond size:
+Why:
 
-- off-target expression is a safety problem
-- ubiquitous promoters invite transgene-directed immunity
-- a tissue-restricted promoter can replace a more exotic capsid
+- wrong-tissue activity is unsafe
+- "on everywhere" can provoke immune attack
 
-[Specificity bought with sequence instead of tropism.]{.bang}
+[Specificity written into the DNA.]{.bang}
 :::
 ::::
 
@@ -1510,32 +1271,25 @@ Why it matters beyond size:
 :::
 
 ::: {.notes}
-Promoters are the underrated module. The instinct is to solve targeting with the capsid,
-but a liver-restricted promoter achieves much of the same thing far more cheaply, and it
-composes with whatever capsid you already have.
+You know promoters from transcription: where factors land and recruit RNA polymerase. Space in the virus is tiny, so a short promoter leaves more room for the gene. A liver-only promoter gives targeting at the level of gene activity, not delivery.
 
-The design problem is a regulatory-grammar one: which motifs, in what order, at what
-spacing, in what chromatin context. There is a lot of transferable work from the broader
-genomics literature here — this is the module where the ML is least AAV-specific.
+Question: why not just target delivery? You can, but the promoter adds a second layer.
 :::
 
-## Synthetic Promoters That Work {.k-magenta}
+## Designed Promoters {.k-magenta}
 
 :::: {.columns}
 ::: {.column width="52%"}
 [[Michael Roberts]{.namecard-name}[Synpromics → AskBio → Bayer · now Chromatin Bioscience]{.namecard-role}]{.namecard}
 
-Built promoters from screened **motif libraries** assembled into compact, tissue-selective
-elements — rather than repurposing CMV or a native regulatory region.
+Screened libraries of short binding sites, then assembled the best into small, tissue-selective switches.
 :::
 ::: {.column width="48%"}
-**AMT-191** — AAV5 carrying *GLA* for Fabry disease, under a Synpromics liver-selective
-promoter.
+**AMT-191**: Fabry disease treatment. A liver-selective promoter drives the *GLA* gene.
 
-Initial four-patient cohort: **27–208× mean normal** α-Gal A activity.
-Sponsor report, July 2025 data cutoff.
+First four patients: **27-208 times** normal enzyme activity (company-reported, July 2025).
 
-[A designed promoter, not a borrowed one.]{.bang}
+[Designed, not borrowed.]{.bang}
 :::
 ::::
 
@@ -1544,56 +1298,38 @@ Sponsor report, July 2025 data cutoff.
 :::
 
 ::: {.notes}
-This is the concrete answer to "does promoter engineering actually deliver", and it is
-worth having a number.
+Fabry patients lack an enzyme, so a substrate builds up. Here the liver is switched on to supply it. The team built a compact liver-selective switch instead of borrowing a viral promoter.
 
-Synpromics' approach was to assemble promoters from screened motif libraries rather than
-repurposing CMV or a native regulatory region — compact, liver-selective, and designed to
-be strong enough that you can drop the dose.
-
-This is a dated, sponsor-reported biomarker result in four patients, not an estimate
-of clinical benefit or a controlled comparison of promoters. It does not isolate
-the contribution of the promoter from dose, capsid and other cassette elements.
-Do not interpret high enzyme activity alone as evidence of safety or durable benefit.
+Caveat: four patients, company data. It shows enzyme made, not clinical benefit or safety.
 :::
 
-## Why CpG Reads as Danger {.k-magenta}
+## Why CpG Looks Like Danger {.k-magenta}
 
 ::: {.diagram}
 ![](assets/diagrams/tlr9-cascade.svg){fig-alt="Why CpG reads as danger. Vertebrate DNA is CpG-poor and mostly methylated where CpG remains, while viral and bacterial DNA is CpG-rich and unmethylated, so unmethylated CpG inside an endosome is a signature of non-self. A five-step cascade follows: TLR9 fires in a plasmacytoid dendritic cell, type I interferon is released, conventional dendritic cells are licensed, anti-capsid CD8 T cells are primed, and transduced cells are cleared."}
 :::
 
-[The innate signal is what turns a delivery event into an immune response.]{.bang}
+[An innate alarm turns gene delivery into immune attack.]{.bang}
 
 ::: {.cite}
 @faust2013; @mingozzi2013
 :::
 
 ::: {.notes}
-This is the mechanistic bridge between the manufacturing/immunology act and the ITR
-design problem, and it is the same logic as the Karikó slide at the start.
+Innate immunity spots patterns, not specific pathogens. Unmethylated CpG is one: rare in our DNA, common in bacteria and viruses. TLR9 detects it. Follow the cascade: interferon, dendritic cells, then T cells that kill the treated cells. So removing CpG removes the alarm.
 
-Why CpG specifically: over evolutionary time, methylated cytosine deaminates to thymine,
-so vertebrate genomes have been depleted of CpG and the survivors are mostly methylated.
-Bacterial and viral genomes have not been through that filter. So the dinucleotide, in the
-wrong compartment and unmethylated, is a genuine discriminator of non-self.
-
-The chain to emphasise: this is an *innate* signal that ends in an *adaptive* response
-against the capsid. The transgene may be perfectly tolerated — it is the packaging that
-gets the cells killed.
-
-So reducing CpG is not cosmetic. It is removing the thing that starts the cascade.
+Question: is our DNA never detected? Rarely; it is CpG-poor and methylated.
 :::
 
-## ITR Engineering: Change the Sequence, Keep the Fold {.k-magenta .webonly}
+## Editing Viral Ends Safely {.k-magenta .webonly}
 
 :::: {.columns}
 ::: {.column width="36%" .tight}
-The hardest module. The ITR must still fold into the hairpin **Rep** nicks.
+The **ITR** is a short stretch at each end of the viral DNA. It folds into a hairpin that the enzyme **Rep** recognises.
 
-And it is a dense patch of **CpG** — the motif TLR9 reads as "infection".
+It is also rich in **CpG**.
 
-145 bases, and every change is a large fraction of them.
+Only 145 bases.
 :::
 ::: {.column width="64%"}
 ::: {.viz-stage data-viz="itrcpg" data-prevent-swipe="true" style="height:560px"}
@@ -1606,63 +1342,39 @@ And it is a dense patch of **CpG** — the motif TLR9 reads as "infection".
 :::
 
 ::: {.notes}
-Pull the thread from the dose-ceiling act. Unmethylated CpG dinucleotides are a pathogen
-signature; TLR9 in plasmacytoid dendritic cells reads them, drives type I interferon, and
-that licenses the anti-capsid CD8 response that clears transduced cells.
+Watch where the CpG sites sit on the hairpin, and what changing bases does to its shape. The ITR works through its fold, like tRNA, so edits can break it. Rules: cut CpG, keep the fold, keep Rep able to bind.
 
-Depleting CpG from the transgene is routine now. The ITR is harder for two reasons: it is
-only 145 bases so every change is a large fraction of it, and its function *is* its
-secondary structure — a palindrome that has to fold into a T-shaped hairpin with a
-terminal resolution site Rep can nick.
-
-So this is a constrained design problem in the strict sense: minimise CpG count subject
-to a fold constraint and a protein-recognition constraint. Very little prior art, and a
-natural fit for generative models with hard constraints.
+Question: why not delete it? Without it the genome can't be copied or packaged.
 :::
 
 ## Where This Goes {.k-magenta}
 
 :::: {.columns}
 ::: {.column width="50%"}
-The binding constraint is the **dose ceiling**.
+The limit is the **dose ceiling**: how much virus a patient can safely receive.
 
-A better capsid reaches the same effect at a lower dose — below the toxicity curve, below
-the T cell threshold, and cheaper to make.
-
-One objective, three problems solved.
+A better shell works at a lower dose.
 :::
 ::: {.column width="50%"}
-What would actually move the field:
+Next steps:
 
-- labels that mean **human** tropism
-- models that transfer across serotypes
-- immune evasion as a trainable objective
-- a regulatory path for sequences with no natural counterpart
+- human-tissue measurements
+- models across virus types
+- designs that avoid immunity
 :::
 ::::
 
-[The biology set the constraints. What is left is a search problem.]{.bang}
+[Biology sets the rules; the rest is search.]{.bang}
 
 ::: {.cite}
 @ogden2019; @eid2024
 :::
 
 ::: {.notes}
-Close on the argument, not a list of adjectives.
+The virus is safe because it can't replicate alone and doesn't integrate, but the dose must work first time. Immunity limits the dose, so each particle must do more. Machine learning helps because the design space is huge, and works because of experiments and biology.
 
-The shape of the whole talk: AAV's defectiveness made it a good vector; being a good
-vector meant giving up integration; episomal persistence means the dose has to work the
-first time; the dose is bounded by immunology; and the only lever that moves is potency
-per particle.
-
-Machine learning is in this talk because that is the lever, and the space is too large to
-search by hand.
-
-The honest limitation to end on: the models are good at predicting whether a capsid
-assembles and packages. They are not yet good at predicting what it does in a human
-liver. Closing that gap is the actual frontier.
+Caveat: models predict assembly, not behaviour in human liver. That is the frontier.
 :::
-
 ## References {.scrollable .smaller}
 
 ::: {#refs}
@@ -1690,6 +1402,10 @@ both MIT, vendored into this repository.
 Public domain: Jimmy Carter — Lauren Gerson, LBJ Presidential Library, 2014.
 
 **Plate** — Duchenne de Boulogne (1868), public domain.
+
+**HeLa** — statue of Henrietta Lacks, 14GTR, CC BY-SA 4.0; HeLa cell micrograph, NIH, public domain. Via Wikimedia Commons.
+
+**AAV successes** — retina photograph: Christian Hamel, CC BY 2.0; motor-unit diagram: Daniel Walsh and Alan Sved, CC BY-SA 4.0; clotting-factor vials: JJEv810, CC BY-SA 4.0; ear anatomy: Lars Chittka and Axel Brockmann, CC BY 2.5. All via Wikimedia Commons.
 
 **No photograph of an identifiable patient appears here without their own disclosure.**
 President Carter announced his diagnosis and his treatment publicly, himself. The

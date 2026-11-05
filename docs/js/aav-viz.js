@@ -13,6 +13,7 @@
 
 import * as THREE from 'three';
 import { cellJourneyFactory } from './cell-journey.js?v=3';
+import { virusFactory } from './virus-viz.js?v=4';
 import { forestFactory, crossSpeciesFactory } from './ml-viz.js?v=3';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
@@ -1175,11 +1176,12 @@ function itrcpg({ host, cap }, w, h) {
 // --- registry and lifecycle ------------------------------------------------
 
 const celljourney = cellJourneyFactory({ makeRenderer, disposeTree, reduced: REDUCED, printing: PRINTING });
+const virusdelivery = virusFactory({ makeRenderer, disposeTree, reduced: REDUCED, printing: PRINTING });
 const forest = forestFactory({ reduced: REDUCED, printing: PRINTING });
 const crossspecies = crossSpeciesFactory({ reduced: REDUCED, printing: PRINTING });
 const FACTORIES = {
   celljourney, episome, seqspace, capsid, seqscale, shuffle, latent, itrcpg,
-  forest, crossspecies,
+  forest, crossspecies, virusdelivery,
 };
 
 // The ML diagrams are SVG, not WebGL — their content is mostly text, and an
