@@ -51,6 +51,19 @@ A chimp cold virus (adenovirus), emptied and reloaded.
 The virus is the courier, not the medicine.
 
 The **gene it carries was written, not discovered**.
+
+::: {.photo-row}
+::: {.photo}
+![](images/chimpanzee.jpg){fig-alt="Photograph of a chimpanzee."}
+
+[Source of the virus]{.photo-cap}
+:::
+::: {.photo}
+![](images/delivery-van.jpg){fig-alt="Photograph of a white delivery van."}
+
+[The van: a courier, not the medicine]{.photo-cap}
+:::
+:::
 :::
 ::::
 
@@ -72,6 +85,10 @@ Just the message, wrapped in a fat bubble.
 - Fat droplet carries it into cells
 
 [4,284 nucleotides]{.metric}
+
+::: {.part-img .lnp}
+![](images/s06-lipid-nanoparticle.png){fig-alt="Cross-section of a lipid nanoparticle: strands of nucleic acid held inside a shell of PEG-lipid, ionizable lipid, helper lipid and cholesterol."}
+:::
 :::
 ::: {.column width="48%"}
 Designed in **days** from the virus genome.
@@ -108,6 +125,9 @@ Your **innate immune system** treats plain mRNA as **infection** and destroys it
 Swapping every uridine for **N1-methylpseudouridine** quiets the alarm.
 
 [Same message, different chemistry: the alarm stays quiet.]{.bang}
+
+::: {.viz-stage data-viz="swap" data-caption="Uridine becomes N1-methylpseudouridine." data-prevent-swipe="true" style="height:380px"}
+:::
 :::
 ::: {.column width="42%"}
 ::: {.portrait-row}
@@ -402,6 +422,32 @@ Sixty identical pieces, arranged like a 20-sided ball.
 
 ::: {.notes}
 Point at the three axis types. Five-fold: a pore the genome passes through. Three-fold: the spikes, where the virus binds cells and antibodies attach; most engineering happens here. Two-fold: a shallow dip. Message: not every place on the shell is equal.
+:::
+
+## From DNA to Protein {.k-teal}
+
+::: {.viz-stage data-viz="dogma" data-caption="DNA, then RNA, then amino acids, then protein." data-prevent-swipe="true" style="height:380px"}
+:::
+
+::: {.dogma-labels}
+::: {}
+**DNA**<br>the stored copy
+:::
+::: {}
+**RNA**<br>a working copy
+:::
+::: {}
+**Amino acids**<br>one per codon
+:::
+::: {}
+**Protein**<br>the folded machine
+:::
+:::
+
+[Same colours, same codons: DNA is read into RNA, RNA into amino acids, and the chain folds.]{.bang}
+
+::: {.notes}
+Central dogma in one picture. Follow one colour left to right: a three-base codon on the DNA is copied into RNA (transcription), the ribosome reads that RNA codon and adds one amino acid (translation), and the finished chain folds into a protein. Base counts are cut down for the slide. This is the route AAV's genes take, so the next slide's rep and cap are DNA that become proteins this way.
 :::
 
 ## The Genome at a Glance {.k-teal}
@@ -950,6 +996,10 @@ We can redesign three parts of a gene therapy vector: the shell, the switch and 
 
 :::: {.columns}
 ::: {.column width="33%"}
+::: {.part-img .dark}
+![](images/aav2-capsid-surface.jpg){fig-alt="Surface of the AAV2 capsid, computed from crystal structure 1LP3, with one five-fold axis centred."}
+:::
+
 **Capsid**
 
 The protein shell. It picks the target cells and dodges antibodies.
@@ -957,6 +1007,10 @@ The protein shell. It picks the target cells and dodges antibodies.
 *A protein-surface problem.*
 :::
 ::: {.column width="33%"}
+::: {.part-img}
+![](images/s26-transcription-factors.png){fig-alt="Diagram of an enhancer looping DNA so that activators and general transcription factors sit on the promoter and RNA polymerase starts the gene."}
+:::
+
 **Promoter**
 
 The DNA switch. It sets where, and how strongly, the gene turns on.
@@ -964,6 +1018,10 @@ The DNA switch. It sets where, and how strongly, the gene turns on.
 *A gene-regulation problem.*
 :::
 ::: {.column width="34%"}
+::: {.part-img}
+![](images/s27-itr-hairpin.png){fig-alt="Base-by-base diagram of the AAV inverted terminal repeat folded into a T-shaped hairpin, in its flop and flip forms."}
+:::
+
 **ITR**
 
 Short DNA repeats at both ends. They help packaging and persistence.
@@ -1402,6 +1460,10 @@ both MIT, vendored into this repository.
 Public domain: Jimmy Carter — Lauren Gerson, LBJ Presidential Library, 2014.
 
 **Plate** — Duchenne de Boulogne (1868), public domain.
+
+**Three Parts, Three Problems** — AAV2 capsid surface: Jazzlw, CC BY-SA 4.0, derived from PDB 1LP3, via Wikimedia Commons. Promoter and ITR figures are from the original talk; their sources are not recorded here.
+
+**Vaccine 1 and 2** — chimpanzee: Mira Meijer, Burgers' Zoo, CC BY-SA 4.0; delivery van (Ford Transit Connect): Winnebaggo, CC0; both via Wikimedia Commons. The lipid-nanoparticle diagram is from the original talk; its source is not recorded here.
 
 **HeLa** — statue of Henrietta Lacks, 14GTR, CC BY-SA 4.0; HeLa cell micrograph, NIH, public domain. Via Wikimedia Commons.
 
