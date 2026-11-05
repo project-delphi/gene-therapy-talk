@@ -13,7 +13,7 @@
 
 import * as THREE from 'three';
 import { cellJourneyFactory } from './cell-journey.js?v=3';
-import { virusFactory } from './virus-viz.js?v=3';
+import { virusFactory } from './virus-viz.js?v=4';
 import { forestFactory, crossSpeciesFactory } from './ml-viz.js?v=3';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 

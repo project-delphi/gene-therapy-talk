@@ -5,16 +5,19 @@ import * as THREE from 'three';
 // does the work. Sizes and timings are not to scale and not quantitative.
 //
 // One loop, four beats:
-//   1  shells dock on the cell surface
-//   2  the shell stays outside the story; the instructions (amber coil) go in
-//   3  the instructions reach the nucleus and are read
+//   1  viruses dock on the cell surface
+//   2  the cell takes each one in, shell and instructions (amber coil) together
+//   3  at the nucleus the shell opens and the instructions are read
 //   4  the cell makes the protein they describe (teal beads)
+let seed = 7;
+const rand = () => { seed = (seed * 16807) % 2147483647; return seed / 2147483647; };
+
 export function virusFactory({ makeRenderer, disposeTree, reduced, printing }) {
   return function virusDelivery({ host, cap }, w, h) {
     const BEATS = [
-      'Shells dock on the surface of a cell.',
-      'Only the instructions go in. The shell is just packaging.',
-      'The cell reads the instructions with its own machinery.',
+      'Viruses dock on the surface of a cell.',
+      'The cell takes them in, instructions and all.',
+      'At the nucleus the shell opens and the instructions are read.',
       'The cell makes the protein the instructions describe.',
     ];
     const BEAT = 4;                // seconds per beat
@@ -56,7 +59,7 @@ export function virusFactory({ makeRenderer, disposeTree, reduced, printing }) {
     // Virus shells: icosahedra, the shape real small viruses take.
     const shellGeo = new THREE.IcosahedronGeometry(0.5, 0);
     const shellMat = new THREE.MeshPhongMaterial({
-      color: 0xf472b6, emissive: 0x9d2a62, flatShading: true, transparent: true, opacity: 1,
+      color: 0xf472b6, emissive: 0x9d2a62, flatShading: true, transparent: true, opacity: 0.65,
     });
     // Genome: a small helix, so it reads as nucleic acid rather than a line.
     const coilPts = [];
@@ -82,12 +85,13 @@ export function virusFactory({ makeRenderer, disposeTree, reduced, printing }) {
       for (let k = 0; k < P; k++) {
         const b = new THREE.Mesh(beadGeo, beadMat.clone());
         b.visible = false;
-        beads.push({ mesh: b, ang: Math.random() * Math.PI * 2, r: 0.5 + Math.random() * 1.0, lift: (Math.random() - 0.5) * 1.5 });
+        beads.push({ mesh: b, ang: rand() * Math.PI * 2, r: 0.5 + rand() * 1.0, lift: (rand() - 0.5) * 1.5 });
         world.add(b);
       }
-      shell.rotation.set(Math.random() * 3, Math.random() * 3, 0);
+      const spin = rand() * 3;
+      shell.rotation.set(rand() * 3, spin, 0);
       world.add(shell, coil);
-      return { dir, shell, coil, beads, delay: i * 0.12 };
+      return { dir, shell, coil, beads, spin, delay: i * 0.12 };
     });
 
     const ease = (x) => { const t = Math.min(1, Math.max(0, x)); return t * t * (3 - 2 * t); };
@@ -115,15 +119,15 @@ export function virusFactory({ makeRenderer, disposeTree, reduced, printing }) {
         const b = ease((t - BEAT - p.delay * 0.5) / (BEAT * 0.8));       // genome goes in
         const c = ease((t - 2 * BEAT - p.delay * 0.4) / (BEAT * 0.8));   // to the nucleus
 
-        // Shell: arrives, then fades at the surface; it never goes in.
+        // Shell and genome travel together: docked, taken in, carried to the
+        // nucleus. There the shell opens (fades) and the genome carries on.
         lerp3(p.shell.position, far, dock, a);
-        p.shell.rotation.y += 0.01;
-        p.shell.material.opacity = 1 - ease((t - BEAT - p.delay * 0.5) / (BEAT * 0.9)) * 0.85;
-        p.shell.visible = t < 3 * BEAT + 0.001 || t < LOOP;
-        // Genome: rides inside the shell, then slips through to the nucleus.
-        p.coil.visible = a > 0.95;
-        lerp3(p.coil.position, dock, inner, b);
-        if (c > 0) lerp3(p.coil.position, inner, toNuc, c);
+        if (b > 0) lerp3(p.shell.position, dock, inner, b);
+        if (c > 0) lerp3(p.shell.position, inner, toNuc, c);
+        p.shell.rotation.y = p.spin + t * 0.6;
+        p.shell.material.opacity = 0.65 * (1 - ease((t - 2 * BEAT - p.delay * 0.4 - BEAT * 0.5) / (BEAT * 0.5)));
+        p.shell.visible = p.shell.material.opacity > 0.01;
+        p.coil.position.copy(p.shell.position);
         p.coil.scale.setScalar(1 - ease((t - 3 * BEAT + 0.2) / (BEAT * 0.4)));
         p.coil.rotation.z = Math.atan2(p.coil.position.x, p.coil.position.y) * 0.5;
 
@@ -161,6 +165,8 @@ export function virusFactory({ makeRenderer, disposeTree, reduced, printing }) {
       },
       dispose() {
         disposeTree(scene);
+        shellMat.dispose();
+        beadMat.dispose();
         renderer.dispose();
         renderer.domElement.remove();
       },

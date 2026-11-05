@@ -68,7 +68,7 @@ This is the Oxford/AstraZeneca vaccine. A vector is a virus turned into a delive
 ::: {.column width="52%"}
 Just the message, wrapped in a fat bubble.
 
-- mRNA with one letter tweaked
+- mRNA with one building block swapped
 - Fat droplet carries it into cells
 
 [4,284 nucleotides]{.metric}
@@ -96,16 +96,16 @@ Designed in **days** from the virus genome.
 :::
 
 ::: {.notes}
-Take the virus away and the sequence still works. Link to the central dogma: we hand the cell the mRNA, and ribosomes make spike. It never enters the nucleus or changes your DNA. The mRNA is fragile, so a lipid nanoparticle (a tiny fat bubble) carries it in. "One letter tweaked?" That is the next slide.
+Take the virus away and the sequence still works. Link to the central dogma: we hand the cell the mRNA, and ribosomes make spike. It never enters the nucleus or changes your DNA. The mRNA is fragile, so a lipid nanoparticle (a tiny fat bubble) carries it in. "Swapped how?" That is the next slide.
 :::
 
-## One Letter Calms the Cell {.k-violet}
+## One Swap Calms the Cell {.k-violet}
 
 :::: {.columns}
 ::: {.column width="58%"}
 Your **innate immune system** treats plain mRNA as **infection** and destroys it.
 
-Swapping one letter for **N1-methylpseudouridine** quiets the alarm.
+Swapping every uridine for **N1-methylpseudouridine** quiets the alarm.
 
 [Same message, different chemistry: the alarm stays quiet.]{.bang}
 :::
@@ -138,7 +138,7 @@ Duchenne muscular dystrophy: muscle breaks down without dystrophin.
 - A **shortened** dystrophin
 - The full gene (11 kb) does not fit
 
-[≈5 kb of DNA to deliver]{.metric}
+[≈5 kb cassette: gene plus switch]{.metric}
 :::
 ::: {.column width="48%"}
 ::: {.plate}
@@ -331,7 +331,7 @@ The gene is about 6 kb, over the 4.7 kb limit. So two viruses each carry half, a
 Student question: "Does it always work?" Less efficiently than one virus, since both halves must enter the same cell.
 :::
 
-## What Is a Virus? {.k-teal}
+## What Is a Virus? {.k-teal .webonly}
 
 :::: {.columns}
 ::: {.column width="42%"}
