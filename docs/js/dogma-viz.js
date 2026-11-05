@@ -15,8 +15,8 @@ const COLORS = [0xf472b6, 0xfbbf24, 0x2dd4bf, 0x38bdf8, 0xa78bfa, 0xfb923c, 0xf8
 const N = COLORS.length;          // codons
 const BASES = N * 3;
 const U = 3;                      // half a column: stations sit at -3U, -U, U, 3U
-const SPAN = 4.4;
-const K = 1.12;                   // draw every station this much larger than its footprint                 // length of a strand
+const SPAN = 4.4;                 // length of a strand
+const K = 1.12;                   // each station is drawn this much larger
 
 export function dogmaFactory({ makeRenderer, disposeTree, reduced, printing }) {
   return function dogma({ host, cap }, w, h) {
@@ -69,7 +69,6 @@ export function dogmaFactory({ makeRenderer, disposeTree, reduced, printing }) {
       const r = new THREE.Mesh(rungGeo, mat(0, COLORS[Math.floor(i / 3)]));
       r.position.set(x, 0, 0);
       r.scale.y = RAD * 2;
-      r.rotation.x = Math.atan2(p1.y, p1.z) - Math.PI / 2 + Math.PI / 2;
       r.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), p1.clone().sub(p2).normalize());
       groups[0].add(r);
     }
@@ -141,7 +140,8 @@ export function dogmaFactory({ makeRenderer, disposeTree, reduced, printing }) {
     const arrowMat = new THREE.MeshPhongMaterial({ color: 0x9fb3c8, emissive: 0x9fb3c8, emissiveIntensity: 0.1 });
     const packetMat = new THREE.MeshPhongMaterial({ color: 0xffffff, emissive: 0xffffff, emissiveIntensity: 0.8 });
     for (let i = 0; i < 3; i++) {
-      const x0 = (2 * i - 3) * U + 2.9, x1 = (2 * i - 1) * U - 2.9;
+      const edge = SPAN / 2 * K + 0.35;     // clear of each station's footprint
+      const x0 = (2 * i - 3) * U + edge, x1 = (2 * i - 1) * U - edge;
       const shaft = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, x1 - x0 - 0.2, 6), arrowMat);
       shaft.rotation.z = Math.PI / 2;
       shaft.position.set((x0 + x1) / 2 - 0.1, 0, 0);

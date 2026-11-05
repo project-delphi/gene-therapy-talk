@@ -89,9 +89,7 @@ export function swapFactory({ makeRenderer, disposeTree }) {
       pivot.add(b);
       stick(pivot, p, sPts[(i + 1) % 5], 0xd9a93a, 0.06);
     });
-    const bondSet = stick(pivot, new THREE.Vector3(0, R, 0), sPts[0], ATOM.sugar, 0.085);
-    const bondMat = pivot.children[pivot.children.length - 1].material;
-    bondSet(new THREE.Vector3(0, R, 0), sPts[0]);
+    stick(pivot, new THREE.Vector3(0, R, 0), sPts[0], ATOM.sugar, 0.085);
 
     // The methyl that lands on N1 in the last beat.
     const methyl = ball(0.34, ATOM.methyl);
@@ -132,8 +130,6 @@ export function swapFactory({ makeRenderer, disposeTree }) {
       // Sugar slides N1 -> C5 (a clockwise 120 degrees) through beat 2.
       const move = ease((t - BEAT) / (BEAT * 0.8));
       pivot.rotation.z = -move * (2 * Math.PI / 3);
-      bondMat.color.set(move > 0.5 ? 0xfbbf24 : 0xfbbf24);
-      lN1.material.opacity = 1;
 
       // Methyl arrives on N1 in beat 3.
       const m = ease((t - 2 * BEAT) / (BEAT * 0.6));
@@ -146,7 +142,7 @@ export function swapFactory({ makeRenderer, disposeTree }) {
       mBond.quaternion.setFromUnitVectors(up, d.normalize());
       methyl.scale.setScalar(0.4 + 0.6 * m);
 
-      // Alarm: pulsing red until the sugar has moved, then calming to teal.
+      // Alarm: pulsing red through the swap, calming to teal once the methyl lands.
       const calm = ease((t - 2 * BEAT) / (BEAT * 0.7));
       haloMat.color.copy(RED).lerp(TEAL, calm);
       const pulse = 0.5 + 0.5 * Math.sin(t * 6);

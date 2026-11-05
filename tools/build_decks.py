@@ -45,7 +45,6 @@ CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 # being a vector cost integration, episomal means one shot, the dose is capped,
 # and potency per particle is the only lever that moves.
 SHORT_DECK = [
-    "From DNA to Protein",
     "Muscular Dystrophy: A Gene Cut to Fit",
     "Defective by Design",
     "Size Decides the Medicine",
