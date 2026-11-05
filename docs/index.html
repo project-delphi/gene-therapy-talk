@@ -54,7 +54,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-aced931ef3298b08f4f60a52fbbb8f77.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-9dacad3da09605c8e3586685e833756b.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -166,7 +166,7 @@
        module scripts execute in document order, so window.NGL is defined by the
        time aav-viz.js runs. -->
   <script src="./js/vendor/ngl.js" defer=""></script>
-  <script type="module" src="./js/aav-viz.js?v=virus-4"></script>
+  <script type="module" src="./js/aav-viz.js?v=swap-3"></script>
 </head>
 <body class="quarto-dark">
   <div class="reveal">
@@ -203,6 +203,16 @@ Ravi Kalia
 </div><div class="column" style="width:48%;">
 <p>The virus is the courier, not the medicine.</p>
 <p>The <strong>gene it carries was written, not discovered</strong>.</p>
+<div class="photo-row">
+<div class="photo">
+<p><img data-src="images/chimpanzee.jpg" alt="Photograph of a chimpanzee."></p>
+<p><span class="photo-cap">Source of the virus</span></p>
+</div>
+<div class="photo">
+<p><img data-src="images/delivery-van.jpg" alt="Photograph of a white delivery van."></p>
+<p><span class="photo-cap">The van: a courier, not the medicine</span></p>
+</div>
+</div>
 </div></div>
 <div class="cite">
 <p><span class="citation" data-cites="voysey2021"><span class="nocase">Voysey et al.</span> (<a href="#/references" role="doc-biblioref" onclick="">2021</a>)</span></p>
@@ -231,6 +241,9 @@ Ravi Kalia
 <li>Fat droplet carries it into cells</li>
 </ul>
 <p><span class="metric">4,284 nucleotides</span></p>
+<div class="part-img lnp">
+<p><img data-src="images/s06-lipid-nanoparticle.png" alt="Cross-section of a lipid nanoparticle: strands of nucleic acid held inside a shell of PEG-lipid, ionizable lipid, helper lipid and cholesterol."></p>
+</div>
 </div><div class="column" style="width:48%;">
 <p>Designed in <strong>days</strong> from the virus genome.</p>
 <div class="portrait-row">
@@ -268,6 +281,9 @@ Ravi Kalia
 <p>Your <strong>innate immune system</strong> treats plain mRNA as <strong>infection</strong> and destroys it.</p>
 <p>Swapping every uridine for <strong>N1-methylpseudouridine</strong> quiets the alarm.</p>
 <p><span class="bang">Same message, different chemistry: the alarm stays quiet.</span></p>
+<div class="viz-stage" data-viz="swap" data-caption="Uridine becomes N1-methylpseudouridine." data-prevent-swipe="true" style="height:380px">
+
+</div>
 </div><div class="column" style="width:42%;">
 <div class="portrait-row">
 <div class="portrait">
@@ -602,6 +618,40 @@ Ravi Kalia
 </div>
 <aside class="notes">
 <p>Point at the three axis types. Five-fold: a pore the genome passes through. Three-fold: the spikes, where the virus binds cells and antibodies attach; most engineering happens here. Two-fold: a shallow dip. Message: not every place on the shell is equal.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="from-dna-to-protein" class="slide level2 k-teal">
+<h2>From DNA to Protein</h2>
+<div class="viz-stage" data-viz="dogma" data-caption="DNA, then RNA, then amino acids, then protein." data-prevent-swipe="true" style="height:380px">
+
+</div>
+<div class="dogma-labels">
+<div>
+<p><strong>DNA</strong><br>the stored copy</p>
+</div>
+<div>
+<p><strong>RNA</strong><br>a working copy</p>
+</div>
+<div>
+<p><strong>Amino acids</strong><br>one per codon</p>
+</div>
+<div>
+<p><strong>Protein</strong><br>the folded machine</p>
+</div>
+</div>
+<p><span class="bang">Same colours, same codons: DNA is read into RNA, RNA into amino acids, and the chain folds.</span></p>
+<aside class="notes">
+<p>Central dogma in one picture. Follow one colour left to right: a three-base codon on the DNA is copied into RNA (transcription), the ribosome reads that RNA codon and adds one amino acid (translation), and the finished chain folds into a protein. Base counts are cut down for the slide. This is the route AAV’s genes take, so the next slide’s rep and cap are DNA that become proteins this way.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1350,14 +1400,23 @@ Ravi Kalia
 <h2>Three Parts, Three Problems</h2>
 <div class="columns">
 <div class="column" style="width:33%;">
+<div class="part-img dark">
+<p><img data-src="images/aav2-capsid-surface.jpg" alt="Surface of the AAV2 capsid, computed from crystal structure 1LP3, with one five-fold axis centred."></p>
+</div>
 <p><strong>Capsid</strong></p>
 <p>The protein shell. It picks the target cells and dodges antibodies.</p>
 <p><em>A protein-surface problem.</em></p>
 </div><div class="column" style="width:33%;">
+<div class="part-img">
+<p><img data-src="images/s26-transcription-factors.png" alt="Diagram of an enhancer looping DNA so that activators and general transcription factors sit on the promoter and RNA polymerase starts the gene."></p>
+</div>
 <p><strong>Promoter</strong></p>
 <p>The DNA switch. It sets where, and how strongly, the gene turns on.</p>
 <p><em>A gene-regulation problem.</em></p>
 </div><div class="column" style="width:34%;">
+<div class="part-img">
+<p><img data-src="images/s27-itr-hairpin.png" alt="Base-by-base diagram of the AAV inverted terminal repeat folded into a T-shaped hairpin, in its flop and flip forms."></p>
+</div>
 <p><strong>ITR</strong></p>
 <p>Short DNA repeats at both ends. They help packaging and persistence.</p>
 <p><em>A DNA-shape problem.</em></p>
@@ -1987,6 +2046,8 @@ Zanta-Boussif, M. A., S. Charrier, A. Brice-Ouzet, et al. 2009. <span>“Validat
 </ul>
 <p>Public domain: Jimmy Carter — Lauren Gerson, LBJ Presidential Library, 2014.</p>
 <p><strong>Plate</strong> — Duchenne de Boulogne (1868), public domain.</p>
+<p><strong>Three Parts, Three Problems</strong> — AAV2 capsid surface: Jazzlw, CC BY-SA 4.0, derived from PDB 1LP3, via Wikimedia Commons. Promoter and ITR figures are from the original talk; their sources are not recorded here.</p>
+<p><strong>Vaccine 1 and 2</strong> — chimpanzee: Mira Meijer, Burgers’ Zoo, CC BY-SA 4.0; delivery van (Ford Transit Connect): Winnebaggo, CC0; both via Wikimedia Commons. The lipid-nanoparticle diagram is from the original talk; its source is not recorded here.</p>
 <p><strong>HeLa</strong> — statue of Henrietta Lacks, 14GTR, CC BY-SA 4.0; HeLa cell micrograph, NIH, public domain. Via Wikimedia Commons.</p>
 <p><strong>AAV successes</strong> — retina photograph: Christian Hamel, CC BY 2.0; motor-unit diagram: Daniel Walsh and Alan Sved, CC BY-SA 4.0; clotting-factor vials: JJEv810, CC BY-SA 4.0; ear anatomy: Lars Chittka and Axel Brockmann, CC BY 2.5. All via Wikimedia Commons.</p>
 <p><strong>No photograph of an identifiable patient appears here without their own disclosure.</strong> President Carter announced his diagnosis and his treatment publicly, himself. The Duchenne figure is an 1868 engraving, not a photograph of a living child.</p>
